@@ -13,16 +13,7 @@
  */
 class WhaddaMetaKeys
 {
-  public static $prefix;
-  public static $numberOfColumns;
-  public static $numberOfRows;
-  
-  public function __construct()
-  {
-    self::$prefix = "whadda_";
-    self::$numberOfColumns = self::$prefix."ncols";
-    self::$numberOfRows = self::$prefix."rows";
-    
-  }
+  const PREFIX = "whadda_";
+  const NUMBER_OF_COLUMNS = self::PREFIX."ncols";
+  const NUMBER_OF_ROWS = self::PREFIX."nrows"; 
 }
- new WhaddaMetaKeys();
