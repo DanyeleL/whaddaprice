@@ -122,6 +122,12 @@ class Whaddaprice {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-whaddaprice-public.php';
 
+		/**
+		 * The class responsible for defining all actions that occur in the public-facing
+		 * side of the site.
+		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/WhaddaMetaKeys.php';
+
 		$this->loader = new Whaddaprice_Loader();
 
 	}
