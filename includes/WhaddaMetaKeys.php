@@ -25,3 +25,4 @@ class WhaddaMetaKeys
     
   }
 }
+ new WhaddaMetaKeys();

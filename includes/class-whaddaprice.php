@@ -127,7 +127,6 @@ class Whaddaprice {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/WhaddaMetaKeys.php';
-    $initkeysdummyobject = new WhaddaMetaKeys();
 
 		$this->loader = new Whaddaprice_Loader();
 
