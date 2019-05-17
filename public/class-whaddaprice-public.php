@@ -101,3 +101,4 @@ class Whaddaprice_Public {
 	}
 
 }
+

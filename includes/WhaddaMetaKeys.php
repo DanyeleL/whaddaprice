@@ -13,7 +13,8 @@
  */
 class WhaddaMetaKeys
 {
+  
   const PREFIX = "whadda_";
-  const NUMBER_OF_COLUMNS = self::PREFIX."ncols";
+  const NUMBER_OF_COLUMNS = self::PREFIX."ncols"; 
   const NUMBER_OF_ROWS = self::PREFIX."nrows"; 
 }
