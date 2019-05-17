@@ -28,5 +28,19 @@
 	 * Although scripts in the WordPress core, Plugins and Themes may be
 	 * practising this, we should strive to set a better example in our own work.
 	 */
+	$(document).ready(function(){
 
+		$('.miswitch a').click(function(){
+			$('.swicht-btn').toggleClass('on');
+	
+			if($('#swicht-btn').attr('class') == 'swicht-btn on'){
+				$('.pricing-table-cont').toggleClass('rotando-tabla');
+			} else{
+				$('.pricing-table-cont').toggleClass('rotando-tabla');
+			}
+	
+		});
+	
+	
+	});
 })( jQuery );
