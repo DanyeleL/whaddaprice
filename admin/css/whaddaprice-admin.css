@@ -2,3 +2,12 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+.divtab{
+  float:left;
+  border: 1px solid #ddd; 
+  border-radius: 5px; 
+}
+
+.input_tab_url{
+  margin-left:1.5%;
+}

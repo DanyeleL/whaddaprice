@@ -94,8 +94,12 @@ class Whaddaprice_Admin {
      */
     wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/whaddaprice-admin.js', array('jquery'), $this->version, false);
   }
+  
+}
 
-  /* -----------Inizio custom-------------------- */
+class Waddaprice_panel{
+  
+   /* -----------Inizio custom-------------------- */
 
   public function waddaprice_custom_post_type() {
     register_post_type('waddaprice',
@@ -114,7 +118,7 @@ class Whaddaprice_Admin {
   public function metabox() {
     $id = WhaddaMetaKeys::PREFIX . 'boxid';
     $title = 'Tabella';
-    $callback = ['Whaddaprice_Admin', 'callback_waddaprice'];
+    $callback = ['Waddaprice_panel', 'callback_waddaprice'];
     $page = 'waddaprice';
     add_meta_box($id, $title, $callback, $page);
   }
@@ -141,6 +145,8 @@ class Whaddaprice_Admin {
       $i++;
       if ($i <= $row) {
         $val = $prefix . 'c' . $cont . '_r' . $i;
+        $url = $prefix . 'c' .$cont;
+        $metaurl[$cont]= get_post_meta(get_the_ID(), $url)[0];
         $meta[$cont][$i] = get_post_meta(get_the_ID(), $val)[0];
       } else {
         $meta[$cont][$i] = "";
@@ -153,6 +159,7 @@ class Whaddaprice_Admin {
         'colonne' => $col,
         'righe' => $row,
         'value' => $meta,
+        'url'=> $metaurl,
     );
 
     wp_localize_script($reg, 'wadda_var', $wadda_var);
@@ -196,6 +203,7 @@ class Whaddaprice_Admin {
     $meta_box_checkbox_value = "";
     $meta_box_numrow_value = "";
     $meta_box_numcol_value = "";
+    $meta_box_url_value = "";
     $meta_box_short = "";
 
     if (isset($_POST[$numrow])) {
@@ -215,6 +223,12 @@ class Whaddaprice_Admin {
 
     for ($colonna = 1; $colonna <= $meta_box_numcol_value; $colonna++) {
       $riga = 1;
+      $url = $prefix.'c'.$colonna;
+      if (isset($_POST[$url])) {
+      $meta_box_url_value = $_POST[$url];
+    }
+    update_post_meta($post_id, $url, $meta_box_url_value);
+    
       while ($riga <= $meta_box_numrow_value && $meta_box_numrow_value != "") {
         $val = $prefix . 'c' . $colonna . '_r' . ($riga++);
         if (isset($_POST[$val])) {
@@ -223,6 +237,8 @@ class Whaddaprice_Admin {
         update_post_meta($post_id, $val, $meta_box_text_value);
       }
     }
+    
+    
   }
 
   function set_custom_edit_waddaprice_columns($columns) {
@@ -244,20 +260,20 @@ class Whaddaprice_Admin {
     $post_id = get_post()->ID;
     echo get_post_meta($post_id, $short, true);
   }
-
+  
 }
 
-add_action('init', array('Whaddaprice_Admin', 'waddaprice_custom_post_type'));
+add_action('init', array('Waddaprice_panel', 'waddaprice_custom_post_type'));
 
-add_action('add_meta_boxes', array('Whaddaprice_Admin', 'metabox'));
+add_action('add_meta_boxes', array('Waddaprice_panel', 'metabox'));
 
-add_action('add_meta_boxes', array('Whaddaprice_Admin', 'shortbox'));
+add_action('add_meta_boxes', array('Waddaprice_panel', 'shortbox'));
 
-add_action("save_post", array('Whaddaprice_Admin', 'save_waddaprice_meta_box'));
+add_action("save_post", array('Waddaprice_panel', 'save_waddaprice_meta_box'));
 
-add_filter('manage_waddaprice_posts_columns', array('Whaddaprice_Admin', 'set_custom_edit_waddaprice_columns'));
+add_filter('manage_waddaprice_posts_columns', array('Waddaprice_panel', 'set_custom_edit_waddaprice_columns'));
 
-add_action('manage_waddaprice_posts_custom_column', array('Whaddaprice_Admin', 'custom_waddaprice_column'));
+add_action('manage_waddaprice_posts_custom_column', array('Waddaprice_panel', 'custom_waddaprice_column'));
 
 /* ------------------------------------------------------------------------- *
 *   SHORTCODE FALON
