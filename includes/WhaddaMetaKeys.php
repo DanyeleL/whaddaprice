@@ -23,7 +23,7 @@ class WhaddaShortcode {
  
   function __construct() {
     add_shortcode("whaddaprice", array($this,'whaddaprice_shortcode')); // whaddaprice_shortcode da fare ma lato public
-    $this->shortbox_metabox_callback(); 
+    //$this->shortbox_metabox_callback(); 
   }
   
   /*creo lo shortcode ma solo nella sua struttura da pallicare a pagine o post => [whaddaprice id=numid] */

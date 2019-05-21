@@ -226,7 +226,7 @@ function add_metabox_shortcode() {
  
   
   add_action('add_meta_boxes','add_metabox_shortcode');
-  add_action('save_post','save_metabox_shortcode');
+  //add_action('save_post','save_metabox_shortcode');
 
 
 /* ------------------------------------------------------------------------- *
@@ -340,7 +340,7 @@ function save_custom_meta_box($Habitacion_id, $post)
         return $idP;
  */
 
-$idP= get_post()->ID;
+$idP= get_the_ID();
     $meta_box_text_value = "";
     $meta_box_select_value = "";
     $meta_box_checkbox_value = "";
