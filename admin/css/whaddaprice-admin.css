@@ -8,6 +8,16 @@
   border-radius: 5px; 
 }
 
-.input_tab_url{
-  margin-left:1.5%;
+.span_tab_url{
+  margin-left:1%;
+}
+
+.inpcol{
+  display: inline-grid;
+  padding:0 1%;
+}
+
+#whadda_colsf, #whadda_colts, #whadda_colbr{
+  margin: 0 auto;
+  padding:0 1%;
 }

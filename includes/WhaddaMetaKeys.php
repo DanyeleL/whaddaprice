@@ -16,18 +16,26 @@ class WhaddaMetaKeys {
   const PREFIX = "whadda_";
   const NUMBER_OF_COLUMNS = self::PREFIX . "ncols";
   const NUMBER_OF_ROWS = self::PREFIX . "nrows";
-
+ 
 }
 
-class Shortcode {
-
+class WhaddaShortcode {
+ 
+  function __construct() {
+    add_shortcode("whaddaprice", array($this,'whaddaprice_shortcode')); // whaddaprice_shortcode da fare ma lato public
+    $this->shortbox_metabox_callback(); 
+  }
+  
+  /*creo lo shortcode ma solo nella sua struttura da pallicare a pagine o post => [whaddaprice id=numid] */
   public function shortbox_metabox_callback() {
     $prefix = WhaddaMetaKeys::PREFIX;
-    $test = '[waddaprice id=' . get_post()->ID . ']';
+    $test = '[whaddaprice id=' . get_post()->ID . ']';
     echo '<input type="text" id="' . $prefix . 'short" name="' . $prefix . 'short" value="' . $test . '" readonly/>';
   }
-
+  
+  public function whaddaprice_shortcode() {
+  
 }
 
-add_shortcode("waddaprice", array('Shortcode', "waddaprice_shortcode"));
-// waddaprice_shortcode da fare ma lato public
+  }
+
