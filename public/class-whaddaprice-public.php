@@ -169,7 +169,7 @@ function add_metabox_shortcode() {
   
   // Funcion que disena la form del metabox
   // ingresando los campos personalizados que necesita
-  
+  s
   function add_metabox_shortcode_form() 
   {
 	$idp=get_post()->ID;
