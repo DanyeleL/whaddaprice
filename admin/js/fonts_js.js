@@ -10,7 +10,7 @@
   $(function () {
     if (whadda_fonts['option'] != null)
       var ind = whadda_fonts['option'].length;
-    //console.log(test);
+    console.log(ind);
     var num_nomefont = '';
     var variants = '';
     var sel = $("#font option:selected").val();
@@ -51,33 +51,33 @@
         $("#cat").append('<option>Default</option>');
         $('#vari').children().remove();
         $("#vari").append('<option>Default</option>');
-
-        for (var i = 0; i < ind; i++) {
-          if (whadda_fonts['option'][i]['family'] == sel) {
-            num_nomefont = i;
-            $('#cat').children().remove();
-            $("#cat").append('<option>' + whadda_fonts['option'][i]['category'] + '</option>');
-            // console.log(wadda_fonts['option'][i]['category']);
-            $('#vari').children().remove();
-            if (whadda_fonts['option'][i]['variants'].length > 1) {
-              for (var indv = 0; indv < whadda_fonts['option'][i]['variants'].length; indv++) {
-                //console.log(varifont);
-                if (whadda_fonts['option'][i]['variants'][indv] == varifont)
-                  $("#vari").append('<option selected>' + whadda_fonts['option'][i]['variants'][indv] + '</option>');
-                else
-                  $("#vari").append('<option>' + whadda_fonts['option'][i]['variants'][indv] + '</option>');
-              }
-            } else {
-              if (whadda_fonts['option'][i]['variants'] == varifont)
-                $("#vari").append('<option selected>' + whadda_fonts['option'][i]['variants'] + '</option>');
+      }
+      for (var i = 0; i < ind; i++) {
+        if (whadda_fonts['option'][i]['family'] == sel) {
+          num_nomefont = i;
+          $('#cat').children().remove();
+          $("#cat").append('<option>' + whadda_fonts['option'][i]['category'] + '</option>');
+          //console.log(whadda_fonts['option'][i]['category']);
+          $('#vari').children().remove();
+          if (whadda_fonts['option'][i]['variants'].length > 1) {
+            for (var indv = 0; indv < whadda_fonts['option'][i]['variants'].length; indv++) {
+              //console.log(varifont);
+              if (whadda_fonts['option'][i]['variants'][indv] == varifont)
+                $("#vari").append('<option selected>' + whadda_fonts['option'][i]['variants'][indv] + '</option>');
               else
-                $("#vari").append('<option>' + whadda_fonts['option'][i]['variants'] + '</option>');
-              //console.log();
+                $("#vari").append('<option>' + whadda_fonts['option'][i]['variants'][indv] + '</option>');
             }
+          } else {
+            if (whadda_fonts['option'][i]['variants'] == varifont)
+              $("#vari").append('<option selected>' + whadda_fonts['option'][i]['variants'] + '</option>');
+            else
+              $("#vari").append('<option>' + whadda_fonts['option'][i]['variants'] + '</option>');
+            //console.log();
           }
         }
       }
     }
+
     /*---------da finire ---------------*/
 
     var prefix = 'whadda_';
@@ -144,7 +144,7 @@
         if (indice == 0) {
           $('#testare').append(
                   '<tr>' +
-                  '<th></th>'+
+                  '<th></th>' +
                   '<th>Obliquo</th>' +
                   '<th>Corsivo</th>' +
                   '<th>Bold</th></tr>'
@@ -169,7 +169,7 @@
 
           $('#testare').append(
                   '<tr>' +
-                  '<td id="nome_' + indice + '"><span id="stile_o_num' + indice + '">riga '+indice + '</span></td> ' + 
+                  '<td id="nome_' + indice + '"><span id="stile_o_num' + indice + '">riga ' + indice + '</span></td> ' +
                   '<td><input type="checkbox" name="' + stile_o + indice + '" id="' + stile_o + indice + '" value="' + 1 + '" ' + rigao + '></td>' +
                   '<td><input type="checkbox" name="' + stile_c + indice + '" id="' + stile_c + indice + '" value="' + 2 + '" ' + rigac + '></td>' +
                   '<td><input type="checkbox" name="' + bold + indice + '" id="' + bold + indice + '" value="' + 3 + '" ' + boldchek + '></td>' +
