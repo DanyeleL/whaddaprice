@@ -106,18 +106,18 @@ class Whaddaprice_Public {
 *   SHORTCODE FALON
 /* ------------------------------------------------------------------------- */
 
-function jb_shortcode_de_contenido($idp ) {
+function jb_shortcode_de_contenido($idp) {
   
 	ob_start();
 	?>
 	<label for="NUMBER_OF_COLUMNS">Columnas</label>
-    <input name="NUMBER_OF_COLUMNS" type="number" value="<?php echo get_post_meta($idp["id"], "NUMBER_OF_COLUMNS", true); ?>">
+    <input name="NUMBER_OF_COLUMNS" type="number" value="<?php echo get_post_meta($idp["id"], WhaddaMetaKeys::NUMBER_OF_COLUMNS, true); ?>">
 	<label for="NUMBER_OF_COLUMNS">Rows</label>
-	<input name="NUMBER_OF_ROWS"type="number" value="<?php echo get_post_meta($idp["id"], "NUMBER_OF_ROWS", true); ?>">
+	<input name="NUMBER_OF_ROWS"type="number" value="<?php echo get_post_meta($idp["id"], WhaddaMetaKeys::NUMBER_OF_ROWS, true); ?>">
 			
     <?php  	return ob_get_clean();
 	}
-	add_shortcode('stage-2019', 'jb_shortcode_de_contenido'); 
+	add_shortcode('whaddaprice', 'jb_shortcode_de_contenido'); 
 
 function whaddaprice_shortcode(){
   ob_start();
@@ -128,7 +128,7 @@ function whaddaprice_shortcode(){
 /* ------------------------------------------------------------------------- *
 *   CUSTOM POST TYPE Portfolio
 /* ------------------------------------------------------------------------- */
-add_action('init', 'create_habitacion');
+/*add_action('init', 'create_habitacion');
 function create_habitacion() {
 $labels = array(
 'name'               => __('Habitacion' , 'proyecto-plugin'),
@@ -174,7 +174,7 @@ function add_metabox_shortcode() {
   
   // Funcion que disena la form del metabox
   // ingresando los campos personalizados que necesita
-  
+  s
   function add_metabox_shortcode_form() 
   {
 	$idp=get_post()->ID;
@@ -231,13 +231,13 @@ function add_metabox_shortcode() {
  
   
   add_action('add_meta_boxes','add_metabox_shortcode');
-  //add_action('save_post','save_metabox_shortcode');
+  add_action('save_post','save_metabox_shortcode');
 
 
 /* ------------------------------------------------------------------------- *
 *   COLUMNAS PERSONALIZADAS DEL POST TYPE
 /* ------------------------------------------------------------------------- */
-
+/*
 function columnas_post_type_habitacion( $columnas ) {
 
     $columnas = array(
@@ -259,7 +259,7 @@ function columnas_post_type_habitacion( $columnas ) {
 /* ------------------------------------------------------------------------- *
 *  MARCADORES DEL CUSTUM METABOX 
 /* ------------------------------------------------------------------------- */
-
+/*
 function custom_meta_box_markup($post)
 {
     ?>
@@ -318,7 +318,7 @@ function custom_meta_box_markup($post)
 /* ------------------------------------------------------------------------- *
 *   METABOX PERSONALIZADO
 /* ------------------------------------------------------------------------- */
-function add_custom_meta_box()
+/*function add_custom_meta_box()
 {
     add_meta_box("custom-meta-box", "Tabla Precios", "custom_meta_box_markup", "Habitacion", "normal");
 }
@@ -331,7 +331,7 @@ add_action("add_meta_boxes", "add_custom_meta_box");
 /* ------------------------------------------------------------------------- *
 *   GUARDAR DATOS EN EL POST META
 /* ------------------------------------------------------------------------- */
-function save_custom_meta_box($Habitacion_id, $post)
+/*function save_custom_meta_box($Habitacion_id, $post)
 {
 /*	
 	if(!current_user_can("edit_post", $idP))
@@ -344,8 +344,8 @@ function save_custom_meta_box($Habitacion_id, $post)
     if($slug != $Habitacion->habitacion_type)
         return $idP;
  */
-
-$idP= get_the_ID();
+/*
+$idP= get_post()->ID;
     $meta_box_text_value = "";
     $meta_box_select_value = "";
     $meta_box_checkbox_value = "";
