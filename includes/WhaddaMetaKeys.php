@@ -22,8 +22,7 @@ class WhaddaMetaKeys {
 class WhaddaShortcode {
  
   function __construct() {
-    add_shortcode("whaddaprice", array($this,'whaddaprice_shortcode')); // whaddaprice_shortcode da fare ma lato public
-    //$this->shortbox_metabox_callback(); 
+    add_shortcode("whaddaprice",'whaddaprice_shortcode'); // whaddaprice_shortcode da fare ma lato public
   }
   
   /*creo lo shortcode ma solo nella sua struttura da pallicare a pagine o post => [whaddaprice id=numid] */
@@ -32,10 +31,6 @@ class WhaddaShortcode {
     $test = '[whaddaprice id=' . get_post()->ID . ']';
     echo '<input type="text" id="' . $prefix . 'short" name="' . $prefix . 'short" value="' . $test . '" readonly/>';
   }
-  
-  public function whaddaprice_shortcode() {
-  
-}
 
   }
 

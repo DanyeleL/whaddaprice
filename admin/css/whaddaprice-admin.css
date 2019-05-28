@@ -21,3 +21,73 @@
   margin: 0 auto;
   padding:0 1%;
 }
+
+.divfont{
+  float:left; 
+  width:30%;
+}
+
+.divcontfont{
+  display:grid;
+  float:left;
+  width: 60%;
+}
+
+.select_cat{
+  width:100%;
+}
+
+.select_vari{
+  height:1% !important; 
+  width:100%;
+}
+
+.divangoli{
+  width:100px; 
+  height: 100px; 
+  margin-left:10%; 
+  border:1px solid black; 
+  float:left;
+}
+
+.div_cont_angoli{
+  width:20%; 
+  display:block; 
+  float:left;
+}
+
+.angoli{
+  width:100%; 
+  float:left;
+}
+
+.inputbordi{
+  margin:1% auto !important;
+}
+
+.labelbordi{
+  display:inline-grid; 
+  margin:0 1%; 
+  text-align:center;
+}
+
+.clear{
+  clear:both;
+}
+
+.mprighempcol{
+ width:45%; 
+ float:left; 
+}
+
+.tabfont{
+  display: inline-table;
+}
+
+.whaddacenter{
+  text-align: center;
+}
+
+.divtabella{
+  display:table;
+}

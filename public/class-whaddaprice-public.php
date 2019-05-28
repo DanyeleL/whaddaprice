@@ -119,7 +119,12 @@ function jb_shortcode_de_contenido($idp ) {
 	}
 	add_shortcode('stage-2019', 'jb_shortcode_de_contenido'); 
 
-
+function whaddaprice_shortcode(){
+  ob_start();
+  ?>
+  <p>ciao</p>
+   <?php  	return ob_get_clean();
+}
 /* ------------------------------------------------------------------------- *
 *   CUSTOM POST TYPE Portfolio
 /* ------------------------------------------------------------------------- */
