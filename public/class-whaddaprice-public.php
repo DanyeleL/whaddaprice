@@ -371,4 +371,4 @@ $idP= get_post()->ID;
     update_post_meta($idP, "meta-box-checkbox", $meta_box_checkbox_value);
 }
  
-add_action("save_post", "save_custom_meta_box", 10, 2);
+add_action("save_post", "save_custom_meta_box", 10, 2);*/
