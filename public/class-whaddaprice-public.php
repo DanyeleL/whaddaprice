@@ -115,8 +115,10 @@ function jb_shortcode_de_contenido($idp) {
 
 
 /* ------------------------------------------------------------------------- *
-*   LAYOUT 1
+*   LAYOUT 
 /* ------------------------------------------------------------------------- */
+
+
 if($layout==1){
   ob_start();
   
@@ -163,12 +165,7 @@ if($layout==1){
     return ob_get_clean();
   }
 
-
-/* ------------------------------------------------------------------------- *
-* LAYOUT 2
-/* ------------------------------------------------------------------------- */
-
-else{
+if($layout==2){
 	ob_start();
   
 	
@@ -208,9 +205,55 @@ else{
 		   }
 		   echo '</div>'. '</div>';
 	   return ob_get_clean();
-	 }
-	}
 	 
+	
+}else{
+	ob_start();
+  
+	echo 
+	'<div class="prom">' ;
+    
+
+
+    for($i=1; $i<=$numColumnas[0]; $i++){
+	  
+	 if($i==2){ 
+	  echo '<div class="tabla grande">'.
+	  '<div class="deal">'.
+      '<span>Premium</span>'.
+	  '<span>Paquete basico</span>'. 
+	  '</div>'. 
+	  '<span class="price">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span>'. 
+	  '<ul class="features">';
+	 }else
+	 echo
+	 '<div class="tabla">'.
+      '<div class="deal">'.
+      '<span>Premium</span>'.
+	  '<span>Paquete basico</span>'. 
+	  '</div>'. 
+	  '<span class="price">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span>'. 
+	  '<ul class="features">';
+	 
+	 
+	  
+
+	
+      for($w=3; $w<=$numRows[0]; $w++){
+
+       echo '<li class="riga_'.$w.'"> '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</li>';
+		
+	  } echo
+	   '</ul>'.  
+	   '<button class="buy">Buy Now</button>'.
+        '</div>';
+        
+    
+		}
+		echo '</div>' ;
+    return ob_get_clean();
+  }
+}
 
 
 

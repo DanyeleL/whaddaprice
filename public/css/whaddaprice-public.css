@@ -105,7 +105,6 @@ ul{
 
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
-
 	transition: .3s ease;
 }
 
@@ -167,7 +166,7 @@ ul{
 }
 
 .pricing-table-list li{
-	background: #F1F3F5;
+	background: #999999;
 	padding: 10px 0;
 }
 
@@ -291,7 +290,7 @@ ul{
   .price-box:hover
   {
     box-shadow: 0 10px 15px 0 #000;
-    border: 3px solid #5F9EA0;
+    border: 3px solid #bfbfbf;
   }
   
   .price-box.best{
@@ -301,13 +300,14 @@ ul{
   }
   
   .price-box .header{
-    background-color: rgb(6, 184, 187);
+		background:#333333;
+		padding: 10px;
 		color: #fff;
 		font-size: 15px;
 		border: none;
 		height: 25px;
-		border-top-left-radius: 15px;	
-		border-top-right-radius: 15px;
+		/*border-top-left-radius: 15px;	
+		border-top-right-radius: 15px;*/
 		padding: 5px;	
 		clear: both;/*
     border-top-left-radius: 50px;
@@ -337,32 +337,33 @@ ul{
 	
 
   .price-box li{
-    padding: 20px;
-    text-align: center;
+    padding: 10px;
+		text-align: center;
     list-style:none;
 		border-bottom: 1px solid #eee;
 		
   }
   
   .price-box .emph{
-    background-color:#00BFFF;
-		font-size: 18px;
+    background:	rgb(77, 77, 77);
+		font-size: 15px;
 		height: 60px;
-		color: 	#778899;
+		color: 	#fff;
+		text-align: center;
 		clear: both;
     
   }
   
   .button{
-    background-color:#008B8B	;
+    background:rgb(38, 38, 38);
     color: #fff;
-    padding: 10px 15px;
+    padding: 5px 10px;
 		width: 40%;
     text-align: center;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 15px;
     float: right;
-    border: 3px solid #6495ED ;
+    border: 3px solid rgb(191, 191, 191) ;
     border-radius: 16px;
     margin-right:29%;
     margin-top: 20px;
@@ -418,4 +419,129 @@ ul{
 		}
 	}
 	
-  /*Fin Layout 2 */
+	/*Fin Layout 2 */
+	
+	/* Layout 3*/
+
+	@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+
+	.prom {
+		width: 1800px;
+		margin: 0 auto;
+		margin-top: 50px;
+		margin-bottom: 
+	}
+	.tabla {
+		width: 250px;
+		background: rgb(89, 89, 89); 
+		color: #f9f9f9;
+		float: left;
+		margin-left: 0px;
+	}
+	.deal {
+		padding: 10px 0 0 0;
+	}
+	.deal span {
+		display: block;
+		text-align: center;
+	}
+	.deal span:first-of-type {
+		font-size: 23px;  
+	}
+	.deal span:last-of-type {
+		font-size: 13px;
+	}
+	.tabla .price {
+		display: block;
+		width: 250px;  
+		background: #292b2e;
+		margin: 15px 0 10px 0;
+		text-align: center;
+		font-size: 23px;
+		padding: 17px 0 17px 0;
+	}
+	.tabla ul {
+		display: block;
+		margin: 20px 0 10px 0;
+		padding: 0;
+		list-style-type: none;
+		text-align: center;
+		color: #ffffff;
+	}
+ .tabla	li {
+		display: block;
+		margin: 10px 0 0 0;
+		border-bottom: 1px solid #bfbfbf;
+	}
+	.buy {
+		border: none;
+		border-radius: 40px;
+		background: #292b2e;
+		color: #f9f9f9;
+		padding: 10px 37px;
+		margin: 10px 0 20px 60px;
+	}
+	
+	.buy:hover{
+		border: none;
+		border-radius: 40px;
+		background: #708090;
+		color: #f9f9f9;
+		padding: 10px 37px;
+		margin: 10px 0 20px 60px;
+	}
+	
+	.grande {
+		transform: scale(1.2);
+		box-shadow: 0 0 4px 1px rgba(20, 20, 20, 0.8);
+	}
+	.grande button {
+		background: 	#FFA500;
+	}
+	.grande .price {
+		color: 	#FFA500;
+	}
+	
+	@media screen and (max-width: 750px){
+	 .prom{
+	
+			width: 100%;
+			margin-bottom: 50px;
+			clear: both;
+		}
+	
+	 
+	.prom:hover{
+			transform: scale(1.0) ;
+		}
+	}
+	
+	@media screen and (max-width: 500px){
+	.prom{
+			width: 90%;
+		}
+	}
+	@media screen and (max-width: 750px){
+	.prom{
+			width: 72%;
+			margin-bottom: 20px;
+		
+		}
+	 .tabla{
+			justify-content: center;
+			transform: scale(1.0) ;
+		}
+	
+		.deal .tabla:hover{
+			transform: scale(1.0) ;
+		}
+	}
+	
+	@media screen and (max-width: 500px){
+		.deal .tabla{
+			width: 70%;
+		}
+	}
+	
+	
+	/*Fine layout3 */
