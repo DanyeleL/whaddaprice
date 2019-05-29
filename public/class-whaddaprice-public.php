@@ -91,7 +91,7 @@ class Whaddaprice_Public {
 		 * defined in Whaddaprice_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Whaddaprice_Loader will then create the relationship
+		 * The Whaddaprice_Loader willx then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
@@ -105,11 +105,121 @@ class Whaddaprice_Public {
 /* ------------------------------------------------------------------------- *
 *   SHORTCODE FALON
 /* ------------------------------------------------------------------------- */
-
 function jb_shortcode_de_contenido($idp) {
+	
+
+    $numColumnas=get_post_meta($idp["id"], WhaddaMetaKeys::NUMBER_OF_COLUMNS);
+    $numRows=get_post_meta($idp["id"], WhaddaMetaKeys::NUMBER_OF_ROWS);
+	$prefix=WhaddaMetaKeys::PREFIX;
+
+
+
+/* ------------------------------------------------------------------------- *
+*   LAYOUT 1
+/* ------------------------------------------------------------------------- */
+if($layout==1){
+  ob_start();
   
+	echo 
+	'<div class="wrap">' .
+    '<div class="miswitch">'.
+	 '<div class="swicht-btn" id="swicht-btn">'.'</div>'.
+     '<a>Mensile</a>'.
+	 '<a>Anual</a>'.
+	 '</div>'. 
+	 '<div class="pricing-wrap">';
+    
+
+
+    for($i=1; $i<=$numColumnas[0]; $i++){
+     
+	 echo 
+	  
+      '<div class="pricing-table">'.
+      '<div class="pricing-table-cont">'.
+      '<div class="pricing-table-month">'.
+      '<div class="pricing-table-head">';
+	 
+	  echo
+	  '<h2>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0]. '</h2>'.
+	  '<h3><sup>$ </sup>30<sub>/MES</sub></h3>' .
+	  '<ul class="pricing-table-list riga_1">';
+
+	
+      for($w=2; $w<=$numRows[0]; $w++){
+
+       echo '<li class="riga_'.$w.'"><span> '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</span></li>';
+		
+	  }echo
+	   '</ul>'.
+       '<a href="#" class="pricing-table-button">Seleccionar Consulencia</a>'.
+        '</div>'.
+        '</div>'.
+        '</div>'.
+		'</div>';
+    
+		}
+		echo '</div>'.'</div>' ;
+    return ob_get_clean();
+  }
+
+
+/* ------------------------------------------------------------------------- *
+* LAYOUT 2
+/* ------------------------------------------------------------------------- */
+
+else{
 	ob_start();
-	?>
+  
+	
+	echo 
+	'<div class="wrap2">'.
+	'<div class="pricing-wrap2">';
+
+	
+
+	 for($i=1; $i<=$numColumnas[0]; $i++){
+     
+		echo 
+		
+		'<div class="pricing-table2">'.
+		'<div class="pricing-table-cont2">'.
+		'<div class="col">'.
+		'<ul class="price-box">'.
+		'<li class="header">'. '<h2>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0]. '</h2>'.'</li>'.
+		'<li class="emph">'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</strong>'.'</li>';
+	
+	
+	   
+		 for($w=3; $w<=$numRows[0]; $w++){
+	
+		  echo  '<li class="riga_'.$w.'"><strong> '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</strong></li>';
+	
+		   
+		 }echo
+		  '</ul>'.
+		  '<a href="#" class="button">'.'BUY'.'</a>'.
+		  '</div>'. 
+		  '</div>'. 
+		  '</div>';
+		
+		  
+	   
+		   }
+		   echo '</div>'. '</div>';
+	   return ob_get_clean();
+	 }
+	}
+	 
+
+
+
+
+
+
+	/*ob_start();
+	
+
 	<label for="NUMBER_OF_COLUMNS">Columnas</label>
     <input name="NUMBER_OF_COLUMNS" type="number" value="<?php echo get_post_meta($idp["id"], WhaddaMetaKeys::NUMBER_OF_COLUMNS, true); ?>">
 	<label for="NUMBER_OF_COLUMNS">Rows</label>

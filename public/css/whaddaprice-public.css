@@ -3,4 +3,419 @@
  * included in this file.
  */
 
+ *{
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: 2px;
+	
+}
+
+body{
+	background:grey;
+	font-family: 'Arvo', serif;
+}
+
+a{
+	text-decoration: none;
+}
+
+ul{
+	list-style: none;
+}
+
+
+.wrap{
+	width: 100%;
+	max-width: 1170px;
+	margin: 50px auto;
+	
+}
+
+.miswitch{
+	border: 2px solid #000000;
+	border-radius: 20px;
+	color: #fff;
+	position: relative;
+	margin: 0px auto 50px;
+	width: 200px;
+	overflow: hidden;
+	padding: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.miswitch a{
+	font-size: 14px;
+	z-index: 2;
+	position: relative;
+	width: 50%;
+	text-align: center;
+	cursor: pointer;
+}
+
+.swicht-btn{
+	position: absolute;
+	background: #173D50;
+	width: 50%;
+	height: 90%;
+	border-radius: 20px;
+	top: 2px;
+	left: 2px;
+	z-index: 1;
+	transition: all .5s;
+}
+
+.on{
+	left: 97px;
+}
+
+/* Tabla de precio*/
+
+.pricing-wrap{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	
+}
+
+.pricing-table{
+	width: 32%;
+	transition: transform .5s ease;
+
+	-webkit-perspective: 1800px;
+	perspective: 1800px;
+	border: 2px solid #000000;
+	border-radius: 5px;
+	
+}
+
+.pricing-table:hover{
+	transform: scale(1.07);
+}
+
+.pricing-table-cont{
+	background: #fff;
+	text-align: center;
+	position: relative;
+	height: 500px;
+
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+
+	transition: .3s ease;
+}
+
+.pricing-table-month , .pricing-table-year{
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #fff;
+
+}
+
+.pricing-table-year{
+	transform: rotateY(180deg);
+}
+
+.rotando-tabla{
+	transform: rotateY(180deg);
+}
+
+.pricing-table-head{
+	color: #173D50;
+	padding: 25px 5px;
+	
+}
+
+.pricing-table-head h2{
+	font-size: 18px;
+	letter-spacing: 2px;	
+	font-weight: bold;
+}
+
+.pricing-table-head h3{
+	font-size: 58px;
+	font-weight: 400;
+	display: inline;
+}
+
+.pricing-table-head h3 sup, .pricing-table-head h3 sub{
+	font-size: 20px;
+	color: #B0C4DE;
+	font-weight: 600;
+}
+
+.pricing-table-head h3 sub{
+	font-size: 13px;
+}
+
+.pricing-table-head.estandar-title h2,
+.pricing-table-head.estandar-title h3,
+.pricing-table-head.estandar-title h3 sup,
+.pricing-table-head.estandar-title h3 sub{
+	color:#6495ED;
+	font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	
+}
+
+.pricing-table-list li{
+	background: #F1F3F5;
+	padding: 10px 0;
+}
+
+.pricing-table-list li:nth-child(2n){
+	background: #fff;
+}
+
+.pricing-table-button{
+	display: block;
+	width: 100%;
+	padding: 20px 0;
+	background: #696969;
+	color: #fff;
+	margin-top: 23px;
+	border: 1px solid #696969;
+}
+
+.pricing-table-button.estandar{
+	background:#6495ED;
+}
+
+@media screen and (max-width: 750px){
+	.pricing-table{
+		width: 72%;
+		margin-bottom: 20px;
+	}
+
+	.pricing-wrap{
+		justify-content: center;
+	}
+
+	.pricing-table:hover{
+		transform: scale(1.0) ;
+	}
+}
+
+@media screen and (max-width: 500px){
+	.pricing-table{
+		width: 90%;
+	}
+}
+
+
+
+/*Layout 2 */
+
+
  
+
+
+  .col{
+    float: left;
+    width: 33.3%;
+    padding: 15px;
+    box-sizing: border-box;
+   
+    margin-top: 20px;
+   
+	}
+	
+	.wrap2{
+		width: 100%;
+		max-width: 1170px;
+		
+	
+		
+	}
+	
+  .pricing-wrap2{
+		width: 100%;
+		display:flex;
+		flex-wrap: wrap;
+		
+		
+
+	}
+
+	.pricing-table2{
+		width: 33.3%;
+		transition: transform .5s ease;
+	  height: 500px;
+		-webkit-perspective: 1800px;
+		perspective: 1800px;
+		border-radius: 5px;
+		border-top-left-radius: 15px;	
+		
+	}
+	 
+	.pricing-table-cont2{
+		text-align: center;
+		position: relative;
+		-webkit-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+	
+		transition: .3s ease;
+	}
+
+  .price-box{
+    
+    color: #708090;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+		transition: 0.3s;
+		border:none;
+		border-top-right-radius: 15px;	
+		border-top-left-radius: 15px;	
+
+    
+    /*
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+    border-bottom-style: dotted;
+*/
+	}
+.price-box li{
+	background: #fff;
+  }
+  
+  .price-box:hover
+  {
+    box-shadow: 0 10px 15px 0 #000;
+    border: 3px solid #5F9EA0;
+  }
+  
+  .price-box.best{
+    box-shadow: 0 10px 15px 0 #000;
+   
+   
+  }
+  
+  .price-box .header{
+    background-color: rgb(6, 184, 187);
+		color: #fff;
+		font-size: 15px;
+		border: none;
+		height: 25px;
+		border-top-left-radius: 15px;	
+		border-top-right-radius: 15px;
+		padding: 5px;	
+		clear: both;/*
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-top-right-radius: 50px;
+    */
+     
+	}
+
+	.price-box .header h2{
+		font-size: 15px;
+	/*
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-top-right-radius: 50px;
+    */
+     
+	}
+
+  .price-box .header.header-green{
+		background-color: 	#FF6347;
+		height: 20px;
+    
+
+ 
+  }
+	
+
+  .price-box li{
+    padding: 20px;
+    text-align: center;
+    list-style:none;
+		border-bottom: 1px solid #eee;
+		
+  }
+  
+  .price-box .emph{
+    background-color:#00BFFF;
+		font-size: 18px;
+		height: 60px;
+		color: 	#778899;
+		clear: both;
+    
+  }
+  
+  .button{
+    background-color:#008B8B	;
+    color: #fff;
+    padding: 10px 15px;
+		width: 40%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    float: right;
+    border: 3px solid #6495ED ;
+    border-radius: 16px;
+    margin-right:29%;
+    margin-top: 20px;
+	}
+
+  .button :hover{
+        background-color: rgb(173, 137, 92);
+        color: #000;
+				padding: 10px 15px;
+				
+			
+        
+	}
+	
+
+  
+
+  @media screen and (max-width: 750px){
+    .col{
+      width: 72%;
+      margin-bottom: 20px;
+    }
+  
+
+    .col:hover{
+      transform: scale(1.0) ;
+    }
+  }
+  
+  @media screen and (max-width: 500px){
+    .col{
+      width: 90%;
+    }
+  }
+	@media screen and (max-width: 750px){
+		.pricing-table2{
+			width: 72%;
+			margin-bottom: 20px;
+		}
+	
+		.pricing-wrap2{
+			justify-content: center;
+		}
+	
+		.pricing-table2:hover{
+			transform: scale(1.0) ;
+		}
+	}
+	
+	@media screen and (max-width: 500px){
+		.pricing-table2{
+			width: 90%;
+		}
+	}
+	
+  /*Fin Layout 2 */
