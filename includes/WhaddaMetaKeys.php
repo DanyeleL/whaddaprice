@@ -28,7 +28,7 @@ class WhaddaShortcode {
   /*creo lo shortcode ma solo nella sua struttura da pallicare a pagine o post => [whaddaprice id=numid] */
   public function shortbox_metabox_callback() {
     $prefix = WhaddaMetaKeys::PREFIX;
-    $test = '[whaddaprice id=' . get_post()->ID . ']';
+    $test = '[whaddaprice id=&quot;' . get_post()->ID . '&quot;]';
     echo '<input type="text" id="' . $prefix . 'short" name="' . $prefix . 'short" value="' . $test . '" readonly/>';
   }
 

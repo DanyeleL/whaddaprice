@@ -213,23 +213,23 @@
       switch (tipobordo) {
         case 'poco' :
           {
-            $('#whadda_border_radius').val('0.25');
+            $('#whadda_border_radius').val('0.25 em');
             $('#whadda_border_radius').attr('readonly','readonly');
-            $('.divangoli').css('border-radius',$('#whadda_border_radius').val()+'em');
+            //$('.divangoli').css('border-radius',$('#whadda_border_radius').val()+'em');
           }
           break;
         case 'medio' :
           {
-            $('#whadda_border_radius').val('0.5');
+            $('#whadda_border_radius').val('0.5 em');
             $('#whadda_border_radius').attr('readonly','readonly');
-            $('.divangoli').css('border-radius',$('#whadda_border_radius').val()+'em');
+           // $('.divangoli').css('border-radius',$('#whadda_border_radius').val()+'em');
           }
           break;
         case 'tanto':
           {
-            $('#whadda_border_radius').val('1');
+            $('#whadda_border_radius').val('1 em');
             $('#whadda_border_radius').attr('readonly','readonly');
-            $('.divangoli').css('border-radius',$('#whadda_border_radius').val()+'em');
+           // $('.divangoli').css('border-radius',$('#whadda_border_radius').val()+'em');
           }
           break;
         case 'manuale':
@@ -241,16 +241,16 @@
           {
             $('#whadda_border_radius').val('0');
             $('#whadda_border_radius').attr('readonly','readonly');
-            $('.divangoli').css('border-radius',$('#whadda_border_radius').val()+'em');
+           // $('.divangoli').css('border-radius',$('#whadda_border_radius').val()+'em');
           }
           break;
       }
       });
       
-      $('#whadda_border_radius').change(function(){
-         $('.divangoli').css('border-radius',$('#whadda_border_radius').val()+'em');
+     /* $('#whadda_border_radius').change(function(){
+        / $('.divangoli').css('border-radius',$('#whadda_border_radius').val()+'em');
      
-    });
+    });*/
  
   });
 })(jQuery);

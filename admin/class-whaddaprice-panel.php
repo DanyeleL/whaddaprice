@@ -114,6 +114,7 @@ class Whaddaprice_panel{
        wp_enqueue_script($reg);
     /* preparo la parte di html non dinamica */ 
     echo '<div>';
+    echo "<h3>inserire il # tra il prezzo e l'unita di misura</h3>";
     echo '<input type="button" value="aggiungi riga" name="rigapiu" id="rigapiu"/>';
     echo '<input type="button" value="aggiungi colonna" name="colpiu" id="colpiu"/>';
     echo '<input type="text" name="' . $numrow . '" id="' . $numrow . '" value="' . $row . '" hidden>';

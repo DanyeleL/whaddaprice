@@ -70,6 +70,8 @@ class Whadda_save {
     $stile_o_b = $prefix . 'stile_o_b';
     $stile_c_b = $prefix . 'stile_c_b';
     $bold_b = $prefix . 'bold_b';
+    $sfondo = $prefix . 'sfondo';
+    $char = $prefix . 'char';
     $meta_box_text_value = "";
     $meta_box_select_value = "";
     $meta_box_checkbox_value = "";
@@ -109,6 +111,8 @@ class Whadda_save {
     $meta_box_stile_o_b_value = "";
     $meta_box_stile_c_b_value = "";
     $meta_box_bold_b_value = "";
+    $meta_box_sfondo_value = "";
+    $meta_box_char_value = "";
     
     
     if (isset($_POST[$stile_o_b])) {
@@ -323,6 +327,34 @@ class Whadda_save {
         update_post_meta($post_id, $val, $meta_box_bold_r_value);
       }
     }
+    
+    
+    if ($meta_box_numrow_value != "" && $meta_box_numcol_value != "") {
+
+      for ($colsf = 0; $colsf <= $meta_box_numcol_value; $colsf++) {
+        for ($rigsf = 0; $rigsf <= $meta_box_numrow_value; $rigsf++){
+          $val = $sfondo.'_c'.$colsf.'_r'.$rigsf;
+          if (isset($_POST[$val])) {
+          $meta_box_sfondo_value = $_POST[$val];
+        } else
+          $meta_box_sfondo_value = "#ffffff";
+        update_post_meta($post_id, $val, $meta_box_sfondo_value);
+          } 
+      }
+
+      for ($colsf = 0; $colsf <= $meta_box_numcol_value; $colsf++) {
+        for ($rigsf = 0; $rigsf <= $meta_box_numrow_value; $rigsf++){
+          $val = $char.'_c'.$colsf.'_r'.$rigsf;
+          if (isset($_POST[$val])) {
+          $meta_box_char_value = $_POST[$val];
+        } else
+          $meta_box_char_value = "#000000";
+        update_post_meta($post_id, $val, $meta_box_char_value);
+          } 
+      }
+
+    }
+    
   }
 
 }

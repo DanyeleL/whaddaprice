@@ -48,7 +48,7 @@ class Whadda_angle {
     echo '<hr>';
     echo '<h3>'.esc_html__('Angoli e Bordi','whaddaprice').'</h3>';
     echo '<div class="div_cont_angoli">';
-    echo '<p>'.esc_html__('Raggio','whaddaprice').'</p><select nome="angoli" id="select_bordi" class="angoli">';
+    echo '<label>'.esc_html__('Raggio','whaddaprice').'<select nome="angoli" id="select_bordi" class="angoli"></label>';
     echo '<option value="manuale">'.__('manuale','whaddaprice').'</option>';
     echo '<option value="nessuno">'.__('nessuno','whaddaprice').'</option>';
     echo '<option value="poco">'.__('poco','whaddaprice').'</option>';
@@ -57,9 +57,9 @@ class Whadda_angle {
     echo '</select>';
     echo '</div>';
     echo '<div class="div_cont_angoli">';
-    echo '<p>'.esc_html__('Misura ( em )','whaddaprice').'</p><input class="angoli" type="number" name="' . $borer_radius . '" id="' . $borer_radius . '" step="0.01" min="0" value="' . $radius . '" >';
+    echo '<label>'.esc_html__('Misura','whaddaprice').'</label><input class="angoli" type="text" name="' . $borer_radius . '" id="' . $borer_radius . '" value="' . $radius . '" >';
     echo '</div>';
-    echo '<div class="divangoli"></div>';
+   // echo '<div class="divangoli"></div>';
     echo '<div class="clear"></div>';
     echo '<div>';
     echo '<label class="labelbordi">'.esc_html__('Bordi','whaddaprice').'<br/>'.esc_html__('(checked sì/ vuoto no)','whaddaprice').'<input class="inputbordi" type="checkbox" name="' . $border_on . '" id="' . $border_on . '"' . $border_val . '></label>';
