@@ -3,7 +3,7 @@
  * included in this file.
  */
 
- *{
+*{
 	margin: 0;
 	padding: 0;
 	-webkit-box-sizing: border-box;
@@ -11,11 +11,6 @@
 	box-sizing: border-box;
 	border-radius: 2px;
 	
-}
-
-body{
-	background:grey;
-	font-family: 'Arvo', serif;
 }
 
 a{
@@ -35,7 +30,7 @@ ul{
 }
 
 .miswitch{
-	border: 2px solid #000000;
+	border: 1px solid #000000;
 	border-radius: 20px;
 	color: #fff;
 	position: relative;
@@ -58,7 +53,7 @@ ul{
 
 .swicht-btn{
 	position: absolute;
-	background: #173D50;
+	background:#4682B4;
 	width: 50%;
 	height: 90%;
 	border-radius: 20px;
@@ -85,10 +80,9 @@ ul{
 .pricing-table{
 	width: 32%;
 	transition: transform .5s ease;
-
 	-webkit-perspective: 1800px;
 	perspective: 1800px;
-	border: 2px solid #000000;
+	box-shadow: 0 0 1px #D3D3D3;
 	border-radius: 5px;
 	
 }
@@ -101,7 +95,7 @@ ul{
 	background: #fff;
 	text-align: center;
 	position: relative;
-	height: 500px;
+	height: 400px;
 
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
@@ -113,7 +107,7 @@ ul{
 	backface-visibility: hidden;
 	position: absolute;
 	width: 100%;
-	height: 100%;
+	height: 50%;
 	top: 0;
 	left: 0;
 	background: #fff;
@@ -129,21 +123,23 @@ ul{
 }
 
 .pricing-table-head{
-	color: #173D50;
+	color:#FF6347;
 	padding: 25px 5px;
 	
 }
 
 .pricing-table-head h2{
-	font-size: 18px;
+	font-size: 18px;	
 	letter-spacing: 2px;	
 	font-weight: bold;
+	color: 	#4682B4;
 }
 
 .pricing-table-head h3{
 	font-size: 58px;
 	font-weight: 400;
 	display: inline;
+	color: 7 #173D50;
 }
 
 .pricing-table-head h3 sup, .pricing-table-head h3 sub{
@@ -166,8 +162,11 @@ ul{
 }
 
 .pricing-table-list li{
-	background: #999999;
-	padding: 10px 0;
+	background: #90EE90;
+	padding: 7px 0;
+	border-bottom: 1px solid	#00FF7F;
+	color: #173D50;
+	margin-top:2px; 
 }
 
 .pricing-table-list li:nth-child(2n){
@@ -178,10 +177,11 @@ ul{
 	display: block;
 	width: 100%;
 	padding: 20px 0;
-	background: #696969;
+	background: 	#4682B4;
 	color: #fff;
 	margin-top: 23px;
 	border: 1px solid #696969;
+	text-decoration: none;
 }
 
 .pricing-table-button.estandar{
@@ -429,14 +429,16 @@ ul{
 		width: 1800px;
 		margin: 0 auto;
 		margin-top: 50px;
-		margin-bottom: 
+		clear: both;
 	}
 	.tabla {
-		width: 250px;
+		width: 230px;
 		background: rgb(89, 89, 89); 
 		color: #f9f9f9;
 		float: left;
 		margin-left: 0px;
+		margin-right: 2px;
+		margin-bottom: 70px;
 	}
 	.deal {
 		padding: 10px 0 0 0;
@@ -453,7 +455,7 @@ ul{
 	}
 	.tabla .price {
 		display: block;
-		width: 250px;  
+		width: 230px;  
 		background: #292b2e;
 		margin: 15px 0 10px 0;
 		text-align: center;
@@ -479,7 +481,7 @@ ul{
 		background: #292b2e;
 		color: #f9f9f9;
 		padding: 10px 37px;
-		margin: 10px 0 20px 60px;
+		margin: 10px 5px 20px 40px;
 	}
 	
 	.buy:hover{
@@ -488,7 +490,7 @@ ul{
 		background: #708090;
 		color: #f9f9f9;
 		padding: 10px 37px;
-		margin: 10px 0 20px 60px;
+		margin: 10px 5px 20px 40px;
 	}
 	
 	.grande {
@@ -545,3 +547,244 @@ ul{
 	
 	
 	/*Fine layout3 */
+
+	 
+  #pricing-table {
+		margin: 100px auto;
+		text-align: center;
+		width: 892px;
+}
+
+#pricing-table .plan {
+		font: 12px 'Lucida Sans', 'trebuchet MS', Arial, Helvetica;
+		text-shadow: 0 1px rgba(255,255,255,.8);        
+		background: #fff;      
+		border: 1px solid #ddd;
+		color: #1E90FF;
+		padding: 20px;
+		width: 180px;    
+		float: left;
+		position: relative;
+}
+
+#pricing-table #most-popular {
+		z-index: 2;
+		top: -13px;
+		border-width: 3px;
+		padding: 30px 20px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		-moz-box-shadow: 20px 0 10px -10px rgba(0, 0, 0, .15), -20px 0 10px -10px rgba(0, 0, 0, .15);
+		-webkit-box-shadow: 20px 0 10px -10px rgba(0, 0, 0, .15), -20px 0 10px -10px rgba(0, 0, 0, .15);
+		box-shadow: 20px 0 10px -10px rgba(0, 0, 0, .15), -20px 0 10px -10px rgba(0, 0, 0, .15);    
+}
+
+#pricing-table .plan:nth-child(1) {
+		-moz-border-radius: 5px 0 0 5px;
+		-webkit-border-radius: 5px 0 0 5px;
+		border-radius: 5px 0 0 5px;        
+}
+
+#pricing-table .plan:nth-child(4) {
+		-moz-border-radius: 0 5px 5px 0;
+		-webkit-border-radius: 0 5px 5px 0;
+		border-radius: 0 5px 5px 0;        
+}
+
+/* --------------- */	
+
+#pricing-table h3 {
+		font-size: 20px;
+		font-weight: normal;
+		padding: 20px;
+		margin: -20px -20px 50px -20px;
+		background: #000000;
+		color: #fff;
+}
+
+#pricing-table #most-popular h3 {
+		background: #3CB371;
+		margin-top: -30px;
+		padding-top: 30px;
+		-moz-border-radius: 5px 5px 0 0;
+		-webkit-border-radius: 5px 5px 0 0;
+		border-radius: 5px 5px 0 0; 		
+}
+
+#pricing-table .plan:nth-child(1) h3 {
+		-moz-border-radius: 5px 0 0 0;
+		-webkit-border-radius: 5px 0 0 0;
+		border-radius: 5px 0 0 0;       
+}
+
+#pricing-table .plan:nth-child(4) h3 {
+		-moz-border-radius: 0 5px 0 0;
+		-webkit-border-radius: 0 5px 0 0;
+		border-radius: 0 5px 0 0;       
+}	
+
+#pricing-table h3 span {
+		display: block;
+		font: bold 25px/100px Georgia, Serif;
+		color: #777;
+		background: #fff;
+		border: 5px solid #fff;
+		height: 100px;
+		width: 100px;
+		margin: 10px auto -65px;
+		-moz-border-radius: 100px;
+		-webkit-border-radius: 100px;
+		border-radius: 100px;
+		-moz-box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
+		-webkit-box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
+		box-shadow: 0 5px 20px #ddd inset, 0 3px 0 #999 inset;
+}
+
+/* --------------- */
+
+#pricing-table ul {
+		margin: 20px 0 0 0;
+		padding: 0;
+		list-style: none;
+}
+
+#pricing-table li {
+		border-top: 1px solid #ddd;
+		padding: 10px 0;
+}
+
+/* --------------- */
+		
+#pricing-table .signup {
+		position: relative;
+		padding: 8px 20px;
+		margin: 20px 0 0 0;  
+		color: #fff;
+		font: bold 14px Arial, Helvetica;
+		text-transform: uppercase;
+		text-decoration: none;
+		display: inline-block;       
+		background: #00BFFF;
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
+		border-radius: 3px;     
+		text-shadow: 0 1px 0 rgba(0,0,0,.3);        
+		-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, .5), 0 2px 0 rgba(0, 0, 0, .7);
+		-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .5), 0 2px 0 rgba(0, 0, 0, .7);
+		box-shadow: 0 1px 0 rgba(255, 255, 255, .5), 0 2px 0 rgba(0, 0, 0, .7);
+}
+
+#pricing-table .signup:hover {
+		background:#696969;
+	
+}
+
+#pricing-table .signup:active, #pricing-table .signup:focus {
+		background:#696969;       
+		top: 2px;
+		
+}
+
+/* --------------- */
+
+/*Layout 4*/
+
+.clear {
+	zoom:1
+}
+
+.tape {
+	position: absolute;
+	width:100px;
+	height:50px;
+	margin-top: -35px;
+	margin-left: 90px;
+	margin-right:-35px;
+	text-align:center;
+	border:1px solid #DAA520;
+	background: #FFD700;
+	background-size: 4px 4px;
+	transform:rotate(45deg);
+	}
+
+	.tape:before {
+			content:" ";
+			position:absolute;
+			display:block;
+			width:0px;
+			height:0px;
+			top:15px;
+			left:-40px;
+			border-color:	#FFD700 	#FFD700 	#FFD700 transparent;
+			border-style:solid;
+			border-width:25px;
+			}
+
+
+			.tape:after {
+					content:"";
+					position:absolute;
+					display:block;
+					border-color:#DAA520;
+					border-style:solid;
+					border-width:5px 10px 5px 10px;
+					top:51px;
+					left:-1px;
+					}
+
+					.tape span {
+							text-transform:uppercase;
+							font-family:arial;
+							font-size:15px;
+							font-weight:bold;
+							line-height:50px;
+							color: white;
+							text-shadow: 1px 2px 3px grey;
+							}
+							.tape span:before {
+							content:" ";
+							position:absolute;
+							display:block;
+							width:0px;
+							height:0px;
+							top:11px;
+							right:-40px;
+							border-color:#FFD700 transparent #FFD700 #FFD700 ;
+							border-style:solid;
+							border-width:25px;
+							}
+							.tape span:after {
+							content:"";
+							position:absolute;
+							display:block;
+							border-color:#DAA520 #FFD700 #FFD700 #DAA520;
+							border-style:solid;
+							border-width:5px 10px 5px 10px;
+							top:51px;
+							right:-1px;
+							}
+
+							@media screen and (max-width: 750px){
+								.plan{
+									width: 72%;
+									margin-bottom: 20px;
+								}
+							
+								#pricing-table .clear{
+									justify-content: center;
+								}
+							
+								#pricing-table .clear:hover{
+									transform: scale(1.0) ;
+								}
+							}
+							
+							@media screen and (max-width: 500px){
+								#pricing-table .clear{
+									width: 90%;
+								}
+							}
+	
+					
+/*Fine layout 4*/

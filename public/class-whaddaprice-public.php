@@ -117,7 +117,7 @@ function jb_shortcode_de_contenido($idp) {
 /* ------------------------------------------------------------------------- *
 *   LAYOUT 
 /* ------------------------------------------------------------------------- */
-
+$layout=3;
 
 if($layout==1){
   ob_start();
@@ -144,17 +144,17 @@ if($layout==1){
 	 
 	  echo
 	  '<h2>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0]. '</h2>'.
-	  '<h3><sup>$ </sup>30<sub>/MES</sub></h3>' .
+	  '<h3>'.'<sup>$ </sup>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'<sub>/MES</sub>'.'</h3>' .
 	  '<ul class="pricing-table-list riga_1">';
 
 	
-      for($w=2; $w<=$numRows[0]; $w++){
+      for($w=3; $w<=$numRows[0]; $w++){
 
        echo '<li class="riga_'.$w.'"><span> '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</span></li>';
 		
 	  }echo
 	   '</ul>'.
-       '<a href="#" class="pricing-table-button">Seleccionar Consulencia</a>'.
+       '<a href="#" class="pricing-table-button">Comprar</a>'.
         '</div>'.
         '</div>'.
         '</div>'.
@@ -207,7 +207,51 @@ if($layout==2){
 	   return ob_get_clean();
 	 
 	
-}else{
+}
+if($layout==3){
+	ob_start();
+	
+	  echo 
+	  '<div id="pricing-table" class="clear">' ;
+	  
+  
+  
+	  for($i=1; $i<=$numColumnas[0]; $i++){
+	   
+		
+	   if($i==2){ 
+		echo 
+		'<div class="plan" id="most-popular">'.
+		'<div class="tape">'.
+		'<span>Promo</span>'.'</div>'.
+		'<h3>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0].'<span>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span></h3>'.
+		'<a class="signup" href="">Buy</a>'.
+		'<ul class="riga_1">';
+	   }else
+	   echo
+
+		' <div class="plan">'.
+		'<h3>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0].'<span>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span></h3>'.
+		'<a class="signup" href="">Buy</a>'.
+		'<ul class="riga_1">';
+  
+	  
+		for($w=3; $w<=$numRows[0]; $w++){
+  
+		 echo '<li class="riga_'.$w.'"><b> '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '<b></li>';
+		  
+		}echo
+		 '</ul>'.
+		 '<a href="#" class="pricing-table-button">Comprar</a>'.
+		  '</div>';
+		 
+	  
+		  }
+		  echo '</div>';
+	  return ob_get_clean();
+	}
+
+else{
 	ob_start();
   
 	echo 
