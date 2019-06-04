@@ -30,7 +30,7 @@ ul{
 }
 
 .miswitch{
-	border: 1px solid #000000;
+	border: 1px solid #ADA9B7;
 	border-radius: 20px;
 	color: #fff;
 	position: relative;
@@ -53,7 +53,7 @@ ul{
 
 .swicht-btn{
 	position: absolute;
-	background:#4682B4;
+	background:#91ACFF;
 	width: 50%;
 	height: 90%;
 	border-radius: 20px;
@@ -123,7 +123,7 @@ ul{
 }
 
 .pricing-table-head{
-	color:#FF6347;
+	color:#E5793B;
 	padding: 25px 5px;
 	
 }
@@ -132,7 +132,7 @@ ul{
 	font-size: 18px;	
 	letter-spacing: 2px;	
 	font-weight: bold;
-	color: 	#4682B4;
+	color: 	#91ACFF;
 }
 
 .pricing-table-head h3{
@@ -162,9 +162,9 @@ ul{
 }
 
 .pricing-table-list li{
-	background: #90EE90;
+	background: #B5B1B2;
 	padding: 7px 0;
-	border-bottom: 1px solid	#00FF7F;
+	border-bottom: 1px solid	#B5B1B2;
 	color: #173D50;
 	margin-top:2px; 
 }
@@ -177,7 +177,7 @@ ul{
 	display: block;
 	width: 100%;
 	padding: 20px 0;
-	background: 	#4682B4;
+	background: 	#7C809B;
 	color: #fff;
 	margin-top: 23px;
 	border: 1px solid #696969;
@@ -301,14 +301,13 @@ ul{
   
   .price-box .header{
 		background:#333333;
-		padding: 10px;
+		padding: 5px;
 		color: #fff;
 		font-size: 15px;
 		border: none;
 		height: 25px;
 		/*border-top-left-radius: 15px;	
 		border-top-right-radius: 15px;*/
-		padding: 5px;	
 		clear: both;/*
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
@@ -330,9 +329,7 @@ ul{
   .price-box .header.header-green{
 		background-color: 	#FF6347;
 		height: 20px;
-    
 
- 
   }
 	
 
@@ -346,7 +343,7 @@ ul{
   
   .price-box .emph{
     background:	rgb(77, 77, 77);
-		font-size: 15px;
+		font-size: 25px;
 		height: 60px;
 		color: 	#fff;
 		text-align: center;
