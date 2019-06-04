@@ -137,7 +137,7 @@ class Whadda_font {
       $font_google = $json_google['items'];
       $option = $json_google['items'];
     }
-    //genero le select con quanto ricevuto da google
+    //popolo la select con quanto ricevuto da google
     $scelta = array();
     echo '<div id="tabfont" ><div class="divfont"><p>'.esc_html__('Family','whaddaprice').'</p>';
     echo '<select name="font" id="font" size="5" class="select_vari">';
@@ -159,7 +159,7 @@ class Whadda_font {
     echo '<select name="vari" id="vari" size="5" class="select_vari"></select></div>';
     echo '</div></div>';
 
-    /* carico il font_js per elaborare i dati di google e riempire dinamicamente la select */
+    /* carico il font_js per elaborare i dati di google e popolare dinamicamente la select */
     wp_register_script($reg_font, plugin_dir_url(__FILE__) . 'js/fonts_js.js');
     $whadda_fonts = array(
         'rigao' => $rigao, //riga obliqua
@@ -175,8 +175,8 @@ class Whadda_font {
     
     echo '<div class="tabfont">';
     echo '<h3 class="whaddacenter">'.esc_html__('Stili','whaddaprice').'</h3>';
-    echo '<table ><tbody id="testare" class="whaddacenter"></tbody></table>';
-    echo '<table ><tbody id="testare1" class="whaddacenter">'
+    echo '<table ><tbody id="whadda_tboby" class="whaddacenter"></tbody></table>';
+    echo '<table ><tbody id="whadda_tbutton" class="whaddacenter">'
     . '<tr>' 
     .'<th></th> '
     .'<th>'.esc_html__('Obliquo','whaddaprice').'</th>' 
@@ -184,10 +184,10 @@ class Whadda_font {
     .'<th>'.esc_html__('Bold','whaddaprice').'</th>' 
     .'</tr>' 
     . '<tr>' 
-    .'<td id="nome_"><span id="stile_o_num">'.esc_html__('button','whaddaprice').'</span></td> ' // da terminare -> nomi e salvataggio
-    .'<td><input type="checkbox" name="'.$stile_o_b.'" id="'.$stile_o_b.'" value="1" '.$stile_o_b_ck.'></td>' // da terminare -> nomi e salvataggio
-    .'<td><input type="checkbox" name="'.$stile_c_b.'" id="'.$stile_c_b.'" value="2" '.$stile_c_b_ck.'></td>' // da terminare -> nomi e salvataggio
-    .'<td><input type="checkbox" name="'.$bold_b.'" id="'.$bold_b.'" value="3" '.$bold_b_ck.'></td>' // da terminare -> nomi e salvataggio
+    .'<td id="nome_"><span id="stile_o_num">'.esc_html__('button','whaddaprice').'</span></td> ' 
+    .'<td><input type="checkbox" name="'.$stile_o_b.'" id="'.$stile_o_b.'" value="1" '.$stile_o_b_ck.'></td>' 
+    .'<td><input type="checkbox" name="'.$stile_c_b.'" id="'.$stile_c_b.'" value="2" '.$stile_c_b_ck.'></td>'
+    .'<td><input type="checkbox" name="'.$bold_b.'" id="'.$bold_b.'" value="3" '.$bold_b_ck.'></td>' 
     .'</tr>' 
     .'<div class="clear"></div>'
     . '</tbody></table>';

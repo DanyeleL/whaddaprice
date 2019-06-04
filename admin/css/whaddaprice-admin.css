@@ -92,6 +92,10 @@
   display:table;
 }
 
+.whaddacenterfloat{
+  text-align: center;
+  float:left;
+}
 @media screen and (max-width:468px){
   
   .mprighempcol{

@@ -25,7 +25,7 @@ class Whadda_angle {
 
     $this->whadda_angoli();
   }
-
+//funzione per la gestione del raggio angoli
   public function whadda_angoli() {
     $prefix = $this->metakeypre;
     $borer_radius = $prefix . 'border_radius';

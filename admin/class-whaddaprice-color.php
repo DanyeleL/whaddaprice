@@ -26,13 +26,14 @@ class Whadda_color {
   }
 
   public function colori() {
-    $prefix = $this->metakeypre;
+    $prefix = $this->metakeypre; //carico  prefisso 
     $numcol = $this->metakeycol;  //carico  prefisso colonna
-    $numrow = $this->metakeyrow;
+    $numrow = $this->metakeyrow; //carico  prefisso riga
     $colsf = $prefix . 'colsf';
     $colts = $prefix . 'colts';
     $colbr = $prefix . 'colbr';
 
+    ////////////// colori generali di default ////////////////////////
     if (get_the_ID() !== null) {
 
       if (!isset(get_post_meta(get_the_ID(), $colsf)[0]) || get_post_meta(get_the_ID(), $colsf)[0] == "")
@@ -60,9 +61,8 @@ class Whadda_color {
     echo '<label for="colsf" class="inpcol">'.esc_html__('colore sfondo','whaddaprice').'<input type="color"  name="' . $colsf . '" id="' . $colsf . '" value="' . $coloresf . '"/></label>';
     echo '<label for="colsf" class="inpcol">'.esc_html__('colore testo','whaddaprice').'<input type="color"  name="' . $colts . '" id="' . $colts . '" value="' . $colorets . '"/></label>';
     echo '<label for="colsf" class="inpcol">'.esc_html__('colore bordo','whaddaprice').'<input type="color"  name="' . $colbr . '" id="' . $colbr . '" value="' . $colorebr . '"/></label>';
-  
 
-//////////////////////* IN TEST */////////////////////////////////
+    /////////////////// colori per ogni riga e ogni colonna ///////////////////////
     
     $sfondo = $prefix . 'sfondo';
     $char = $prefix . 'char';
@@ -98,11 +98,6 @@ class Whadda_color {
     }
     
     echo '<h3>'.esc_html__('Colori vari','whaddaprice').'</h3>';
-   /* echo __('Colonna','whaddaprice').'<select name="test" id="test">';
-    for($i=0;$i<1;$i++){ // ciclo per numero colonne in section
-      echo '<option value="'.$i.'">'.$i.'</option>';
-    }
-    echo '</select>';*/
     
      wp_register_script($reg_fo, plugin_dir_url(__FILE__) . 'js/color.js');
     $whadda_color = array(
@@ -114,9 +109,6 @@ class Whadda_color {
    
    echo '<div id="coloritab"></div>';
    echo '<div class="clear"></div>';
-   //echo '<table ><tbody id="testare2" class="whaddacenter"></tbody></table>';
-   //echo '<div id="tab_but"></div>';
-
     }
 
 }

@@ -8,25 +8,25 @@
   'use strict';
 
   $(function () {
-    if (whadda_fonts['option'] != null)
-      var ind = whadda_fonts['option'].length;
-    console.log(ind);
+    if (whadda_fonts['option'] != null) //controllo presenza valori
+      var ind = whadda_fonts['option'].length; // calcolo numero valori per cicli successivi
+    //console.log(ind);
     var num_nomefont = '';
     var variants = '';
-    var sel = $("#font option:selected").val();
+    var sel = $("#font option:selected").val(); // leggo option selezionato
     //console.log(sel);
-    if (whadda_fonts['varifont'] == undefined) {
+    if (whadda_fonts['varifont'] == undefined) { //leggo se presenti tipologie di font
       var varifont = '';
     } else
       varifont = whadda_fonts['varifont'];
-    genera();
+    genera(); // popolo tabella primo giro
 
     $("#font").change(function () {
       sel = $("#font option:selected").val();
-      genera();
+      genera(); // cambio contenuto talella in base a elemento selezionato
     })
 
-    $('#vari').change(function () {
+    $('#vari').change(function () { /*in base alle selezioni carico i valori negli input da salvare in db*/
       var vari = $("#vari option:selected").val();
       // console.log(wadda_fonts['option'][num_nomefont]['files'][vari]);
       if ($("#vari option:selected").val() == "Default") {
@@ -40,7 +40,7 @@
       }
     });
 
-    function genera() {
+    function genera() { /*popolo le tabelle con i valori in base alle selezioni*/
       if (varifont == 'Default') {
         $('#cat').children().remove();
         $("#cat").append('<option>Default</option>');
@@ -77,35 +77,34 @@
         }
       }
     }
-
-    /*---------da finire ---------------*/
-
+/*--------------tabelle checkbox -------------------*/
     var prefix = 'whadda_';
     var numrow = '#' + prefix + 'nrows';
     var nrighe = $(numrow).val();
     var inizio = 0;
     var indice = 0;
-    opz();
+    opz(); /*chiama funzione che crea tabelle con checkbox*/
+    
     $('#rigapiu').click(function () {
-      if (nrighe < 13) {
+      if (nrighe < 13) { //controllo numero righe
         nrighe++;
         inizio = nrighe;
-        opz();
+        opz(); //creo tabella checkbox con riga in più
       }
     });
 
-    $('#tabella').on('click', '#rigameno', function () {
-      var idrm = $(this).attr('data-id');
-      opz_r(idrm);
-      nrighe--;
-      inizio = nrighe;
+    $('#tabella').on('click', '#rigameno', function () { //rimuovo riga
+      var idrm = $(this).attr('data-id'); // acquisisco numero riga da rimuovere
+      opz_r(idrm); //chiamo funzione rimozione riga e gli passo numero riga da rimuovere
+      nrighe--; //aggiorno numro righe
+      inizio = nrighe; // aggiorno valore iniziale
     });
 
-    function opz_r(idrm) {
-      console.log(nrighe);
-      var id = '#' + prefix + 'bold_r' + idrm;
-      $(id).parent().parent().remove();
-      for (var num = (idrm * 1) + 1; num <= nrighe; num++) {
+    function opz_r(idrm) { // funzione che rimuove righe
+      //console.log(nrighe);
+      var id = '#' + prefix + 'bold_r' + idrm; //id per rimozione
+      $(id).parent().parent().remove();// rimuovo tr associato a riga da rimuovere
+      for (var num = (idrm * 1) + 1; num <= nrighe; num++) { // aggiorno contenuto righe
         var idvo = '#' + prefix + 'stile_o_r' + num;
         var idno = prefix + 'stile_o_r' + (num - 1);
         var idvc = '#' + prefix + 'stile_c_r' + num;
@@ -126,13 +125,13 @@
         var nomeind = '#stile_o_num' + num;
         $(tdv).prepend('<span id="stile_o_num' + (num - 1) + '">riga ' + (num - 1) + '</span>');
         $(tdv).attr('id', tdn);
-        $(nomeind).remove();
+        $(nomeind).remove(); // rimuovo vecchio nome riga aggiornata
         //indice=num-1;
       }
 
     }
 
-    function opz() {
+    function opz() { // creo tabella checkbox
       var rigao;
       var rigac;
       var boldchek;
@@ -141,15 +140,15 @@
       var bold = prefix + 'bold_r';
       for (var indice = inizio; indice <= (nrighe) * 1; indice++) {
         // console.log(nrighe);
-        if (indice == 0) {
-          $('#testare').append(
+        if (indice == 0) { // primo giro creo titoli
+          $('#whadda_tboby').append(
                   '<tr>' +
                   '<th></th>' +
                   '<th>Obliquo</th>' +
                   '<th>Corsivo</th>' +
                   '<th>Bold</th></tr>'
                   );
-        } else {
+        } else { // popolo tabella con checkbox salvati in db
           //console.log("indice= " + indice + " rigao= " + whadda_fonts['rigao'][indice]);
           // console.log("indice= " + indice + " rigac= " + whadda_fonts['rigac'][indice]);
           //console.log("indice= " + indice + " bold= " + whadda_fonts['bold'][indice]);
@@ -166,8 +165,8 @@
           } else
             boldchek = "checked";
 
-
-          $('#testare').append(
+            //genero le checbok e popolo la tabella
+          $('#whadda_tboby').append(
                   '<tr>' +
                   '<td id="nome_' + indice + '"><span id="stile_o_num' + indice + '">riga ' + indice + '</span></td> ' +
                   '<td><input type="checkbox" name="' + stile_o + indice + '" id="' + stile_o + indice + '" value="' + 1 + '" ' + rigao + '></td>' +
