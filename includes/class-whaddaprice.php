@@ -127,10 +127,25 @@ class Whaddaprice {
 		 * side of the site.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/WhaddaMetaKeys.php';
-    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-whaddaprice-panel.php';
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-whaddaprice-panel.php';   
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-whaddaprice-option-layout.php';
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-whaddaprice-angoli.php';
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-whaddaprice-color.php';
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-whaddaprice-font.php';
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-whaddaprice-marg-pad.php';
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-whaddaprice-save.php';
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-whaddaprice-setting.php';
+
+                            
 
 		$this->loader = new Whaddaprice_Loader();
-
+    $panel=new Whaddaprice_panel();
+    $option=new Whadda_option();
+    $setting=new Whadda_setting();
+    $save=new Whadda_save();
+    $short=new WhaddaShortcode();
+    
+    
 	}
 
 	/**

@@ -114,7 +114,7 @@
     }
     // funzione per aggiunge riga a pressione bottone
     $('#rigapiu').click(function () {
-      if (cont < 10) {
+      if (cont < 13) {
         cont = cont + 1;
         val = cont;
         $(numrow).val(val);
@@ -127,7 +127,7 @@
     // acquisisco il click sul bottone rigameno per rimouvere riga selezionata, cerca #rigameno in #tabella
     $('#tabella').on('click', '#rigameno', function () {
       var rig = $(this).attr('data-id') * 1;  // leggo data-id che contiene nun riga selezionata
-      console.log(rig);
+      //console.log(rig);
       for (var newnum = 1; newnum <= num; newnum++) { //preparo ciclo per ogni colonna
         var id = '#' + prefix + 'c' + newnum + '_r' + rig;
         $(id).parent().parent().remove(); // rimuovo riga
@@ -204,7 +204,54 @@
         $(numcol).val(colonne); //aggiorno numero colonne
       }
     });
-
+  //bordi select_bordi
+  $('.divangoli').css('border-radius',$('#whadda_border_radius').val()+'em');
+    $('#select_bordi').change(function () {
+      //if ($('#select_bordi option:selected').val() !== 'manuale')
+      var tipobordo = $('#select_bordi option:selected').val();
+      
+      switch (tipobordo) {
+        case 'poco' :
+          {
+            $('#whadda_border_radius').val('0.25 em');
+            $('#whadda_border_radius').attr('readonly','readonly');
+            //$('.divangoli').css('border-radius',$('#whadda_border_radius').val()+'em');
+          }
+          break;
+        case 'medio' :
+          {
+            $('#whadda_border_radius').val('0.5 em');
+            $('#whadda_border_radius').attr('readonly','readonly');
+           // $('.divangoli').css('border-radius',$('#whadda_border_radius').val()+'em');
+          }
+          break;
+        case 'tanto':
+          {
+            $('#whadda_border_radius').val('1 em');
+            $('#whadda_border_radius').attr('readonly','readonly');
+           // $('.divangoli').css('border-radius',$('#whadda_border_radius').val()+'em');
+          }
+          break;
+        case 'manuale':
+          {
+            $('#whadda_border_radius').removeAttr('readonly');
+          }
+          break;
+        default :
+          {
+            $('#whadda_border_radius').val('0');
+            $('#whadda_border_radius').attr('readonly','readonly');
+           // $('.divangoli').css('border-radius',$('#whadda_border_radius').val()+'em');
+          }
+          break;
+      }
+      });
+      
+     /* $('#whadda_border_radius').change(function(){
+        / $('.divangoli').css('border-radius',$('#whadda_border_radius').val()+'em');
+     
+    });*/
+ 
   });
 })(jQuery);
 
