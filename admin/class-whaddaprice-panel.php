@@ -95,17 +95,17 @@ class Whaddaprice_panel{
       $i++;
       if ($i <= $row) {
         $val = $prefix . 'c' . $cont . '_r' . $i;
-        $url = $prefix . 'c' .$cont;
+        $url = $prefix . 'c' . $cont;
         if(isset(get_post_meta(get_the_ID(), $url)[0]))
                             $metaurl[$cont]= get_post_meta(get_the_ID(), $url)[0];
         else $metaurl[$cont]='';
+        
         if(isset(get_post_meta(get_the_ID(), $val)[0]))
                             $meta[$cont][$i]= get_post_meta(get_the_ID(), $val)[0];
         else $meta[$cont][$i]='';
         //$meta[$cont][$i] = get_post_meta(get_the_ID(), $val)[0];
       } else {
         $meta[$cont][$i] = "";
-        $metaurl[$cont]=  "";
         $cont++;
         $i = 0;
       }
