@@ -115,22 +115,29 @@ function jb_shortcode_de_contenido($idp) {
 
 
 /* ------------------------------------------------------------------------- *
-*   LAYOUT 
+*   LAYOUT
 /* ------------------------------------------------------------------------- */
-$layout=1;
+
+
+/**Leggo layout */
+$prefixLayout= $prefix.'layout';
+$layout= get_post_meta($idp["id"], $prefixLayout)[0];
 
 if($layout==1){
   ob_start();
   
 	echo 
-	'<div class="wrap">' .
+	'<div class="wrap">' ;
+/*
     '<div class="miswitch">'.
 	 '<div class="swicht-btn" id="swicht-btn">'.'</div>'.
      '<a>Mensile</a>'.
 	 '<a>Anual</a>'.
 	 '</div>'. 
+*/
+    echo
 	 '<div class="pricing-wrap">';
-    
+	
 
 
     for($i=1; $i<=$numColumnas[0]; $i++){
@@ -138,30 +145,34 @@ if($layout==1){
 	 echo 
 	  
       '<div class="pricing-table">'.
-      '<div class="pricing-table-cont">'.
+	  '<div class="pricing-table-cont">'.
       '<div class="pricing-table-month">'.
       '<div class="pricing-table-head">';
 	 
 	  echo
-	  '<h2>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0]. '</h2>'.
-	  '<h3>'.'<sup>$ </sup>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'<sub>/MES</sub>'.'</h3>' .
+	  '<h2  style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0]. '</h2>'.
+	  '<h3  style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r2')[0].'">'.'<sup>$ </sup>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'<sub>/MES</sub>'.'</h3>' .
 	  '<ul class="pricing-table-list riga_1">';
 
 	
-      for($w=3; $w<=$numRows[0]; $w++){
+      for($w=4; $w<=$numRows[0]; $w++){
 
-       echo '<li class="riga_'.$w.'"><span> '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</span></li>';
-		
+       echo '<li class="riga_'.$w.'" ><span  style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].'"> '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</span></li>';
+
 	  }echo
 	   '</ul>'.
-       '<a href="#" class="pricing-table-button">Comprar</a>'.
-        '</div>'.
+       '<a href="#" class="pricing-table-button" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</a>'.
+		'</div>'.
         '</div>'.
         '</div>'.
 		'</div>';
     
 		}
-		echo '</div>'.'</div>' ;
+		echo 
+
+		'</div>'.
+		'</div>';
+
     return ob_get_clean();
   }
 
@@ -173,29 +184,24 @@ if($layout==2){
 	'<div class="wrap2">'.
 	'<div class="pricing-wrap2">';
 
-	
-
 	 for($i=1; $i<=$numColumnas[0]; $i++){
      
-		echo 
-		
+		echo 		
 		'<div class="pricing-table2">'.
 		'<div class="pricing-table-cont2">'.
-		'<div class="col">'.
+		'<div class="col">'. 
 		'<ul class="price-box">'.
-		'<li class="header">'. '<h2>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0]. '</h2>'.'</li>'.
-		'<li class="emph">'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</strong>'.'</li>';
-	
-	
+		'<li class="header">'. '<h2 style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0]. '</h2>'.'</li>'.
+		'<li class="emph" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</li>';
 	   
-		 for($w=3; $w<=$numRows[0]; $w++){
+		 for($w=4; $w<=$numRows[0]; $w++){
 	
-		  echo  '<li class="riga_'.$w.'"><strong> '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</strong></li>';
+		  echo  '<li class="riga_'.$w.'"><strong style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].'"> '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</strong></li>';
 	
 		   
 		 }echo
 		  '</ul>'.
-		  '<a href="#" class="button">'.'BUY'.'</a>'.
+		  '<a href="#" class="button"  style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'.'BUY'.'</a>'.
 		  '</div>'. 
 		  '</div>'. 
 		  '</div>';
@@ -213,36 +219,31 @@ if($layout==3){
 	
 	  echo 
 	  '<div id="pricing-table" class="clear">' ;
-	  
-  
   
 	  for($i=1; $i<=$numColumnas[0]; $i++){
-	   
-		
+	  
 	   if($i==2){ 
 		echo 
 		'<div class="plan" id="most-popular">'.
 		'<div class="tape">'.
-		'<span>Promo</span>'.'</div>'.
+		'<span style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r3')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r3')[0].'</span></div>'.
 		'<h3>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0].'<span>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span></h3>'.
-		'<a class="signup" href="">Buy</a>'.
+		'<a class="signup" href=""  style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</a>'.
 		'<ul class="riga_1">';
 	   }else
 	   echo
 
 		' <div class="plan">'.
 		'<h3>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0].'<span>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span></h3>'.
-		'<a class="signup" href="">Buy</a>'.
+		'<a class="signup" href=""  style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</a>'.
 		'<ul class="riga_1">';
   
 	  
-		for($w=3; $w<=$numRows[0]; $w++){
-  
+		for($w=4; $w<=$numRows[0]; $w++){
 		 echo '<li class="riga_'.$w.'"><b> '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '<b></li>';
 		  
 		}echo
 		 '</ul>'.
-		 '<a href="#" class="pricing-table-button">Comprar</a>'.
 		  '</div>';
 		 
 	  
@@ -264,32 +265,33 @@ else{
 	 if($i==2){ 
 	  echo '<div class="tabla grande">'.
 	  '<div class="deal">'.
-      '<span>Premium</span>'.
-	  '<span>Paquete basico</span>'. 
+      '<span>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0].'</span>'.
+	  '<span>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span>'. 
 	  '</div>'. 
-	  '<span class="price">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span>'. 
+	  '<span class="price">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r3')[0].'</span>'. 
 	  '<ul class="features">';
 	 }else
+
 	 echo
 	 '<div class="tabla">'.
       '<div class="deal">'.
-      '<span>Premium</span>'.
-	  '<span>Paquete basico</span>'. 
+      '<span>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0].'</span>'.
+	  '<span>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0].'</span>'. 
 	  '</div>'. 
-	  '<span class="price">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span>'. 
+	  '<span class="price">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r3')[0].'</span>'. 
 	  '<ul class="features">';
 	 
 	 
 	  
 
 	
-      for($w=3; $w<=$numRows[0]; $w++){
+      for($w=4; $w<=$numRows[0]; $w++){
 
        echo '<li class="riga_'.$w.'"> '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</li>';
-		
+	
 	  } echo
 	   '</ul>'.  
-	   '<button class="buy">Buy Now</button>'.
+	   '<button class="buy" style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</button>'.
         '</div>';
         
     

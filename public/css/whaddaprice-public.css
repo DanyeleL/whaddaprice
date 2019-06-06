@@ -139,7 +139,7 @@ ul{
 	font-size: 58px;
 	font-weight: 400;
 	display: inline;
-	color: 7 #173D50;
+	padding: 10px 10px 10px 10px;
 }
 
 .pricing-table-head h3 sup, .pricing-table-head h3 sub{
@@ -150,6 +150,7 @@ ul{
 
 .pricing-table-head h3 sub{
 	font-size: 13px;
+
 }
 
 .pricing-table-head.estandar-title h2,
@@ -327,7 +328,7 @@ ul{
 	}
 
   .price-box .header.header-green{
-		background-color: 	#FF6347;
+		background-color:	#FF6347;
 		height: 20px;
 
   }
@@ -343,11 +344,12 @@ ul{
   
   .price-box .emph{
     background:	rgb(77, 77, 77);
-		font-size: 25px;
+		font-size: 20px;
 		height: 60px;
 		color: 	#fff;
 		text-align: center;
 		clear: both;
+
     
   }
   
@@ -736,7 +738,7 @@ ul{
 							font-size:15px;
 							font-weight:bold;
 							line-height:50px;
-							color: white;
+							color: #fff;
 							text-shadow: 1px 2px 3px grey;
 							}
 							.tape span:before {
