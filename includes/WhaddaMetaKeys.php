@@ -23,22 +23,29 @@ class WhaddaShortcode {
  
   function __construct() {
   add_shortcode("whaddaprice", 'jb_shortcode_de_contenido');
+<<<<<<< HEAD
      // whaddaprice_shortcode da fare ma lato public
     //$this->shortbox_metabox_callback(); 
+=======
+ 
+>>>>>>> b424573a68f98fd55cac9d4bd83eb71aced5cce3
   }
-  
   /*creo lo shortcode ma solo nella sua struttura da pallicare a pagine o post => [whaddaprice id=numid] */
   public function shortbox_metabox_callback() {
     $prefix = WhaddaMetaKeys::PREFIX;
     $test = '[whaddaprice id=&quot;' . get_post()->ID . '&quot;]';
     echo '<input type="text" id="' . $prefix . 'short" name="' . $prefix . 'short" value="' . $test . '" readonly/>';
   }
+<<<<<<< HEAD
   
   
   }
 
   $claseKey = new WhaddaShortcode();
+=======
+>>>>>>> b424573a68f98fd55cac9d4bd83eb71aced5cce3
 
+}
   
  
   

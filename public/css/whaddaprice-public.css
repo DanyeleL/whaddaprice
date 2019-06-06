@@ -139,7 +139,11 @@ ul{
 	font-size: 58px;
 	font-weight: 400;
 	display: inline;
+<<<<<<< HEAD
 	padding: 10px 10px 10px 10px;
+=======
+	color: #173D50;
+>>>>>>> b424573a68f98fd55cac9d4bd83eb71aced5cce3
 }
 
 .pricing-table-head h3 sup, .pricing-table-head h3 sub{

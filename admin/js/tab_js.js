@@ -39,6 +39,12 @@
         url[num] = '';  //inizializzo url se non ancora inizializzato
       }
       //creo tabella, id colmeno uguale per tutti i bottoni rimuovi colonna
+      var sel = wadda_var['sel'];
+      if(sel==num){
+       $('#whadda_sel').append(
+                '<option value="'+num+'" selected>'+num+'</option>');
+      }else $('#whadda_sel').append(
+                '<option value="'+num+'">'+num+'</option>');
       $('#tabella').append(
               '<div class="divtab">' +
               '<input type="button" value=' + testo + ' name="colmeno_' + num + '" id="colmeno" class="rimuovi" data-id="' + num + '"' + disabled + '/>' +
@@ -58,7 +64,7 @@
         value = '';
       else
         value = wadda_var['value'][num][i];
-      // faccio le prime 3 righe non rimovibli-> l'id rigameno ugulae per tutti i bottoni di rigameno
+      // faccio le prime 3 righe non rimovibli-> l'id rigameno uguale per tutti i bottoni di rigameno
       if (i < 4) {
         $(idt).append(
                 '<tr>' +
@@ -189,8 +195,36 @@
         }
         colonne = num;
       }
-
+      //$("#whadda_sel:last-child").remove();
+      
+      $("#whadda_sel").children().last().remove();
+     /* if(wadda_var['sel']==numid){
+        $("#whadda_sel").children().first().attr('selected');
+        console.log('uguale');
+      }*/
       $(numcol).val(colonne);// aggiorno numero colonne
+      console.log(wadda_var['sel'],' ',numid);
+      if(wadda_var['sel']<=(colonne+1) && wadda_var['sel']>numid){
+        wadda_var['sel']=wadda_var['sel']-1;
+       console.log('dentro');
+    }
+      else if(wadda_var['sel']==numid){
+            wadda_var['sel']=0;
+            console.log('zero');
+          }
+      
+      
+        $("#whadda_sel").children().remove();
+        for(i=0;i<=colonne;i++){
+          console.log(wadda_var['sel'],' i=',i)
+          if(i==wadda_var['sel']){
+            console.log(wadda_var['sel'],' i1=',i);
+         $('#whadda_sel').append(
+                '<option value="'+i+'" selected>'+i+'</option>');
+          }
+         else $('#whadda_sel').append(
+                '<option value="'+i+'">'+i+'</option>');
+        }
     });
     // aggiungo collonna al click su bottone colpiu
     $('#colpiu').click(function () {
@@ -251,7 +285,11 @@
         / $('.divangoli').css('border-radius',$('#whadda_border_radius').val()+'em');
      
     });*/
- 
+    $('#whadda_sel').change(function(){
+      $('#whadda_colev').val($('#whadda_sel option:selected').val());
+    });
+   
+    
   });
 })(jQuery);
 

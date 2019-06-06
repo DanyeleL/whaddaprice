@@ -51,11 +51,11 @@ class Whadda_option {
 
     $prefix = $this->metakeypre;
     $whadda_layout = $prefix . 'layout';
-    $numlayout = 3;
+    $numlayout = 4;
     for ($i = 1; $i <= $numlayout; $i++) {
       $layout[$i] = plugin_dir_url(__FILE__) . 'img/layout' . $i . '.jpg';
       ${"whadda_layout_$i"} = $prefix . 'layout_' . $i;
-      if ($i == 3)
+      if ($i == 4)
         ${"whadda_layout_val_$i"} = "checked";
       else
         ${"whadda_layout_val_$i"} = "";
@@ -65,7 +65,7 @@ class Whadda_option {
 
       if (!isset(get_post_meta(get_the_ID(), $whadda_layout)[0]) || get_post_meta(get_the_ID(), $whadda_layout)[0] == "") {
         for ($i = 1; $i <= $numlayout; $i++) {
-          if ($i != 3) { // layout di default -> se non selezionato altro seleziono il 3
+          if ($i != 4) { // layout di default -> se non selezionato altro seleziono il 3
             ${"whadda_layout_val_$i"} = "";
           } else {
             ${"whadda_layout_val_$i"} = "checked";
