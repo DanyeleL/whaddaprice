@@ -280,10 +280,6 @@ else{
 	  '</div>'. 
 	  '<span class="price">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r3')[0].'</span>'. 
 	  '<ul class="features">';
-	 
-	 
-	  
-
 	
       for($w=4; $w<=$numRows[0]; $w++){
 
