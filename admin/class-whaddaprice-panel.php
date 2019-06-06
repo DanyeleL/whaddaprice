@@ -62,6 +62,8 @@ class Whaddaprice_panel{
     $numcol = $this->metakeycol;  //carico  prefisso colonna
     $numrow = $this->metakeyrow;  //carico prefisso riga
     $reg = $prefix . 'tab_js';
+    $evidenza = $prefix . 'colev';
+    
     
     /*controllo se il dato è presente nel database ed è settato, altrimenti valori default*/
     if(get_the_ID()!==null){
@@ -75,10 +77,16 @@ class Whaddaprice_panel{
     $row = 3;
     else
     $row = get_post_meta(get_the_ID(), $numrow)[0];
+    
+    if (!isset(get_post_meta(get_the_ID(), $evidenza)[0]) || get_post_meta(get_the_ID(), $evidenza)[0] == "" || get_post_meta(get_the_ID(), $evidenza)[0] < 1 )
+    $sel = 0;
+    else
+    $sel= get_post_meta(get_the_ID(), $evidenza)[0];
       
     }else {
       $col=1;
       $row=3;
+      $sel=0;
     }
 /* acquisisco i dati dal database e li carico in variabili da passare a tab_js */
     $cont = 1;
@@ -109,6 +117,7 @@ class Whaddaprice_panel{
         'righe' => $row,
         'value' => $meta,
         'url' => $metaurl,
+        'sel'=> $sel,
     );
    wp_localize_script($reg, 'wadda_var', $wadda_var);
        wp_enqueue_script($reg);
@@ -117,6 +126,8 @@ class Whaddaprice_panel{
     echo "<h3>inserire il # tra il prezzo e l'unita di misura</h3>";
     echo '<input type="button" value="aggiungi riga" name="rigapiu" id="rigapiu"/>';
     echo '<input type="button" value="aggiungi colonna" name="colpiu" id="colpiu"/>';
+    echo '<select id="'.$prefix.'sel"><option value="0">0</option></select>';
+    echo '<input type="text" name="' . $evidenza . '" id="' . $evidenza . '" value="' . $sel . '" hidden>';
     echo '<input type="text" name="' . $numrow . '" id="' . $numrow . '" value="' . $row . '" hidden>';
     echo '<input type="text" name="' . $numcol . '" id="' . $numcol . '" value="' . $col . '" hidden>';
     echo '</div>';
