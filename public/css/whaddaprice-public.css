@@ -100,7 +100,7 @@ ul{
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	transition: .3s ease;
-}
+}	
 
 .pricing-table-month , .pricing-table-year{
 	-webkit-backface-visibility: hidden;
@@ -110,7 +110,7 @@ ul{
 	height: 50%;
 	top: 0;
 	left: 0;
-	background: #fff;
+
 
 }
 
@@ -139,11 +139,7 @@ ul{
 	font-size: 58px;
 	font-weight: 400;
 	display: inline;
-<<<<<<< HEAD
-	padding: 10px 10px 10px 10px;
-=======
 	color: #173D50;
->>>>>>> b424573a68f98fd55cac9d4bd83eb71aced5cce3
 }
 
 .pricing-table-head h3 sup, .pricing-table-head h3 sub{
@@ -441,7 +437,7 @@ ul{
 		float: left;
 		margin-left: 0px;
 		margin-right: 2px;
-		margin-bottom: 70px;
+	
 	}
 	.deal {
 		padding: 10px 0 0 0;
@@ -473,7 +469,7 @@ ul{
 		text-align: center;
 		color: #ffffff;
 	}
- .tabla	li {
+    .tabla	li {
 		display: block;
 		margin: 10px 0 0 0;
 		border-bottom: 1px solid #bfbfbf;
@@ -485,6 +481,7 @@ ul{
 		color: #f9f9f9;
 		padding: 10px 37px;
 		margin: 10px 5px 20px 40px;
+		width: 65%;
 	}
 	
 	.buy:hover{
@@ -501,7 +498,7 @@ ul{
 		box-shadow: 0 0 4px 1px rgba(20, 20, 20, 0.8);
 	}
 	.grande button {
-		background: 	#FFA500;
+		background: #FFA500;
 	}
 	.grande .price {
 		color: 	#FFA500;
@@ -553,16 +550,17 @@ ul{
 
 	 
   #pricing-table {
-		margin: 100px auto;
+
+	    margin: 100px auto;
 		text-align: center;
 		width: 892px;
+		
 }
 
 #pricing-table .plan {
 		font: 12px 'Lucida Sans', 'trebuchet MS', Arial, Helvetica;
-		text-shadow: 0 1px rgba(255,255,255,.8);        
+		text-shadow: 0 1px rgba(255,255,255,.8);     
 		background: #fff;      
-		border: 1px solid #ddd;
 		color: #1E90FF;
 		padding: 20px;
 		width: 180px;    
@@ -586,7 +584,7 @@ ul{
 #pricing-table .plan:nth-child(1) {
 		-moz-border-radius: 5px 0 0 5px;
 		-webkit-border-radius: 5px 0 0 5px;
-		border-radius: 5px 0 0 5px;        
+	     
 }
 
 #pricing-table .plan:nth-child(4) {
@@ -653,7 +651,7 @@ ul{
 }
 
 #pricing-table li {
-		border-top: 1px solid #ddd;
+
 		padding: 10px 0;
 }
 
