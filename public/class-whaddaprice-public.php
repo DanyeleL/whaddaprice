@@ -147,8 +147,20 @@ if($layout==1){
      
 	 echo 
 	  
-      '<div class="pricing-table" >'.
-	  '<div class="pricing-table-cont" style="margin-top:'.get_post_meta($idp["id"], $prefix.'margin_top_c')[0].';border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';border-bottom-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; border-bottom-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';" >'.
+	  '<div class="pricing-table" style="margin-right:'.get_post_meta($idp["id"], $prefix.'margin_right_c')[0].';ù
+		margin-left:'.get_post_meta($idp["id"], $prefix.'margin_left_c')[0].';
+		margin-top:'.get_post_meta($idp["id"], $prefix.'margin_top_c')[0].';
+		margin-bottom:'.get_post_meta($idp["id"], $prefix.'margin_bottom_c')[0].';
+		padding-right:'.get_post_meta($idp["id"], $prefix.'padding_right_c')[0].';
+		padding-left:'.get_post_meta($idp["id"], $prefix.'padding_left_c')[0].';
+		padding-top:'.get_post_meta($idp["id"], $prefix.'padding_top_c')[0].';
+		padding-bottom:'.get_post_meta($idp["id"], $prefix.'padding_bottom_c')[0].'";>'.
+		
+	  '<div class="pricing-table-cont" style="border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; 
+	  border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+	  border-bottom-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+	  border-bottom-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; 
+	  background:'.get_post_meta($idp["id"], $prefix.'colsf')[0].'; border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">'.
       '<div class="pricing-table-month" >'.
       '<div class="pricing-table-head">';
 	 
@@ -160,11 +172,22 @@ if($layout==1){
 	
       for($w=4; $w<=$numRows[0]; $w++){
 
-       echo '<li class="riga_'.$w.'" ><span style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].'"> '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</span></li>';
-
+	   echo '<li class="riga_'.$w.'" style="margin-right:'.get_post_meta($idp["id"], $prefix.'margin_right_r')[0].';
+	   margin-left:'.get_post_meta($idp["id"], $prefix.'margin_left_r')[0].';
+	   margin-top:'.get_post_meta($idp["id"], $prefix.'margin_top_r')[0].';
+	   margin-bottom:'.get_post_meta($idp["id"], $prefix.'margin_bottom_r')[0].';
+	   padding-right:'.get_post_meta($idp["id"], $prefix.'padding_right_r')[0].';
+	   padding-left:'.get_post_meta($idp["id"], $prefix.'padding_left_r')[0].';
+	   padding-top:'.get_post_meta($idp["id"], $prefix.'padding_top_r')[0].';
+	   background:'.get_post_meta($idp["id"], $prefix.'sfondo_c1_r'.$w)[0].'; 
+	   border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'
+	   padding-bottom:'.get_post_meta($idp["id"], $prefix.'padding_bottom_r')[0].'" >
+	   <span style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].'"> 
+	   '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0].'</span></li>';
+       
 	  }echo
 	   '</ul>'.
-       '<a href="#" class="pricing-table-button" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</a>'.
+	   '<a href="#" class="pricing-table-button" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'; background:'.get_post_meta($idp["id"], $prefix.'sfondo_c1_r0')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</a>'.
 		'</div>'.
         '</div>'.
         '</div>'.
@@ -189,27 +212,61 @@ if($layout==2){
 
 	 for($i=1; $i<=$numColumnas[0]; $i++){
      
-		echo 		
+		echo 
+
 		'<div class="pricing-table2">'.
 		'<div class="pricing-table-cont2" >'.
 		'<div class="col">'. 
-		'<ul class="price-box">'.
-		'<li class="header" style="border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'">'. '<h2 style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0]. '</h2>'.'</li>'.
-		'<li class="emph" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</li>';
+		'<ul class="price-box" style="background:'.get_post_meta($idp["id"], $prefix.'colsf')[0].'">'.
+		'<li class="header" style="border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+		 background:'.get_post_meta($idp["id"], $prefix.'sfondo_c1_r1')[0].'">'. '<h2 style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0]. '</h2>'.'</li>'.
+		'<li class="emph" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].';
+		background:'.get_post_meta($idp["id"], $prefix.'sfondo_c1_r2')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</li>';
 	   
 		 for($w=4; $w<=$numRows[0]; $w++){
 		  if($w==$numRows[0]){
-		echo '<li class="riga_'.$w.'"style="border-bottom-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; border-bottom-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].'"><strong > '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</strong></li>';
+
+		echo
+
+	   '<li class="riga_'.$w.'" style="margin-right:'.get_post_meta($idp["id"], $prefix.'margin_right_r')[0].';
+		margin-left:'.get_post_meta($idp["id"], $prefix.'margin_left_r')[0].';
+		margin-top:'.get_post_meta($idp["id"], $prefix.'margin_top_r')[0].';
+		margin-bottom:'.get_post_meta($idp["id"], $prefix.'margin_bottom_r')[0].';
+		padding-right:'.get_post_meta($idp["id"], $prefix.'padding_right_r')[0].';
+		padding-left:'.get_post_meta($idp["id"], $prefix.'padding_left_r')[0].';
+		padding-top:'.get_post_meta($idp["id"], $prefix.'padding_top_r')[0].';
+		padding-bottom:'.get_post_meta($idp["id"], $prefix.'padding_bottom_r')[0].'; 
+		border-bottom-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; 
+		border-bottom-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; 
+		color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].';
+		background:'.get_post_meta($idp["id"], $prefix.'sfondo_c1_r'.$w)[0].'; 
+	    border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">
+		<strong > '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</strong></li>';
 
 			   
 		   }
 		else{
-			echo  '<li class="riga_'.$w.'"><strong style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].'"> '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</strong></li>';
+			echo 
+			
+			'<li class="riga_'.$w.'" style="margin-right:'.get_post_meta($idp["id"], $prefix.'margin_right_r')[0].';
+			margin-left:'.get_post_meta($idp["id"], $prefix.'margin_left_r')[0].';
+			margin-top:'.get_post_meta($idp["id"], $prefix.'margin_top_r')[0].';
+			margin-bottom:'.get_post_meta($idp["id"], $prefix.'margin_bottom_r')[0].';
+			padding-right:'.get_post_meta($idp["id"], $prefix.'padding_right_r')[0].';
+			padding-left:'.get_post_meta($idp["id"], $prefix.'padding_left_r')[0].';
+			padding-top:'.get_post_meta($idp["id"], $prefix.'padding_top_r')[0].';
+			padding-bottom:'.get_post_meta($idp["id"], $prefix.'padding_bottom_r')[0].';
+			background:'.get_post_meta($idp["id"], $prefix.'sfondo_c1_r'.$w)[0].'; 
+			border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">
+			<strong style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].'">
+			'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</strong></li>';
 		}
 
 		 }echo
 		  '</ul>'.
-		  '<a href="#" class="button" style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</a>'.
+		  '<a href="#" class="button" style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].';
+		  background:'.get_post_meta($idp["id"], $prefix.'sfondo_c1_r0')[0].'; 
+	      border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</a>'.
 		  '</div>'. 
 		  '</div>'. 
 		  '</div>';
@@ -231,22 +288,42 @@ if($layout==3){
 	  
 	   if($i==2){ 
 		echo 
-		'<div class="plan" id="most-popular" style="border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';border-bottom-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; border-bottom-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'">'.
+		'<div class="plan" id="most-popular" style="border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+		 border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+		 border-bottom-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+		 border-bottom-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+		 background:'.get_post_meta($idp["id"], $prefix.'colsf')[0].';
+		 border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">'.
 		'<div class="tape">'.
 		'<span style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r3')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r3')[0].'</span></div>'.
-		'<h3 style"color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0].'<span style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r2')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span></h3>'.
+		'<h3 style"color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].';
+		 border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+		 border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+		 background:'.get_post_meta($idp["id"], $prefix.'sfondo_c'.$i.'_r'.$w)[0].'">'
+		 .get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0].
+		'<span style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r2')[0].';">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span></h3>'.
 		'<a class="signup" href="" style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</a>'.
 		'<ul class="riga_1">';
 	   }else
 	   echo
-		'<div class="plan" style="border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';border-bottom-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; border-bottom-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'">'.
-		'<h3 style="border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0].'<span style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r2')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span></h3>'.
+		'<div class="plan" style="border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; 
+		border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+		border-bottom-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; 
+		border-bottom-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+		background:'.get_post_meta($idp["id"], $prefix.'colsf')[0].';
+	    border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">'.
+		'<h3 style="border-top-right-radius:'
+		.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+		 border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+		 color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].';
+		 background:'.get_post_meta($idp["id"], $prefix.'sfondo_c'.$i.'_r'.$w)[0].';">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0].
+		'<span style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r2')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span></h3>'.
 		'<a class="signup" href=""  style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</a>'.
 		'<ul class="riga_1" >';
   
 	  
 		for($w=4; $w<=$numRows[0]; $w++){
-		 echo '<li class="riga_'.$w.'"><b style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].'"> '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '<b></li>';
+		 echo '<li class="riga_'.$w.'"><b style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].'"> '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</b></li>';
 		  
 		}echo
 		 '</ul>'.
@@ -268,31 +345,44 @@ else{
     for($i=1; $i<=$numColumnas[0]; $i++){
 	  
 	 if($i==2){ 
-	  echo '<div class="tabla grande" style="border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';border-bottom-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; border-bottom-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'">'.
+	  echo '<div class="tabla grande" style="border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; 
+	  border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+	  border-bottom-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+	  border-bottom-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+	  background:'.get_post_meta($idp["id"], $prefix.'colsf')[0].';
+	  border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">'.
 	  '<div class="deal">'.
-      '<span style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0].'</span>'.
-	  '<span style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r2')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span>'. 
+      '<span style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0].'</span>'.
+	  '<span style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r3')[0].'</span>'. 
 	  '</div>'. 
-	  '<span class="price" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r3')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r3')[0].'</span>'. 
+	  '<span class="price" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r2')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span>'. 
 	  '<ul class="features">';
 	 }else
 
 	 echo
-	 '<div class="tabla" style="border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';border-bottom-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; border-bottom-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'">'.
+	 '<div class="tabla" style="border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+	  border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+	  border-bottom-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; 
+	  border-bottom-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+	  background:'.get_post_meta($idp["id"], $prefix.'colsf')[0].';
+	  border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">'.
       '<div class="deal">'.
       '<span style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0].'</span>'.
-	  '<span style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span>'. 
+	  '<span style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r3')[0].'</span>'. 
 	  '</div>'. 
-	  '<span class="price">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r3')[0].'</span>'. 
+	  '<span class="price" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r2')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span>'. 
 	  '<ul class="features">';
 	
       for($w=4; $w<=$numRows[0]; $w++){
 
-	   echo '<li class="riga_'.$w.'" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</li>';
+	   echo '<li class="riga_'.$w.'" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].';
+	   background:'.get_post_meta($idp["id"], $prefix.'sfondo_c1_r'.$w)[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</li>';
 	  
 	  } echo
 	   '</ul>'.  
-	   '<button class="buy" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</button>'.
+	   '<button class="buy" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].';
+	   background:'.get_post_meta($idp["id"], $prefix.'sfondo_c'.$i.'_r0')[0].'; 
+	   border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</button>'.
        '</div>';
         
     
