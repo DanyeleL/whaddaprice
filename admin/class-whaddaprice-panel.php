@@ -153,7 +153,7 @@ class Whaddaprice_panel{
   function set_custom_edit_whaddaprice_columns($columns) {
     $rim=$columns;
     foreach ($rim as $type => $val) {
-      if($type!='date' &&  $type!='title')
+      if($type!='date' &&  $type!='title' && $type != "cb")
         unset($columns[$type]);
     }
     $columns['Shortcode'] = __('Shortcode', 'your_text_domain');
