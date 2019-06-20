@@ -16,6 +16,8 @@
     var url = wadda_var['url']; // url passato da php
     var num = 1; // inizializzo prima colonna
     var value = "";
+    var min_rows= wadda_var['min_rows'];
+    //console.log(min_rows);
     $(numrow).val(righe); //carico input numrow con il numero di righe passate da php
     $(numcol).val(colonne); //carico input numcol con il numero di colonne passate da php
     num = tab(num); // creo la prima tabella
@@ -65,7 +67,7 @@
       else
         value = wadda_var['value'][num][i];
       // faccio le prime 3 righe non rimovibli-> l'id rigameno uguale per tutti i bottoni di rigameno
-      if (i < 4) {
+      if (i < min_rows*1+1) {
         $(idt).append(
                 '<tr>' +
                 '<td>' + '<span><button type="button" disabled>-</button></span>' +
@@ -86,7 +88,7 @@
     // funzione che aggiunge righe
     function rigapiu(num, i) {
       var idtab = '#tb_' + num;
-      if (i > 3) {  // verifico se aggiungo alle prime 3 o creo le prime 3
+      if (i > min_rows*1) {  // verifico se aggiungo alle prime 3 o creo le prime 3
         // faccio le prime 3 righe non rimovibli-> l'id rigameno ugulae per tutti i bottoni di rigameno
         $(idtab).append(
                 '<tr>' +
@@ -203,22 +205,22 @@
         console.log('uguale');
       }*/
       $(numcol).val(colonne);// aggiorno numero colonne
-      console.log(wadda_var['sel'],' ',numid);
+      //console.log(wadda_var['sel'],' ',numid);
       if(wadda_var['sel']<=(colonne+1) && wadda_var['sel']>numid){
         wadda_var['sel']=wadda_var['sel']-1;
-       console.log('dentro');
+      // console.log('dentro');
     }
       else if(wadda_var['sel']==numid){
             wadda_var['sel']=0;
-            console.log('zero');
+           // console.log('zero');
           }
       
       
         $("#whadda_sel").children().remove();
         for(i=0;i<=colonne;i++){
-          console.log(wadda_var['sel'],' i=',i)
+          //console.log(wadda_var['sel'],' i=',i)
           if(i==wadda_var['sel']){
-            console.log(wadda_var['sel'],' i1=',i);
+           // console.log(wadda_var['sel'],' i1=',i);
          $('#whadda_sel').append(
                 '<option value="'+i+'" selected>'+i+'</option>');
           }

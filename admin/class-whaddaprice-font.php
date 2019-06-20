@@ -42,7 +42,9 @@ class Whadda_font {
     $bold_b = $prefix . 'bold_b';
     $riga_stili = 1;
     $numrow = $this->metakeyrow;
-
+    
+    $request = wp_remote_get(get_site_url().'/wp-content/plugins/whaddaprice/admin/js/layout4.json');
+    $dec= json_decode($request['body']);
 
     if (get_the_ID() !== null) {
       if (!isset(get_post_meta(get_the_ID(), $numrow)[0]) || get_post_meta(get_the_ID(), $numrow)[0] == "" || get_post_meta(get_the_ID(), $numrow)[0] < 3)
@@ -51,42 +53,44 @@ class Whadda_font {
         $row = get_post_meta(get_the_ID(), $numrow)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $fonts)[0]) || get_post_meta(get_the_ID(), $fonts)[0] == "")
-        $nome_ttf = '';
+        $nome_ttf = $dec[0]->whadda_fonts;
       else
         $nome_ttf = get_post_meta(get_the_ID(), $fonts)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $name_font)[0]) || get_post_meta(get_the_ID(), $name_font)[0] == "")
-        $nome_font = 'Default';
+        $nome_font = $dec[0]->whadda_namefont;
       else
         $nome_font = get_post_meta(get_the_ID(), $name_font)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $vari_font)[0]) || get_post_meta(get_the_ID(), $vari_font)[0] == "")
-        $var_font = '';
+        $var_font = $dec[0]->whadda_varifont;
       else
         $var_font = get_post_meta(get_the_ID(), $vari_font)[0];
 
       for ($riga_stili = 1; $riga_stili <= $row; $riga_stili++) { // ciclo su chekbox obloquo per tutte le righe
         $val = $prefix . 'stile_o_r' . ($riga_stili);
         if (!isset(get_post_meta(get_the_ID(), $val)[0]) || get_post_meta(get_the_ID(), $val)[0] == "") {
-          $rigao[$riga_stili] = "";
+          $rigao[$riga_stili] = $dec[0]->$val;
         } else {
           $rigao[$riga_stili] = "checked";
         }
       }
-
-      for ($riga_stili = 1; $riga_stili <= $row; $riga_stili++) { // ciclo su chekbox corsivo per tutte le righe
+      echo '<span id="whadda_font_vd" data-id="'.$dec[0]->whadda_varifont.'"></span>';
+      echo '<span id="whadda_font_nd" data-id="'.$dec[0]->whadda_namefont.'"></span>';
+      echo '<span id="whadda_font_fd" data-id="'.$dec[0]->whadda_fonts.'"></span>';
+     /* for ($riga_stili = 1; $riga_stili <= $row; $riga_stili++) { // ciclo su chekbox corsivo per tutte le righe
         $val = $prefix . 'stile_c_r' . ($riga_stili);
         if (!isset(get_post_meta(get_the_ID(), $val)[0]) || get_post_meta(get_the_ID(), $val)[0] == "") {
-          $rigac[$riga_stili] = "";
+          $rigac[$riga_stili] = $dec[0]->$val;
         } else {
           $rigac[$riga_stili] = "checked";
         }
-      }
+      }*/
 
       for ($riga_stili = 1; $riga_stili <= $row; $riga_stili++) {// ciclo su chekbox bold  per tutte le righe
         $val = $prefix . 'bold_r' . ($riga_stili);
         if (!isset(get_post_meta(get_the_ID(), $val)[0]) || get_post_meta(get_the_ID(), $val)[0] == "") {
-          $bolder[$riga_stili] = "";
+          $bolder[$riga_stili] = $dec[0]->$val;
         } else {
           $bolder[$riga_stili] = "checked";
         }
@@ -94,24 +98,24 @@ class Whadda_font {
       
        $val = $prefix . 'bold_b';
         if (!isset(get_post_meta(get_the_ID(), $val)[0]) || get_post_meta(get_the_ID(), $val)[0] == "") {
-          $bold_b_ck = "";
+          $bold_b_ck = $dec[0]->$val;
         } else {
           $bold_b_ck = "checked";
         }
         
         $val = $prefix . 'stile_o_b';
         if (!isset(get_post_meta(get_the_ID(), $val)[0]) || get_post_meta(get_the_ID(), $val)[0] == "") {
-          $stile_o_b_ck = "";
+          $stile_o_b_ck = $dec[0]->$val;
         } else {
           $stile_o_b_ck = "checked";
         }
         
-        $val = $prefix . 'stile_c_b';
+      /*  $val = $prefix . 'stile_c_b';
         if (!isset(get_post_meta(get_the_ID(), $val)[0]) || get_post_meta(get_the_ID(), $val)[0] == "") {
-          $stile_c_b_ck = "";
+          $stile_c_b_ck = $dec[0]->$val;
         } else {
           $stile_c_b_ck = "checked";
-        }
+        }*/
     }
 
     echo '<hr>';
@@ -138,10 +142,11 @@ class Whadda_font {
       $option = $json_google['items'];
     }
     //popolo la select con quanto ricevuto da google
+    $font=$nome_font;
     $scelta = array();
     echo '<div id="tabfont" ><div class="divfont"><p>'.esc_html__('Family','whaddaprice').'</p>';
     echo '<select name="font" id="font" size="5" class="select_vari">';
-    if ($font == "")
+    if (!isset($font) || $font == "")
       echo '<option value="Default" selected >'.esc_html__('Default','whaddaprice').'</option>';
     else
       echo '<option value="Default">'.esc_html__('Default','whaddaprice').'</option>';
@@ -163,7 +168,7 @@ class Whadda_font {
     wp_register_script($reg_font, plugin_dir_url(__FILE__) . 'js/fonts_js.js');
     $whadda_fonts = array(
         'rigao' => $rigao, //riga obliqua
-        'rigac' => $rigac, //riga corsivo
+        //'rigac' => $rigac, //riga corsivo
         'bold' => $bolder, //riga con bold
         'option' => $option, // tutto il contenuto del json
         'varifont' => $var_font, //il variants del font che stiamo usando 
@@ -180,13 +185,13 @@ class Whadda_font {
     . '<tr>' 
     .'<th></th> '
     .'<th>'.esc_html__('Obliquo','whaddaprice').'</th>' 
-    .'<th>'.esc_html__('Corsivo','whaddaprice').'</th>' 
+   // .'<th>'.esc_html__('Corsivo','whaddaprice').'</th>' 
     .'<th>'.esc_html__('Bold','whaddaprice').'</th>' 
     .'</tr>' 
     . '<tr>' 
     .'<td id="nome_"><span id="stile_o_num">'.esc_html__('button','whaddaprice').'</span></td> ' 
     .'<td><input type="checkbox" name="'.$stile_o_b.'" id="'.$stile_o_b.'" value="oblique" '.$stile_o_b_ck.'></td>' 
-    .'<td><input type="checkbox" name="'.$stile_c_b.'" id="'.$stile_c_b.'" value="2" '.$stile_c_b_ck.'></td>'
+   // .'<td><input type="checkbox" name="'.$stile_c_b.'" id="'.$stile_c_b.'" value="2" '.$stile_c_b_ck.'></td>'
     .'<td><input type="checkbox" name="'.$bold_b.'" id="'.$bold_b.'" value="bold" '.$bold_b_ck.'></td>' 
     .'</tr>' 
     .'<div class="clear"></div>'
@@ -196,6 +201,9 @@ class Whadda_font {
     echo '<input type=text name="' . $name_font . '" id="' . $name_font . '" value="' . $nome_font . '" hidden>';
     echo '<input type=text name="' . $vari_font . '" id="' . $vari_font . '" value="' . $var_font . '" hidden>';
     echo '</div>';
+    echo '<span id="whadda_set_o" data-id="'.$dec[0]->whadda_set_o.'" hidden></span>';
+   // echo '<span id="whadda_set_c" data-id="'.$dec[0]->whadda_set_c.'" hidden></span>';
+    echo '<span id="whadda_set_b" data-id="'.$dec[0]->whadda_set_b.'" hidden></span>';
   }
 
 }

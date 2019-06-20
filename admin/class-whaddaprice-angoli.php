@@ -30,16 +30,19 @@ class Whadda_angle {
     $prefix = $this->metakeypre;
     $borer_radius = $prefix . 'border_radius';
     $border_on = $prefix . 'border_on';
-
+    
+    $request = wp_remote_get(get_site_url().'/wp-content/plugins/whaddaprice/admin/js/layout4.json');
+    $dec= json_decode($request['body']);
+    
     if (get_the_ID() !== null) {
 
       if (!isset(get_post_meta(get_the_ID(), $borer_radius)[0]) || get_post_meta(get_the_ID(), $borer_radius)[0] == "")
-        $radius = 0;
+        $radius = $dec[0]->whadda_border_radius;
       else
         $radius = get_post_meta(get_the_ID(), $borer_radius)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $border_on)[0]) || get_post_meta(get_the_ID(), $border_on)[0] == 0)
-        $border_val = "";
+        $border_val = $dec[0]->whadda_border_on;
       else
         $border_val = "checked";
     }
