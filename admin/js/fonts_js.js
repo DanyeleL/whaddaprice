@@ -208,7 +208,11 @@
                   '<tr>' +
                   '<td id="nome_' + indice + '"><span id="stile_o_num' + indice + '">riga ' + indice + '</span></td> ' +
                   '<td><input type="checkbox" name="' + stile_o + indice + '" id="' + stile_o + indice + '" value="oblique" ' + rigao + '></td>' +
+<<<<<<< HEAD
+                  '<td><input type="checkbox" name="' + stile_c + indice + '" id="' + stile_c + indice + '" value="' + 2 + '" ' + rigac + '></td>' +
+=======
                   //'<td><input type="checkbox" name="' + stile_c + indice + '" id="' + stile_c + indice + '" value="' + 2 + '" ' + rigac + '></td>' +
+>>>>>>> ef02abf598c7041bc6e165a28a396a7f25529ed0
                   '<td><input type="checkbox" name="' + bold + indice + '" id="' + bold + indice + '" value="bold" ' + boldchek + '></td>' +
                   '</tr>' +
                   '<div style="clear:both;"></div>'
