@@ -156,13 +156,13 @@ if($layout==1){
 		padding-top:'.get_post_meta($idp["id"], $prefix.'padding_top_c')[0].';
 		padding-bottom:'.get_post_meta($idp["id"], $prefix.'padding_bottom_c')[0].'";>'.
 		
-	  '<div class="pricing-table-cont" style="border:'.get_post_meta($idp["id"], prefix.'border_on').';
+	  '<div class="pricing-table-cont" style="border:'.get_post_meta($idp["id"], $prefix.'border_on')[0].';
 	  border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; 
 	  border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
 	  border-bottom-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
 	  border-bottom-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; 
 	  background:'.get_post_meta($idp["id"], $prefix.'colsf')[0].';
-	  border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">'.
+	  border-color:'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">'.
 	  
 	  '<div class="pricing-table-month" >'.
       '<div class="pricing-table-head">';
@@ -193,7 +193,7 @@ if($layout==1){
 	  }echo
 	   '</ul>'.
 	   '<a href="#" class="pricing-table-button" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'; background:'.get_post_meta($idp["id"], $prefix.'sfondo_c'.$i.'_r0')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</a>'.
-	   '</div>'.
+	   '</div>'.	
        '</div>'.
        '</div>'.
 	   '</div>';
@@ -220,9 +220,11 @@ if($layout==2){
 		echo 
 
 		'<div class="pricing-table2">'.
-		'<div class="pricing-table-cont2" >'.
+		'<div class="pricing-table-cont2">'.
 		'<div class="col">'. 
-		'<ul class="price-box" style="background:'.get_post_meta($idp["id"], $prefix.'colsf')[0].'">'.
+		'<ul class="price-box" style="border:'.get_post_meta($idp["id"], $prefix.'border_on')[0].';
+		 border-color:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].';
+		 background:'.get_post_meta($idp["id"], $prefix.'colsf')[0].'">'.
 		'<li class="header" style="border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
 		 background:'.get_post_meta($idp["id"], $prefix.'sfondo_c1_r1')[0].'">'. '<h2 style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0]. '</h2>'.'</li>'.
 		'<li class="emph" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].';
@@ -291,18 +293,19 @@ if($layout==3){
 	ob_start();
 	
 	  echo 
-	  '<div id="pricing-table" class="clear" >' ;
+	  '<div id="pricing-table" class="clear">' ;
   
 	  for($i=1; $i<=$numColumnas[0]; $i++){
 	  
 	   if($i==2){ 
 		echo 
-		'<div class="plan" id="most-popular" style="border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+		'<div class="plan" id="most-popular" style="border:'.get_post_meta($idp["id"], $prefix.'border_on')[0].';
+		border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
 		 border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
 		 border-bottom-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
 		 border-bottom-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
 		 background:'.get_post_meta($idp["id"], $prefix.'colsf')[0].';
-		 border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">'.
+		 border-color:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">'.
 		'<div class="tape">'.
 		'<span style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r3')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r3')[0].'</span></div>'.
 		'<h3 style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].';
@@ -356,12 +359,13 @@ else{
     for($i=1; $i<=$numColumnas[0]; $i++){
 	  
 	 if($i==2){ 
-	  echo '<div class="tabla grande" style="border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; 
+	  echo '<div class="tabla grande" style="border:'.get_post_meta($idp["id"], $prefix.'border_on')[0].'; 	
+	  border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; 
 	  border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
 	  border-bottom-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
 	  border-bottom-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
 	  background:'.get_post_meta($idp["id"], $prefix.'colsf')[0].';
-	  border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">'.
+	  border-color:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">'.
 	  '<div class="deal">'.
       '<span style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0].'</span>'.
 	  '<span style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r3')[0].'</span>'. 

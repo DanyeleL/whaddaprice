@@ -31,9 +31,9 @@ class Whadda_save {
 
     if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE)
       return get_the_ID();
-    $slug = "whaddaprice";
+    $slug = "whadda";
 
-    if ($slug != 'whaddaprice')
+    if ($slug != 'whadda')
       return get_the_ID();
 
     $post_id = get_the_ID();
