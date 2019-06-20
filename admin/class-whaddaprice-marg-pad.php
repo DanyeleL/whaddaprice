@@ -46,86 +46,89 @@ class Whadda_marg_pad {
     $padding_right_r = $prefix . 'padding_right_r';
     $padding_bottom_r = $prefix . 'padding_bottom_r';
     $padding_left_r = $prefix . 'padding_left_r';
+    
+    $request = wp_remote_get(get_site_url().'/wp-content/plugins/whaddaprice/admin/js/layout4.json');
+    $dec= json_decode($request['body']);
 
     if (get_the_ID() !== null) {
 
       if (!isset(get_post_meta(get_the_ID(), $margin_top_c)[0]) || get_post_meta(get_the_ID(), $margin_top_c)[0] == "")
-        $mtop_c = 0;
+        $mtop_c = $dec[0]->$margin_top_c;
       else
         $mtop_c = get_post_meta(get_the_ID(), $margin_top_c)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $margin_right_c)[0]) || get_post_meta(get_the_ID(), $margin_right_c)[0] == 0)
-        $mright_c = 0;
+        $mright_c = $dec[0]->$margin_right_c;
       else
         $mright_c = get_post_meta(get_the_ID(), $margin_right_c)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $margin_bottom_c)[0]) || get_post_meta(get_the_ID(), $margin_bottom_c)[0] == "")
-        $mbottom_c = 0;
+        $mbottom_c = $dec[0]->$margin_bottom_c;
       else
         $mbottom_c = get_post_meta(get_the_ID(), $margin_bottom_c)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $margin_left_c)[0]) || get_post_meta(get_the_ID(), $margin_left_c)[0] == 0)
-        $mleft_c = 0;
+        $mleft_c = $dec[0]->$margin_left_c;
       else
         $mleft_c = get_post_meta(get_the_ID(), $margin_left_c)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $padding_top_c)[0]) || get_post_meta(get_the_ID(), $padding_top_c)[0] == "")
-        $ptop_c = 0;
+        $ptop_c = $dec[0]->$padding_top_c;
       else
         $ptop_c = get_post_meta(get_the_ID(), $padding_top_c)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $padding_right_c)[0]) || get_post_meta(get_the_ID(), $padding_right_c)[0] == 0)
-        $pright_c = 0;
+        $pright_c = $dec[0]->$padding_right_c;
       else
         $pright_c = get_post_meta(get_the_ID(), $padding_right_c)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $padding_bottom_c)[0]) || get_post_meta(get_the_ID(), $padding_bottom_c)[0] == "")
-        $pbottom_c = 0;
+        $pbottom_c = $dec[0]->$padding_bottom_c;
       else
         $pbottom_c = get_post_meta(get_the_ID(), $padding_bottom_c)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $padding_left_c)[0]) || get_post_meta(get_the_ID(), $padding_left_c)[0] == 0)
-        $pleft_c = 0;
+        $pleft_c = $dec[0]->$padding_left_c;
       else
         $pleft_c = get_post_meta(get_the_ID(), $padding_left_c)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $margin_top_r)[0]) || get_post_meta(get_the_ID(), $margin_top_r)[0] == "")
-        $mtop_r = 0;
+        $mtop_r = $dec[0]->$margin_top_r;
       else
         $mtop_r = get_post_meta(get_the_ID(), $margin_top_r)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $margin_right_r)[0]) || get_post_meta(get_the_ID(), $margin_right_r)[0] == 0)
-        $mright_r = 0;
+        $mright_r = $dec[0]->$margin_right_r;
       else
         $mright_r = get_post_meta(get_the_ID(), $margin_right_r)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $margin_bottom_r)[0]) || get_post_meta(get_the_ID(), $margin_bottom_r)[0] == "")
-        $mbottom_r = 0;
+        $mbottom_r = $dec[0]->$margin_bottom_r;
       else
         $mbottom_r = get_post_meta(get_the_ID(), $margin_bottom_r)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $margin_left_r)[0]) || get_post_meta(get_the_ID(), $margin_left_r)[0] == 0)
-        $mleft_r = 0;
+        $mleft_r = $dec[0]->$margin_left_r;
       else
         $mleft_r = get_post_meta(get_the_ID(), $margin_left_r)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $padding_top_r)[0]) || get_post_meta(get_the_ID(), $padding_top_r)[0] == "")
-        $ptop_r = 0;
+        $ptop_r = $dec[0]->$padding_top_r;
       else
         $ptop_r = get_post_meta(get_the_ID(), $padding_top_r)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $padding_right_r)[0]) || get_post_meta(get_the_ID(), $padding_right_r)[0] == 0)
-        $pright_r = 0;
+        $pright_r = $dec[0]->$padding_right_r;
       else
         $pright_r = get_post_meta(get_the_ID(), $padding_right_r)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $padding_bottom_r)[0]) || get_post_meta(get_the_ID(), $padding_bottom_r)[0] == "")
-        $pbottom_r = 0;
+        $pbottom_r = $dec[0]->$padding_bottom_r;
       else
         $pbottom_r = get_post_meta(get_the_ID(), $padding_bottom_r)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $padding_left_r)[0]) || get_post_meta(get_the_ID(), $padding_left_r)[0] == 0)
-        $pleft_r = 0;
+        $pleft_r = $dec[0]->$padding_left_r;
       else
         $pleft_r = get_post_meta(get_the_ID(), $padding_left_r)[0];
     }

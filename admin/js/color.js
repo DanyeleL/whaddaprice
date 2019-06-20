@@ -106,6 +106,8 @@
       var rigao;
       var rigac;
       var boldchek;
+      var coldefs=$('#whadda_sets').attr('data-id'); 
+      var coldeft=$('#whadda_setc').attr('data-id');
       var sfondo = prefix + 'sfondo';
       var char = prefix + 'char';
       var tabcol = prefix + 'col_';
@@ -122,21 +124,27 @@
       //console.log('ini= ', inizio, ' nrig= ', nrighe);
       /*carico valori presenti nel database o imposto default*/
       for (var indice = inizio; indice <= (nrighe) * 1; indice++) {
-        //console.log(indice);
-        if (whadda_color['color_s'][colsel] == undefined)
-          var whadda_col_s = '#ffffff';
-        else if (whadda_color['color_s'][colsel][indice] == undefined)
-          whadda_col_s = '#ffffff';
-        else
-          whadda_col_s = whadda_color['color_s'][colsel][indice];
-
-        if (whadda_color['color_c'][colsel] == undefined)
-          var whadda_col_c = '#000000';
-        else if (whadda_color['color_c'][colsel][indice] == undefined)
-          var whadda_col_c = '#000000';
-        else
-          whadda_col_c = whadda_color['color_c'][colsel][indice];
+        var id='#whadda_sfondo_c1_r'+indice;
+        //console.log($(id).val(),' ',indice);/////////////// VERIFICARE ERRORE ///////////////
+        if (whadda_color['color_s'][colsel]==undefined){
+                    if ($('#whadda_sfondo_c1_r'+indice).val() == undefined){
+                    var whadda_col_s = coldefs;
+                  }else whadda_col_s = $('#whadda_sfondo_c1_r'+indice).val();
+        }else if (whadda_color['color_s'][colsel][indice] == undefined){
+                                        whadda_col_s = coldefs;
+                                      }
+        else whadda_col_s=whadda_color['color_s'][colsel][indice];
+      
+       if (whadda_color['color_c'][colsel]==undefined){
+                    if ($('#whadda_sfondo_c1_r'+indice).val() == undefined){
+                    var whadda_col_c = coldeft;
+                  }else whadda_col_c = $('#whadda_char_c1_r'+indice).val();
+        }else if (whadda_color['color_c'][colsel][indice] == undefined){
+                                        whadda_col_c = coldeft;
+                                      }
+        else whadda_col_c=whadda_color['color_c'][colsel][indice];
         /*primo giro di ogni colonna creo intestazione tabella e bottone*/
+       // console.log(whadda_col_c,' ',coldeft)
         if (indice == 0) {
           $(tab_col).prepend(
                   '<table ><tbody id="' + tabcol + colsel + '" class="whaddacenter">' +

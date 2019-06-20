@@ -26,15 +26,19 @@ class Whadda_save {
 
   function save_whaddaprice_meta_box($font) {
 
-    if (!current_user_can("edit_post", get_the_ID()))
-      return get_the_ID();
+    if (!isset($_POST['callback_whaddaprice'])) {
+     
+      return;
+    }
+    // Verifico che il nonce sia valido.
+    if (!wp_verify_nonce($_POST['callback_whaddaprice'], 'whaddaprice_custom_post_type')) {
+      return;
+    }
 
-    if (defined("DOING_AUTOSAVE") && DOING_AUTOSAVE)
-      return get_the_ID();
-    $slug = "whaddaprice";
-
-    if ($slug != 'whaddaprice')
-      return get_the_ID();
+    // Se è un autosalvataggio o non è stato premuto un submit non deve proseguire
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+      return;
+    }
 
     $post_id = get_the_ID();
     $prefix = $this->metakeypre;
@@ -68,7 +72,7 @@ class Whadda_save {
     $padding_left_r = $prefix . 'padding_left_r';
     $whadda_layout = $prefix . 'layout';
     $stile_o_b = $prefix . 'stile_o_b';
-    $stile_c_b = $prefix . 'stile_c_b';
+    //$stile_c_b = $prefix . 'stile_c_b';
     $bold_b = $prefix . 'bold_b';
     $sfondo = $prefix . 'sfondo';
     $char = $prefix . 'char';
@@ -105,11 +109,11 @@ class Whadda_save {
     $meta_box_padding_left_r_value = 0;
     $meta_box_layout_value = "";
     $meta_box_stile_o_r_value = "";
-    $meta_box_stile_c_r_value = "";
+    //$meta_box_stile_c_r_value = "";
     $meta_box_bold_r_value = "";
     $meta_box_colev_value = "";
     $meta_box_stile_o_b_value = "";
-    $meta_box_stile_c_b_value = "";
+   // $meta_box_stile_c_b_value = "";
     $meta_box_bold_b_value = "";
     $meta_box_sfondo_value = "";
     $meta_box_char_value = "";
@@ -121,11 +125,11 @@ class Whadda_save {
           $meta_box_stile_o_b_value = "";
         update_post_meta($post_id, $stile_o_b, $meta_box_stile_o_b_value);
         
-    if (isset($_POST[$stile_c_b])) {
+    /*if (isset($_POST[$stile_c_b])) {
           $meta_box_stile_c_b_value = $_POST[$stile_c_b];
         } else
           $meta_box_stile_c_b_value = "";
-        update_post_meta($post_id, $stile_c_b, $meta_box_stile_c_b_value);
+        update_post_meta($post_id, $stile_c_b, $meta_box_stile_c_b_value);*/
         
     if (isset($_POST[$bold_b])) {
           $meta_box_bold_b_value = $_POST[$bold_b];
@@ -309,14 +313,14 @@ class Whadda_save {
         update_post_meta($post_id, $val, $meta_box_stile_o_r_value);
       }
 
-      for ($riga_stile = 1; $riga_stile <= $meta_box_numrow_value; $riga_stile++) {
+    /*  for ($riga_stile = 1; $riga_stile <= $meta_box_numrow_value; $riga_stile++) {
         $val = $prefix . 'stile_c_r' . ($riga_stile);
         if (isset($_POST[$val])) {
           $meta_box_stile_c_r_value = $_POST[$val];
         } else
           $meta_box_stile_c_r_value = "";
         update_post_meta($post_id, $val, $meta_box_stile_c_r_value);
-      }
+      }*/
 
       for ($riga_stile = 1; $riga_stile <= $meta_box_numrow_value; $riga_stile++) {
         $val = $prefix . 'bold_r' . ($riga_stile);

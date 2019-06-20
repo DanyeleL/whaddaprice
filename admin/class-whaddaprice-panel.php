@@ -57,36 +57,39 @@ class Whaddaprice_panel{
   }
 /*-------creo contenuto sezione tabella (metabox)----------*/
   public function callback_whaddaprice() {
-    
+     wp_nonce_field('whaddaprice_custom_post_type', 'callback_whaddaprice');
     $prefix = $this->metakeypre;  //carico il prefisso generale
     $numcol = $this->metakeycol;  //carico  prefisso colonna
     $numrow = $this->metakeyrow;  //carico prefisso riga
     $reg = $prefix . 'tab_js';
     $evidenza = $prefix . 'colev';
     
-    
+    //echo get_site_url();
+    $request = wp_remote_get(get_site_url().'/wp-content/plugins/whaddaprice/admin/js/layout4.json');
+    $dec= json_decode($request['body']);
+
     /*controllo se il dato è presente nel database ed è settato, altrimenti valori default*/
     if(get_the_ID()!==null){
       
     if (!isset(get_post_meta(get_the_ID(), $numcol)[0]) || get_post_meta(get_the_ID(), $numcol)[0] == "" || get_post_meta(get_the_ID(), $numcol)[0] < 1 )
     $col = 1;
     else
-      $col = get_post_meta(get_the_ID(), $numcol)[0];
+    $col = get_post_meta(get_the_ID(), $numcol)[0];
 
     if (!isset(get_post_meta(get_the_ID(), $numrow)[0]) || get_post_meta(get_the_ID(), $numrow)[0] == "" || get_post_meta(get_the_ID(), $numrow)[0] < 3)
-    $row = 3;
+    $row = $dec[0]->whadda_nrows;
     else
     $row = get_post_meta(get_the_ID(), $numrow)[0];
     
     if (!isset(get_post_meta(get_the_ID(), $evidenza)[0]) || get_post_meta(get_the_ID(), $evidenza)[0] == "" || get_post_meta(get_the_ID(), $evidenza)[0] < 1 )
-    $sel = 0;
+    $sel = $dec[0]->whadda_colev;
     else
     $sel= get_post_meta(get_the_ID(), $evidenza)[0];
       
     }else {
       $col=1;
-      $row=3;
-      $sel=0;
+      $row=$dec[0]->whadda_nrows;
+      $sel=$dec[0]->whadda_colev;
     }
 /* acquisisco i dati dal database e li carico in variabili da passare a tab_js */
     $cont = 1;
@@ -118,6 +121,7 @@ class Whaddaprice_panel{
         'value' => $meta,
         'url' => $metaurl,
         'sel'=> $sel,
+        'min_rows'=> $dec[0]->whadda_nrows
     );
    wp_localize_script($reg, 'wadda_var', $wadda_var);
        wp_enqueue_script($reg);
@@ -147,7 +151,11 @@ class Whaddaprice_panel{
   }
   /* Aggiungo colonna in cpt per visualizzare lo shortcode */
   function set_custom_edit_whaddaprice_columns($columns) {
-    //unset( $columns['date'] );
+    $rim=$columns;
+    foreach ($rim as $type => $val) {
+      if($type!='date' &&  $type!='title')
+        unset($columns[$type]);
+    }
     $columns['Shortcode'] = __('Shortcode', 'your_text_domain');
     foreach ($columns as $type => $val) {
       if ($type == 'date') {

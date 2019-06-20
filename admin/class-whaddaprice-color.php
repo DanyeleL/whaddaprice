@@ -33,27 +33,29 @@ class Whadda_color {
     $colts = $prefix . 'colts';
     $colbr = $prefix . 'colbr';
 
+    $request = wp_remote_get(get_site_url().'/wp-content/plugins/whaddaprice/admin/js/layout4.json');
+    $dec= json_decode($request['body']);
     ////////////// colori generali di default ////////////////////////
     if (get_the_ID() !== null) {
 
       if (!isset(get_post_meta(get_the_ID(), $colsf)[0]) || get_post_meta(get_the_ID(), $colsf)[0] == "")
-        $coloresf = '#000000';
+        $coloresf =$dec[0]->$colsf;
       else
         $coloresf = get_post_meta(get_the_ID(), $colsf)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $colbr)[0]) || get_post_meta(get_the_ID(), $colbr)[0] == "")
-        $colorebr = '#000000';
+        $colorebr = $dec[0]->$colbr;
       else
         $colorebr = get_post_meta(get_the_ID(), $colbr)[0];
 
       if (!isset(get_post_meta(get_the_ID(), $colts)[0]) || get_post_meta(get_the_ID(), $colts)[0] == "")
-        $colorets = '#000000';
+        $colorets =$dec[0]->$colts;
       else
         $colorets = get_post_meta(get_the_ID(), $colts)[0];
     } else {
-      $coloresf = '#000000';
-      $colorebr = '#000000';
-      $colorets = '#000000';
+      $coloresf =$dec[0]->$colsf;
+      $colorebr =$dec[0]->$colbr;
+      $colorets =$dec[0]->$colts;
     }
 
     echo '<hr>';
@@ -75,23 +77,25 @@ class Whadda_color {
     else
     $col = get_post_meta(get_the_ID(), $numcol)[0];
      if (!isset(get_post_meta(get_the_ID(), $numrow)[0]) || get_post_meta(get_the_ID(), $numrow)[0] == "" || get_post_meta(get_the_ID(), $numcol)[0] < 1 )
-    $row = 3;
+    $row = $dec[0]->whadda_nrows;
     else
     $row = get_post_meta(get_the_ID(), $numrow)[0];
-    for($i=0;$i<=$col;$i++){
+    for($i=1;$i<=$col;$i++){
               for($r=0;$r<=$row;$r++){
-      if (!isset(get_post_meta(get_the_ID(), $sfondo.'_c'.$i.'_r'.$r)[0]) || get_post_meta(get_the_ID(), $sfondo.'_c'.$i.'_r'.$r)[0] == "")
-    $colore_s[$i][$r] = '#ffffff';
-    else
-    $colore_s[$i][$r] = get_post_meta(get_the_ID(), $sfondo.'_c'.$i.'_r'.$r)[0];
+      if (!isset(get_post_meta(get_the_ID(), $sfondo.'_c'.$i.'_r'.$r)[0]) || get_post_meta(get_the_ID(), $sfondo.'_c'.$i.'_r'.$r)[0] == ""){
+      $colo=$sfondo.'_c'.$i.'_r'.$r;
+      $colore_s[$i][$r] = $dec[0]->$colo;
+      }else      
+        $colore_s[$i][$r] = get_post_meta(get_the_ID(), $sfondo.'_c'.$i.'_r'.$r)[0];
                                       }
                            }
     
-    for($i=0;$i<=$col;$i++){
+    for($i=1;$i<=$col;$i++){
               for($r=0;$r<=$row;$r++){
-      if (!isset(get_post_meta(get_the_ID(), $char.'_c'.$i.'_r'.$r)[0]) || get_post_meta(get_the_ID(), $char.'_c'.$i.'_r'.$r)[0] == "")
-    $colore_c[$i][$r] = '#000000';
-    else
+      if (!isset(get_post_meta(get_the_ID(), $char.'_c'.$i.'_r'.$r)[0]) || get_post_meta(get_the_ID(), $char.'_c'.$i.'_r'.$r)[0] == ""){
+       $colo=$char.'_c'.$i.'_r'.$r;
+       $colore_c[$i][$r] = $dec[0]->$colo;
+      }else
     $colore_c[$i][$r] = get_post_meta(get_the_ID(), $char.'_c'.$i.'_r'.$r)[0];
                                       }
                            }
@@ -109,6 +113,8 @@ class Whadda_color {
    
    echo '<div id="coloritab"></div>';
    echo '<div class="clear"></div>';
-    }
+   echo '<span id="whadda_sets" data-id="'.$dec[0]->whadda_sfondo_c_r.'" hidden></span>';
+   echo '<span id="whadda_setc" data-id="'.$dec[0]->whadda_char_c_r.'" hidden></span>';
 
+}
 }
