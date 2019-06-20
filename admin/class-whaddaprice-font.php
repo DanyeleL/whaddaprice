@@ -185,9 +185,9 @@ class Whadda_font {
     .'</tr>' 
     . '<tr>' 
     .'<td id="nome_"><span id="stile_o_num">'.esc_html__('button','whaddaprice').'</span></td> ' 
-    .'<td><input type="checkbox" name="'.$stile_o_b.'" id="'.$stile_o_b.'" value="1" '.$stile_o_b_ck.'></td>' 
+    .'<td><input type="checkbox" name="'.$stile_o_b.'" id="'.$stile_o_b.'" value="oblique" '.$stile_o_b_ck.'></td>' 
     .'<td><input type="checkbox" name="'.$stile_c_b.'" id="'.$stile_c_b.'" value="2" '.$stile_c_b_ck.'></td>'
-    .'<td><input type="checkbox" name="'.$bold_b.'" id="'.$bold_b.'" value="3" '.$bold_b_ck.'></td>' 
+    .'<td><input type="checkbox" name="'.$bold_b.'" id="'.$bold_b.'" value="bold" '.$bold_b_ck.'></td>' 
     .'</tr>' 
     .'<div class="clear"></div>'
     . '</tbody></table>';

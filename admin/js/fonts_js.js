@@ -169,9 +169,9 @@
           $('#whadda_tboby').append(
                   '<tr>' +
                   '<td id="nome_' + indice + '"><span id="stile_o_num' + indice + '">riga ' + indice + '</span></td> ' +
-                  '<td><input type="checkbox" name="' + stile_o + indice + '" id="' + stile_o + indice + '" value="' + 1 + '" ' + rigao + '></td>' +
+                  '<td><input type="checkbox" name="' + stile_o + indice + '" id="' + stile_o + indice + '" value="oblique" ' + rigao + '></td>' +
                   '<td><input type="checkbox" name="' + stile_c + indice + '" id="' + stile_c + indice + '" value="' + 2 + '" ' + rigac + '></td>' +
-                  '<td><input type="checkbox" name="' + bold + indice + '" id="' + bold + indice + '" value="' + 3 + '" ' + boldchek + '></td>' +
+                  '<td><input type="checkbox" name="' + bold + indice + '" id="' + bold + indice + '" value="bold" ' + boldchek + '></td>' +
                   '</tr>' +
                   '<div style="clear:both;"></div>'
                   );

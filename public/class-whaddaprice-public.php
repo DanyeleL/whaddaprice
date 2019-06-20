@@ -156,17 +156,20 @@ if($layout==1){
 		padding-top:'.get_post_meta($idp["id"], $prefix.'padding_top_c')[0].';
 		padding-bottom:'.get_post_meta($idp["id"], $prefix.'padding_bottom_c')[0].'";>'.
 		
-	  '<div class="pricing-table-cont" style="border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; 
+	  '<div class="pricing-table-cont" style="border:'.get_post_meta($idp["id"], prefix.'border_on').';
+	  border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; 
 	  border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
 	  border-bottom-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
 	  border-bottom-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; 
-	  background:'.get_post_meta($idp["id"], $prefix.'colsf')[0].'; border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">'.
-      '<div class="pricing-table-month" >'.
+	  background:'.get_post_meta($idp["id"], $prefix.'colsf')[0].';
+	  border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">'.
+	  
+	  '<div class="pricing-table-month" >'.
       '<div class="pricing-table-head">';
 	 
 	  echo
 	  '<h2  style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0]. '</h2>'.
-	  '<h3  style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r2')[0].'">'.'<sup>$ </sup>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'<sub>/MES</sub>'.'</h3>' .
+	  '<h3  style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r2')[0].'">'.'<sup></sup>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'<sub>/MES</sub>'.'</h3>' .
 	  '<ul class="pricing-table-list riga_1" >';
 
 	
@@ -181,17 +184,19 @@ if($layout==1){
 	   padding-top:'.get_post_meta($idp["id"], $prefix.'padding_top_r')[0].';
 	   background:'.get_post_meta($idp["id"], $prefix.'sfondo_c1_r'.$w)[0].'; 
 	   border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].';
-	   padding-bottom:'.get_post_meta($idp["id"], $prefix.'padding_bottom_r')[0].'" >
+	   padding-bottom:'.get_post_meta($idp["id"], $prefix.'padding_bottom_r')[0].';
+	   font-style:'.get_post_meta($idp["id"], $prefix.'stile_o_r'.$w)[0].';
+	   font-weight:'.get_post_meta($idp["id"], $prefix.'bold_r'.$w)[0].'">
 	   <span style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].'"> 
 	   '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0].'</span></li>';
        
 	  }echo
 	   '</ul>'.
 	   '<a href="#" class="pricing-table-button" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'; background:'.get_post_meta($idp["id"], $prefix.'sfondo_c'.$i.'_r0')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</a>'.
-		'</div>'.
-        '</div>'.
-        '</div>'.
-		'</div>';
+	   '</div>'.
+       '</div>'.
+       '</div>'.
+	   '</div>';
     
 		}
 		echo 
@@ -241,7 +246,9 @@ if($layout==2){
 		border-bottom-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; 
 		color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].';
 		background:'.get_post_meta($idp["id"], $prefix.'sfondo_c1_r'.$w)[0].'; 
-	    border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">
+		border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].';
+		font-style:'.get_post_meta($idp["id"], $prefix.'stile_o_r'.$w)[0].';
+	    font-weight:'.get_post_meta($idp["id"], $prefix.'bold_r'.$w)[0].'">
 		<strong > '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</strong></li>';
 
 			   
@@ -260,7 +267,9 @@ if($layout==2){
 			padding-bottom:'.get_post_meta($idp["id"], $prefix.'padding_bottom_r')[0].';	 
 			background:'.get_post_meta($idp["id"], $prefix.'sfondo_c1_r'.$w)[0].'; 
 			border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">
-			<strong style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].'">
+			<strong style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].';
+			font-style:'.get_post_meta($idp["id"], $prefix.'stile_o_r'.$w)[0].';
+	        font-weight:'.get_post_meta($idp["id"], $prefix.'bold_r'.$w)[0].'">
 			'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0].'</strong></li>';
 		}
 
@@ -272,12 +281,10 @@ if($layout==2){
 		  '</div>'. 
 		  '</div>'. 
 		  '</div>';
-
 	   
 		   }
 		   echo '</div>'. '</div>';
 	   return ob_get_clean();
-	 
 	
 }
 if($layout==3){
@@ -305,8 +312,7 @@ if($layout==3){
 		 .get_post_meta($idp["id"], $prefix.'c2_r1')[0].
 		'<span style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r2')[0].';">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span></h3>'.
 		'<a class="signup" href="" style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</a>'.
-		'<ul class="riga_1">';
-	   
+		'<ul class="riga_1">';   
 	   
 	   }else
 	   echo
@@ -327,11 +333,13 @@ if($layout==3){
   
 	  
 		for($w=4; $w<=$numRows[0]; $w++){
-		 echo '<li class="riga_'.$w.'"><b style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].'"> '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</b></li>';
+		 echo '<li class="riga_'.$w.'"><b style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].';
+		 font-style:'.get_post_meta($idp["id"], $prefix.'stile_o_r'.$w)[0].';
+         font-weight:'.get_post_meta($idp["id"], $prefix.'bold_r'.$w)[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</b></li>';
 		  
 		}echo
 		 '</ul>'.
-		  '</div>';
+		 '</div>';
 		 
 	  
 		  }
@@ -345,7 +353,6 @@ else{
 	echo 
 	'<div class="prom">' ;
     
-
     for($i=1; $i<=$numColumnas[0]; $i++){
 	  
 	 if($i==2){ 
@@ -380,7 +387,9 @@ else{
       for($w=4; $w<=$numRows[0]; $w++){
 
 	   echo '<li class="riga_'.$w.'" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].';
-	   background:'.get_post_meta($idp["id"], $prefix.'sfondo_c1_r'.$w)[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</li>';
+	   background:'.get_post_meta($idp["id"], $prefix.'sfondo_c1_r'.$w)[0].';
+	   font-style:'.get_post_meta($idp["id"], $prefix.'stile_o_r'.$w)[0].';
+	   font-weight:'.get_post_meta($idp["id"], $prefix.'bold_r'.$w)[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</li>';
 	  
 	  } echo
 	   '</ul>'.  
