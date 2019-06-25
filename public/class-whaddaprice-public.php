@@ -293,14 +293,14 @@ if($layout==3){
 	ob_start();
 	
 	  echo 
-	  '<div id="pricing-table" class="clear">' ;
+	  '<div id="pricing-table" class="clear f'. $idp['id'].'">' ;
   
 	  for($i=1; $i<=$numColumnas[0]; $i++){
 	  
 	   if($i==2){ 
 		echo 
 		'<div class="plan" id="most-popular" style="border:'.get_post_meta($idp["id"], $prefix.'border_on')[0].';
-		border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
+		 border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
 		 border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
 		 border-bottom-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
 		 border-bottom-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
@@ -331,7 +331,7 @@ if($layout==3){
 		border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
 		 background:'.get_post_meta($idp["id"], $prefix.'sfondo_c'.$i.'_r1')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0].
 		'<span style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r2')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span></h3>'.
-		'<a class="signup" href=""  style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</a>'.
+		'<a class="signup f'. $idp['id'].'" href=""  style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</a>'.
 		'<ul class="riga_1" >';
   
 	  
@@ -409,6 +409,29 @@ else{
   }
 }
 
+
+class Whadda_css{
+
+	function __construct()
+		{
+         add_action('wp_enqueue_scripts', array($this, 'whadda_styles_method'));
+		}
+
+		function whadda_styles_method($id)
+		{
+			wp_register_style('whadda_custom_css', false);
+			wp_equeue_style('whadda_custom_css',
+			plugin_dir_url(__FILE__). 'css/whaddaprice-public.css');
+		$font =get_post_meta($id, 'whadda_fonts', true);
+		$custom_css ="@font-face{
+			font-family: f{$id};
+			src:url({$font});
+		}".	
+		".f{$id}{font-family:f{$id};}";
+
+		wp_add_inline_style('whadda-custom-css', $custom_css);
+		}
+}
 
 	/*ob_start();
 	
@@ -674,3 +697,6 @@ $idP= get_post()->ID;
 }
  
 add_action("save_post", "save_custom_meta_box", 10, 2);*/
+
+
+
