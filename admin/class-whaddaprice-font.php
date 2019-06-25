@@ -69,9 +69,11 @@ class Whadda_font {
 
       for ($riga_stili = 1; $riga_stili <= $row; $riga_stili++) { // ciclo su chekbox obloquo per tutte le righe
         $val = $prefix . 'stile_o_r' . ($riga_stili);
-        if (!isset(get_post_meta(get_the_ID(), $val)[0]) || get_post_meta(get_the_ID(), $val)[0] == "") {
+        if (!isset(get_post_meta(get_the_ID(), $val)[0]) && $riga_stili<=$dec[0]->whadda_nrows) {
           $rigao[$riga_stili] = $dec[0]->$val;
-        } else {
+        } else if(!isset(get_post_meta(get_the_ID(), $val)[0]) || get_post_meta(get_the_ID(), $val)[0] == "")
+          $rigao[$riga_stili] = "";
+          else {
           $rigao[$riga_stili] = "checked";
         }
       }
@@ -89,24 +91,31 @@ class Whadda_font {
 
       for ($riga_stili = 1; $riga_stili <= $row; $riga_stili++) {// ciclo su chekbox bold  per tutte le righe
         $val = $prefix . 'bold_r' . ($riga_stili);
-        if (!isset(get_post_meta(get_the_ID(), $val)[0]) || get_post_meta(get_the_ID(), $val)[0] == "") {
+        if (!isset(get_post_meta(get_the_ID(), $val)[0]) && $riga_stili<=$dec[0]->whadda_nrows) {
           $bolder[$riga_stili] = $dec[0]->$val;
-        } else {
+        } else if(!isset(get_post_meta(get_the_ID(), $val)[0]) || get_post_meta(get_the_ID(), $val)[0] == "")
+          $bolder[$riga_stili] = "";
+        else {
           $bolder[$riga_stili] = "checked";
         }
       }
       
        $val = $prefix . 'bold_b';
-        if (!isset(get_post_meta(get_the_ID(), $val)[0]) || get_post_meta(get_the_ID(), $val)[0] == "") {
+        if (!isset(get_post_meta(get_the_ID(), $val)[0])) {
           $bold_b_ck = $dec[0]->$val;
-        } else {
+        }
+        elseif(get_post_meta(get_the_ID(), $val)[0] == "")
+          $bold_b_ck="";      
+         else {
           $bold_b_ck = "checked";
         }
         
         $val = $prefix . 'stile_o_b';
-        if (!isset(get_post_meta(get_the_ID(), $val)[0]) || get_post_meta(get_the_ID(), $val)[0] == "") {
+        if (!isset(get_post_meta(get_the_ID(), $val)[0])) {
           $stile_o_b_ck = $dec[0]->$val;
-        } else {
+        }elseif(get_post_meta(get_the_ID(), $val)[0] == "")
+            $stile_o_b_ck="";    
+        else {
           $stile_o_b_ck = "checked";
         }
         
