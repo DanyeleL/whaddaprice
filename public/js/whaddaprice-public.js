@@ -40,7 +40,6 @@
 			}
 	
 		});
-	
-	
+	$('#whadda-custom-css-inline-css').insertAfter('#whaddaprice-css');
 	});
 })( jQuery );

@@ -107,6 +107,8 @@ class Whaddaprice_Public {
 /* ------------------------------------------------------------------------- */
 function jb_shortcode_de_contenido($idp) {
 	
+	$test = new Whadda_css();
+	$test->whadda_styles_method($idp['id']);
 
     $numColumnas=get_post_meta($idp["id"], WhaddaMetaKeys::NUMBER_OF_COLUMNS);
     $numRows=get_post_meta($idp["id"], WhaddaMetaKeys::NUMBER_OF_ROWS);
@@ -168,7 +170,7 @@ if($layout==1){
       '<div class="pricing-table-head">';
 	 
 	  echo
-	  '<h2  style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0]. '</h2>'.
+	  '<h2  style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].';">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0]. '</h2>'.
 	  '<h3  style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r2')[0].'">'.'<sup></sup>'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'<sub>/MES</sub>'.'</h3>' .
 	  '<ul class="pricing-table-list riga_1" >';
 
@@ -226,7 +228,7 @@ if($layout==2){
 		 border-color:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].';
 		 background:'.get_post_meta($idp["id"], $prefix.'colsf')[0].'">'.
 		'<li class="header" style="border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
-		 background:'.get_post_meta($idp["id"], $prefix.'sfondo_c1_r1')[0].'">'.'<h2 style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0]. '</h2>'.'</li>'.
+		 background:'.get_post_meta($idp["id"], $prefix.'sfondo_c'.$i.'_r1')[0].'">'.'<h2 style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0]. '</h2>'.'</li>'.
 		'<li class="emph" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r1')[0].';
 		 background:'.get_post_meta($idp["id"], $prefix.'sfondo_c'.$i.'_r2')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</li>';
 	   
@@ -419,8 +421,8 @@ class Whadda_css{
 
 		function whadda_styles_method($id)
 		{
-			wp_register_style('whadda_custom_css', false);
-			wp_equeue_style('whadda_custom_css',
+			wp_register_style('whadda-custom-css', false);
+			wp_enqueue_style('whadda-custom-css',
 			plugin_dir_url(__FILE__). 'css/whaddaprice-public.css');
 		$font =get_post_meta($id, 'whadda_fonts', true);
 		$custom_css ="@font-face{
