@@ -120,20 +120,6 @@ class Whadda_save {
     $meta_box_char_value = "";
     $meta_box_on_value = "";
     
-    
-    if (isset($_POST[$on])) {
-          $meta_box_on_value = $_POST[$on];
-        } 
-    else if( !isset(get_post_meta(get_the_ID(), 'whadda_on')[0]) || get_post_meta(get_the_ID(), 'whadda_on')[0]!='ok')
-          $meta_box_on_value = "";
-    else {
-       $meta_box_on_value = "ok";
-       if (isset($_POST[$whadda_layout])) {
-      $meta_box_layout_value = $_POST[$whadda_layout];
-    }
-    update_post_meta($post_id, $whadda_layout, $meta_box_layout_value);
-    }
-    update_post_meta($post_id, $on, $meta_box_on_value);
         
     if(get_post_meta(get_the_ID(), 'whadda_on',true)!=null && get_post_meta(get_the_ID(), 'whadda_on',true)=='ok'){
     if (isset($_POST[$stile_o_b])) {
@@ -371,6 +357,24 @@ class Whadda_save {
       }
 
     }
+
+    if (isset($_POST[$on])) {
+      $meta_box_on_value = $_POST[$on];
+      if (isset($_POST[$whadda_layout])) {
+        $meta_box_layout_value = $_POST[$whadda_layout];
+      }
+      update_post_meta($post_id, $whadda_layout, $meta_box_layout_value);
+    } 
+else if( !isset(get_post_meta(get_the_ID(), 'whadda_on')[0]) || get_post_meta(get_the_ID(), 'whadda_on')[0]!='ok')
+      $meta_box_on_value = "";
+else {
+   $meta_box_on_value = "ok";
+   if (isset($_POST[$whadda_layout])) {
+  $meta_box_layout_value = $_POST[$whadda_layout];
+}
+update_post_meta($post_id, $whadda_layout, $meta_box_layout_value);
+}
+update_post_meta($post_id, $on, $meta_box_on_value);
     
   }
 

@@ -47,7 +47,11 @@ class Whadda_marg_pad {
     $padding_bottom_r = $prefix . 'padding_bottom_r';
     $padding_left_r = $prefix . 'padding_left_r';
     
-    $request = wp_remote_get(get_site_url().'/wp-content/plugins/whaddaprice/admin/js/layout4.json');
+    if (get_post_meta(get_the_ID(), 'whadda_layout',true)==null || get_post_meta(get_the_ID(), 'whadda_layout')[0] == "")
+    $layout = 4;
+    else
+    $layout = get_post_meta(get_the_ID(), 'whadda_layout')[0];
+    $request = wp_remote_get(get_site_url().'/wp-content/plugins/whaddaprice/admin/js/layout'.$layout.'.json');
     $dec= json_decode($request['body']);
 
     if (get_the_ID() !== null) {

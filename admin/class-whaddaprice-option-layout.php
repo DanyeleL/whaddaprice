@@ -65,7 +65,7 @@ class Whadda_option {
 
     if (get_the_ID() !== null) {
 
-      if (!isset(get_post_meta(get_the_ID(), $whadda_layout)[0]) || get_post_meta(get_the_ID(), $whadda_layout)[0] == "") {
+      if (get_post_meta(get_the_ID(), 'whadda_layout',true)==null || get_post_meta(get_the_ID(), $whadda_layout)[0] == "") {
         for ($i = 1; $i <= $numlayout; $i++) {
           if ($i != 4) { // layout di default -> se non selezionato altro seleziono il 3
             ${"whadda_layout_val_$i"} = "";
@@ -92,13 +92,15 @@ class Whadda_option {
    }
     for ($i = 1; $i <= $numlayout; $i++)
        echo '<label class="labelbordi" style="float:left;"><img src="' . $layout[$i] . '"><input class="inputbordi" type="radio" name="' . $whadda_layout . '" id="' . ${"whadda_layout_$i"} . '" value="' . $i . '" ' . ${"whadda_layout_val_$i"} . '></label>';
-  
-    echo '<div id="whadda_allert" style="float:left; text-align:justify; border:1px solid gray; width:40%;" hidden>';
+    
+    if(get_post_meta(get_the_ID(), 'whadda_on',true)!=null  && get_post_meta(get_the_ID(), 'whadda_on')[0]=="ok"){
+    echo '<div id="whadda_allert" style="float:left; text-align:justify; border:1px solid gray; width:40%;" hidden>'; 
     echo '<p style="color:red;">'.__('ATTENZIONE !! CAMBIARE LAYOUT PUÒ COMPORTARE LA PERDITA DI DATI E/O IMPOSTAZIONI','whaddaprice').'</p>';
     echo '<div style="width:100%; height:auto; display: grid;">';
     echo '<button type="button" id="whadda_dinieg" value="Annulla" autofocus>Annulla (Azione Consigliata)</button>'; 
     echo '<button type="button" id="whadda_confirm" value="Conferma">Conferma</button>'; 
     echo '</div></div>'; 
+    }
     echo '<div class="clear"></div>';
       }
     
