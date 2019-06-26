@@ -58,7 +58,7 @@ class Whadda_color {
       $colorets =$dec[0]->$colts;
     }
 
-    echo '<hr>';
+    //echo '<hr>';
     echo '<h3>'.esc_html__('Colori','whaddaprice').'</h3>';
     echo '<label for="colsf" class="inpcol">'.esc_html__('colore sfondo','whaddaprice').'<input type="color"  name="' . $colsf . '" id="' . $colsf . '" value="' . $coloresf . '"/></label>';
     echo '<label for="colsf" class="inpcol">'.esc_html__('colore testo','whaddaprice').'<input type="color"  name="' . $colts . '" id="' . $colts . '" value="' . $colorets . '"/></label>';

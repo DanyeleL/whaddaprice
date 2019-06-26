@@ -38,11 +38,13 @@ class Whadda_option {
 
   public function callback_whaddaprice_opz() {
 
-    $this->layout(); // chiama la funzione per la scelta layout
+   // $this->layout(); // chiama la funzione per la scelta layout
+    if(get_post_meta(get_the_ID(), 'whadda_on',true)=='ok'){
     $whadda_color = new Whadda_color(); // chiama la classe per scelta colori
     $font = new Whadda_font(); // chiama classe per scelta font
     $angoli = new whadda_angle(); // chiama la classe scelta angoli
     $mar_pad = new whadda_marg_pad(); //chiama la classe scelta margin e padding
+    }
   }
 
   /* funzione per la scelta del layuot */
@@ -82,10 +84,22 @@ class Whadda_option {
         }
       }
     }
-
-    echo '<h3>' . esc_html__('Layout', 'whaddaprice') . '</h3>';
+    
+    echo '<h3>' . esc_html__('Layout', 'whaddaprice') .'</h3>';
+    if(!isset(get_post_meta(get_the_ID(), 'whadda_on')[0]) || get_post_meta(get_the_ID(), 'whadda_on')[0]==""){
+    echo '<label style="color:red;">'.esc_html__('Seleziona un layout prima di iniziare e premi su ok','whaddaprice');
+    echo '<input type="submit" name="whadda_on" id="whadda_on" value="ok"></label><br/>';
+   }
     for ($i = 1; $i <= $numlayout; $i++)
-      echo '<label class="labelbordi"><img src="' . $layout[$i] . '"><input class="inputbordi" type="radio" name="' . $whadda_layout . '" id="' . ${"whadda_layout_$i"} . '" value="' . $i . '" ' . ${"whadda_layout_val_$i"} . '></label>';
-  }
-
+       echo '<label class="labelbordi" style="float:left;"><img src="' . $layout[$i] . '"><input class="inputbordi" type="radio" name="' . $whadda_layout . '" id="' . ${"whadda_layout_$i"} . '" value="' . $i . '" ' . ${"whadda_layout_val_$i"} . '></label>';
+  
+    echo '<div id="whadda_allert" style="float:left; text-align:justify; border:1px solid gray; width:40%;" hidden>';
+    echo '<p style="color:red;">'.__('ATTENZIONE !! CAMBIARE LAYOUT PUÒ COMPORTARE LA PERDITA DI DATI E/O IMPOSTAZIONI','whaddaprice').'</p>';
+    echo '<div style="width:100%; height:auto; display: grid;">';
+    echo '<button type="button" id="whadda_dinieg" value="Annulla" autofocus>Annulla (Azione Consigliata)</button>'; 
+    echo '<button type="button" id="whadda_confirm" value="Conferma">Conferma</button>'; 
+    echo '</div></div>'; 
+    echo '<div class="clear"></div>';
+      }
+    
 }

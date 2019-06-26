@@ -1,5 +1,6 @@
 [
-  {
+  {	
+    "whadda_nrows": "7",
     "whadda_layout": "2",
     "whadda_colev": "0",
     "whadda_colsf": "#ffffff",
@@ -9,11 +10,17 @@
     "whadda_sfondo_c1_r1": "#ffffff",
     "whadda_sfondo_c1_r2": "#ffffff",
     "whadda_sfondo_c1_r3": "#ffffff",
+    "whadda_sfondo_c1_r4": "#ffffff",
+    "whadda_sfondo_c1_r5": "#4f6f7f",
+    "whadda_sfondo_c1_r6": "#ffffff",
     "whadda_sfondo_c_r": "#ffffff",
     "whadda_char_c1_r0": "#000000",
     "whadda_char_c1_r1": "#000000",
     "whadda_char_c1_r2": "#000000",
     "whadda_char_c1_r3": "#545454",
+    "whadda_char_c1_r4": "#000000",
+    "whadda_char_c1_r5": "#000000",
+    "whadda_char_c1_r6": "#545454",
     "whadda_char_c_r": "#000000",
     "whadda_fonts": "http://fonts.gstatic.com/s/abel/v9/MwQ5bhbm2POE6VhLPJp6qGI.ttf",
     "whadda_namefont": "Abel",
@@ -50,7 +57,7 @@
     "whadda_padding_top_r": "0",
     "whadda_padding_right_r": "0",
     "whadda_padding_bottom_r": "0",
-    "whadda_padding_left_r": "0",
-    "whadda_nrows": "4"
+    "whadda_padding_left_r": "0"
+    
   }
 ]

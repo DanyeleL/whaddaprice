@@ -44,6 +44,7 @@ class Whadda_save {
     $prefix = $this->metakeypre;
     $numcol = $this->metakeycol;
     $numrow = $this->metakeyrow;
+    $on='whadda_on';
     $short = $prefix . 'short';
     $colsf = $prefix . 'colsf';
     $colts = $prefix . 'colts';
@@ -117,8 +118,24 @@ class Whadda_save {
     $meta_box_bold_b_value = "";
     $meta_box_sfondo_value = "";
     $meta_box_char_value = "";
+    $meta_box_on_value = "";
     
     
+    if (isset($_POST[$on])) {
+          $meta_box_on_value = $_POST[$on];
+        } 
+    else if( !isset(get_post_meta(get_the_ID(), 'whadda_on')[0]) || get_post_meta(get_the_ID(), 'whadda_on')[0]!='ok')
+          $meta_box_on_value = "";
+    else {
+       $meta_box_on_value = "ok";
+       if (isset($_POST[$whadda_layout])) {
+      $meta_box_layout_value = $_POST[$whadda_layout];
+    }
+    update_post_meta($post_id, $whadda_layout, $meta_box_layout_value);
+    }
+    update_post_meta($post_id, $on, $meta_box_on_value);
+        
+    if(get_post_meta(get_the_ID(), 'whadda_on',true)!=null && get_post_meta(get_the_ID(), 'whadda_on',true)=='ok'){
     if (isset($_POST[$stile_o_b])) {
           $meta_box_stile_o_b_value = $_POST[$stile_o_b];
         } else
@@ -297,11 +314,6 @@ class Whadda_save {
     }
     update_post_meta($post_id, $padding_left_r, $meta_box_padding_left_r_value);
 
-    if (isset($_POST[$whadda_layout])) {
-      $meta_box_layout_value = $_POST[$whadda_layout];
-    }
-    update_post_meta($post_id, $whadda_layout, $meta_box_layout_value);
-
     if ($meta_box_numrow_value != "") {
 
       for ($riga_stile = 1; $riga_stile <= $meta_box_numrow_value; $riga_stile++) {
@@ -355,6 +367,7 @@ class Whadda_save {
           $meta_box_char_value = "#000000";
         update_post_meta($post_id, $val, $meta_box_char_value);
           } 
+      }
       }
 
     }

@@ -135,10 +135,10 @@ class Whaddaprice {
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-whaddaprice-marg-pad.php';
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-whaddaprice-save.php';
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-whaddaprice-setting.php';
-
                             
 
-		$this->loader = new Whaddaprice_Loader();
+    
+    $this->loader = new Whaddaprice_Loader();
     $panel=new Whaddaprice_panel();
     $option=new Whadda_option();
     $setting=new Whadda_setting();

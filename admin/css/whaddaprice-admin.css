@@ -96,6 +96,15 @@
   text-align: center;
   float:left;
 }
+
+#whadda_dinieg:hover{
+  border: 1px solid red;
+}
+
+#whadda_confirm:hover{
+  border: 1px solid red;
+}
+
 @media screen and (max-width:468px){
   
   .mprighempcol{
