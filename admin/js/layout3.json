@@ -1,10 +1,6 @@
 [
   {
-<<<<<<< HEAD
     "whadda_nrows": "6",
-=======
-    "whadda_nrows": "3",
->>>>>>> 9a2c18b53480d64899075df82a76537ff6d0005f
     "whadda_layout": "3",
     "whadda_colev": "2",
     "whadda_colsf": "#ffffff",
@@ -23,14 +19,10 @@
     "whadda_char_c1_r1": "#ffffff",
     "whadda_char_c1_r2": "#000000",
     "whadda_char_c1_r3": "#ffffff",
-<<<<<<< HEAD
     "whadda_char_c1_r4": "#6495ED",
     "whadda_char_c1_r5": "#6495ED",
     "whadda_char_c1_r6": "#6495ED",
     "whadda_char_c_r": "#6495ED",
-=======
-    "whadda_char_c_r": "#000000",
->>>>>>> 9a2c18b53480d64899075df82a76537ff6d0005f
     "whadda_fonts": "http://fonts.gstatic.com/s/abel/v9/MwQ5bhbm2POE6VhLPJp6qGI.ttf",
     "whadda_namefont": "Abel",
     "whadda_varifont": "regular",
