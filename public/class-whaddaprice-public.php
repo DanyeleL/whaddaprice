@@ -149,7 +149,7 @@ if($layout==1){
      
 	 echo 
 	  
-	  '<div class="pricing-table" style="margin-right:'.get_post_meta($idp["id"], $prefix.'margin_right_c')[0].';ù
+	  '<div class="pricing-table f'. $idp['id'].'" style="margin-right:'.get_post_meta($idp["id"], $prefix.'margin_right_c')[0].';ù
 		margin-left:'.get_post_meta($idp["id"], $prefix.'margin_left_c')[0].';
 		margin-top:'.get_post_meta($idp["id"], $prefix.'margin_top_c')[0].';
 		margin-bottom:'.get_post_meta($idp["id"], $prefix.'margin_bottom_c')[0].';
@@ -222,7 +222,7 @@ if($layout==2){
 		echo 
 
 		'<div class="pricing-table2">'.
-		'<div class="pricing-table-cont2">'.
+		'<div class="pricing-table-cont2 f'. $idp['id'].'">'.
 		'<div class="col">'. 
 		'<ul class="price-box" style="border:'.get_post_meta($idp["id"], $prefix.'border_on')[0].';
 		 border-color:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].';
@@ -356,7 +356,7 @@ else{
 	ob_start();
   
 	echo 
-	'<div class="prom">' ;
+	'<div class="prom f'. $idp['id'].'">' ;
     
     for($i=1; $i<=$numColumnas[0]; $i++){
 	  
