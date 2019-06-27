@@ -8,15 +8,15 @@
     var lv='';
     var ver=0;
     $(document).ready(function(){
-      $('.labelbordi').on('mouseover','.inputbordi',function(){
+      $('.labelbordi').on('mouseover',function(){
         if(ver==0){
          lv=$('.inputbordi[checked]').val()*1; 
          ver=1;
         }
       });
-     $('.labelbordi').on('mouseup','.inputbordi',function(){
+     $('.labelbordi').on('mouseup',function(){
        ver=0;
-       layout=$(this).val()*1; 
+       layout=$(this).attr('data-id')*1; 
        $('#whadda_allert').removeAttr('hidden');
       
     var data="";
