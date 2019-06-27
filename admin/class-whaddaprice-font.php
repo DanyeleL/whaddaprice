@@ -43,7 +43,11 @@ class Whadda_font {
     $riga_stili = 1;
     $numrow = $this->metakeyrow;
     
-    $request = wp_remote_get(get_site_url().'/wp-content/plugins/whaddaprice/admin/js/layout4.json');
+    if (get_post_meta(get_the_ID(), 'whadda_layout',true)==null || get_post_meta(get_the_ID(), 'whadda_layout')[0] == "")
+    $layout = 4;
+    else
+    $layout = get_post_meta(get_the_ID(), 'whadda_layout')[0];
+    $request = wp_remote_get(get_site_url().'/wp-content/plugins/whaddaprice/admin/js/layout'.$layout.'.json');
     $dec= json_decode($request['body']);
 
     if (get_the_ID() !== null) {
@@ -112,7 +116,7 @@ class Whadda_font {
         
         $val = $prefix . 'stile_o_b';
         if (!isset(get_post_meta(get_the_ID(), $val)[0])) {
-          $stile_o_b_ck = $dec[0]->$val;
+          $stile_o_b_ck =$dec[0]->$val;
         }elseif(get_post_meta(get_the_ID(), $val)[0] == "")
             $stile_o_b_ck="";    
         else {

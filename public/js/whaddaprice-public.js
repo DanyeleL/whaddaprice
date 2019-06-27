@@ -40,6 +40,10 @@
 			}
 	
 		});
+<<<<<<< HEAD
 	$('#whadda-custom-css-inline-css').insertAfter('#whaddaprice-css');
+=======
+   $('#whadda-custom-css-inline-css').insertAfter('#whaddaprice-css');
+>>>>>>> baf0ba7b1125c291e02acced163ff4b85f2af55e
 	});
 })( jQuery );

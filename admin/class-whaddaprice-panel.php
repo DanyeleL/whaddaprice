@@ -58,6 +58,9 @@ class Whaddaprice_panel{
 /*-------creo contenuto sezione tabella (metabox)----------*/
   public function callback_whaddaprice() {
      wp_nonce_field('whaddaprice_custom_post_type', 'callback_whaddaprice');
+    $layout= new Whadda_option();
+    $layout->layout();
+  if((get_post_meta(get_the_ID(), 'whadda_on',true) == "ok" )){ 
     $prefix = $this->metakeypre;  //carico il prefisso generale
     $numcol = $this->metakeycol;  //carico  prefisso colonna
     $numrow = $this->metakeyrow;  //carico prefisso riga
@@ -65,7 +68,11 @@ class Whaddaprice_panel{
     $evidenza = $prefix . 'colev';
     
     //echo get_site_url();
-    $request = wp_remote_get(get_site_url().'/wp-content/plugins/whaddaprice/admin/js/layout4.json');
+    if (get_post_meta(get_the_ID(), 'whadda_layout',true)==null || get_post_meta(get_the_ID(), 'whadda_layout')[0] == "")
+    $layout = 4;
+    else
+    $layout = get_post_meta(get_the_ID(), 'whadda_layout')[0];
+    $request = wp_remote_get(get_site_url().'/wp-content/plugins/whaddaprice/admin/js/layout'.$layout.'.json');
     $dec= json_decode($request['body']);
 
     /*controllo se il dato è presente nel database ed è settato, altrimenti valori default*/
@@ -127,7 +134,9 @@ class Whaddaprice_panel{
        wp_enqueue_script($reg);
     /* preparo la parte di html non dinamica */ 
     echo '<div>';
-    echo "<h3>inserire il # tra il prezzo e l'unita di misura</h3>";
+    echo '<hr>';
+    echo '<h3>'. esc_html__('Tabelle','whaddaprice').'</h3>';
+    echo '<h2>'.esc_html__('inserire il # tra il prezzo e le unita di misura','whaddaprice').'</h2>';
     echo '<input type="button" value="aggiungi riga" name="rigapiu" id="rigapiu"/>';
     echo '<input type="button" value="aggiungi colonna" name="colpiu" id="colpiu"/>';
     echo '<select id="'.$prefix.'sel"><option value="0">0</option></select>';
@@ -136,6 +145,7 @@ class Whaddaprice_panel{
     echo '<input type="text" name="' . $numcol . '" id="' . $numcol . '" value="' . $col . '" hidden>';
     echo '</div>';
     echo '<div id="tabella" class="divtabella"></div>';
+  }
   }
 /* creo il box laterale dove visualizzare lo shortcode e richiamo la funzione shortbox_metabox_callback() nella
     classe Shortcode presente in WhaddaMetaKeys.php */

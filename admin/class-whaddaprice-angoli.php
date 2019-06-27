@@ -31,7 +31,11 @@ class Whadda_angle {
     $borer_radius = $prefix . 'border_radius';
     $border_on = $prefix . 'border_on';
     
-    $request = wp_remote_get(get_site_url().'/wp-content/plugins/whaddaprice/admin/js/layout4.json');
+    if (get_post_meta(get_the_ID(), 'whadda_layout',true)==null || get_post_meta(get_the_ID(), 'whadda_layout')[0] == "")
+    $layout = 4;
+    else
+    $layout = get_post_meta(get_the_ID(), 'whadda_layout')[0];
+    $request = wp_remote_get(get_site_url().'/wp-content/plugins/whaddaprice/admin/js/layout'.$layout.'.json');
     $dec= json_decode($request['body']);
     
     if (get_the_ID() !== null) {

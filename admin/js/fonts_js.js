@@ -76,6 +76,7 @@
         $('#whadda_namefont').val(whadda_fonts['option'][num_nomefont]['family']);
         $('#whadda_varifont').val(vari);
       }
+      $('#whadda_fonts').trigger('change');
     });
 
     function genera() { /*popolo le tabelle con i valori in base alle selezioni*/
@@ -115,6 +116,8 @@
         }
       }
     }
+    
+    
 /*--------------tabelle checkbox -------------------*/
     var prefix = 'whadda_';
     var numrow = '#' + prefix + 'nrows';
@@ -216,6 +219,14 @@
         }
       }
     }
+   /* $('#whadda_fonts').change(function(){
+      $('style').remove('@font-face');
+      $('style').remove('whadda_font');
+      $('style').append('@font-face{ font-family:whadda_font;'+
+                                     'src: url('+$('#whadda_fonts').val()+');'+
+                                     '}',);
+      $('style').append('.whadda_font{ font-family:whadda_font;}',);
+    });*/
   });
 
 })(jQuery);

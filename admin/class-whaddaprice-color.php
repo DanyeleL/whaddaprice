@@ -33,7 +33,11 @@ class Whadda_color {
     $colts = $prefix . 'colts';
     $colbr = $prefix . 'colbr';
 
-    $request = wp_remote_get(get_site_url().'/wp-content/plugins/whaddaprice/admin/js/layout4.json');
+    if (get_post_meta(get_the_ID(), 'whadda_layout',true)==null || get_post_meta(get_the_ID(), 'whadda_layout')[0] == "")
+    $layout = 4;
+    else
+    $layout = get_post_meta(get_the_ID(), 'whadda_layout')[0];
+    $request = wp_remote_get(get_site_url().'/wp-content/plugins/whaddaprice/admin/js/layout'.$layout.'.json');
     $dec= json_decode($request['body']);
     ////////////// colori generali di default ////////////////////////
     if (get_the_ID() !== null) {
@@ -58,7 +62,7 @@ class Whadda_color {
       $colorets =$dec[0]->$colts;
     }
 
-    echo '<hr>';
+    //echo '<hr>';
     echo '<h3>'.esc_html__('Colori','whaddaprice').'</h3>';
     echo '<label for="colsf" class="inpcol">'.esc_html__('colore sfondo','whaddaprice').'<input type="color"  name="' . $colsf . '" id="' . $colsf . '" value="' . $coloresf . '"/></label>';
     echo '<label for="colsf" class="inpcol">'.esc_html__('colore testo','whaddaprice').'<input type="color"  name="' . $colts . '" id="' . $colts . '" value="' . $colorets . '"/></label>';

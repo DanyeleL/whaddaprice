@@ -1,5 +1,6 @@
 [
-  {
+  {	
+    "whadda_nrows": "6",
     "whadda_layout": "2",
     "whadda_colev": "0",
     "whadda_colsf": "#ffffff",
@@ -24,19 +25,19 @@
     "whadda_namefont": "Abel",
     "whadda_varifont": "regular",
     "whadda_stile_o_r1": "checked",
-    "whadda_stile_o_r2": "\"\"",
-    "whadda_stile_o_r3": "\"\"",
-    "whadda_stile_o_b ": "\"\"",
+    "whadda_stile_o_r2": "",
+    "whadda_stile_o_r3": "",
+    "whadda_stile_o_b": "",
     "whadda_set_o":"checked",
-    "whadda_stile_c_r1": "\"\"",
-    "whadda_stile_c_r2": "\"\"",
-    "whadda_stile_c_r3": "\"\"",
-    "whadda_stile_c_b": "\"\"",
+    "whadda_stile_c_r1": "",
+    "whadda_stile_c_r2": "",
+    "whadda_stile_c_r3": "",
+    "whadda_stile_c_b": "",
     "whadda_set_c"  : "",
-    "whadda_bold_r1": "\"\"",
-    "whadda_bold_r2": "\"\"",
-    "whadda_bold_r3": "\"\"",
-    "whadda_bold_b": "\"\"",
+    "whadda_bold_r1": "",
+    "whadda_bold_r2": "",
+    "whadda_bold_r3": "",
+    "whadda_bold_b": "",
     "whadda_set_b"  : "checked",
     "whadda_border_radius": "5px",
     "whadda_border_on": " ",
@@ -53,9 +54,9 @@
     "whadda_margin_bottom_r": "0",
     "whadda_margin_left_r": "0",
     "whadda_padding_top_r": "10px",
-    "whadda_padding_right_r": "10px",
-    "whadda_padding_bottom_r": "10px",
-    "whadda_padding_left_r": "10px",
-    "whadda_nrows": "5"
+    "whadda_padding_right_r": "0",
+    "whadda_padding_bottom_r": "0",
+    "whadda_padding_left_r": "0"
+    
   }
 ]

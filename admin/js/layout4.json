@@ -1,5 +1,6 @@
 [
   {
+    "whadda_nrows": "7",
     "whadda_layout": "4",
     "whadda_colev": "0",
     "whadda_colsf": "#808080",
@@ -58,7 +59,6 @@
     "whadda_padding_top_r": "0",
     "whadda_padding_right_r": "0",
     "whadda_padding_bottom_r": "0",
-    "whadda_padding_left_r": "0",
-    "whadda_nrows": "7"
+    "whadda_padding_left_r": "0"
   }
 ]
