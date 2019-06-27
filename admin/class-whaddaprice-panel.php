@@ -38,8 +38,8 @@ class Whaddaprice_panel{
     register_post_type('whaddaprice',
             array(
                 'labels' => array(
-                    'name' => __('whaddaprices'),
-                    'singular_name' => __('whaddaprice'),
+                    'name' => __('Whaddaprices','whaddaprice'),
+                    'singular_name' => __('Whaddaprice','whaddaprice'),
                 ),
                 'public' => true,
                 'has_archive' => true,
