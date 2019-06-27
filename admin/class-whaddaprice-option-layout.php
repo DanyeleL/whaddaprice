@@ -91,14 +91,9 @@ class Whadda_option {
     echo '<input type="submit" name="whadda_on" id="whadda_on" value="ok"></label><br/>';
    }
     for ($i = 1; $i <= $numlayout; $i++)
-<<<<<<< HEAD
-       echo '<span class="labelbordi" style="float:left;"><label ><img src="' . $layout[$i] . '"></label><input class="inputbordi" type="radio" name="' . $whadda_layout . '" id="' . ${"whadda_layout_$i"} . '" value="' . $i . '" ' . ${"whadda_layout_val_$i"} . '></span>';
-    
-=======
-       //echo '<span class="labelbordi" style="float:left;" id="whadda_sel_radio"><label ><img src="' . $layout[$i] . '"></label><input class="inputbordi" type="radio" name="' . $whadda_layout . '" id="' . ${"whadda_layout_$i"} . '" value="' . $i . '" ' . ${"whadda_layout_val_$i"} . '></span>';
-       echo '<label class="labelbordi" style="float:left;" data-id="'.$i.'"><img src="' . $layout[$i] . '"><input class="inputbordi" type="radio" name="' . $whadda_layout . '" id="' . ${"whadda_layout_$i"} . '" value="' . $i . '" ' . ${"whadda_layout_val_$i"} . '></label>';
+       /*echo '<span class="labelbordi" style="float:left;" id="whadda_sel_radio"><label ><img src="' . $layout[$i] . '"></label><input class="inputbordi" type="radio" name="' . $whadda_layout . '" id="' . ${"whadda_layout_$i"} . '" value="' . $i . '" ' . ${"whadda_layout_val_$i"} . '></span>';*/
+       echo '<label class="labelbordi" style="float:left;" data-id="'.$i.'"><img src="' . $layout[$i] .'"><input class="inputbordi" type="radio" name="' . $whadda_layout . '" id="' . ${"whadda_layout_$i"} . '" value="' . $i . '" ' . ${"whadda_layout_val_$i"} . '></label>';
 
->>>>>>> 9a2c18b53480d64899075df82a76537ff6d0005f
     if(get_post_meta(get_the_ID(), 'whadda_on',true)!=null  && get_post_meta(get_the_ID(), 'whadda_on')[0]=="ok"){
     echo '<div id="whadda_allert" style="float:left; text-align:justify; border:1px solid gray; width:40%;" hidden>'; 
     echo '<p style="color:red;">'.__('ATTENZIONE !! CAMBIARE LAYOUT PUÒ COMPORTARE LA PERDITA DI DATI E/O IMPOSTAZIONI','whaddaprice').'</p>';
