@@ -72,8 +72,9 @@ class Whaddaprice_panel{
     $layout = 4;
     else
     $layout = get_post_meta(get_the_ID(), 'whadda_layout')[0];
-    $request = wp_remote_get(get_site_url().'/wp-content/plugins/whaddaprice/admin/js/layout'.$layout.'.json');
-    $dec= json_decode($request['body']);
+    //$request = wp_remote_get(get_site_url().'/wp-content/plugins/whaddaprice/admin/js/layout'.$layout.'.json');
+    $request= file_get_contents( dirname( __FILE__ ) .'/js/layout'.$layout.'.json');
+    $dec= json_decode($request);
 
     /*controllo se il dato è presente nel database ed è settato, altrimenti valori default*/
     if(get_the_ID()!==null){
@@ -108,11 +109,11 @@ class Whaddaprice_panel{
         $url = $prefix . 'c' . $cont;
         if(isset(get_post_meta(get_the_ID(), $url)[0]))
                             $metaurl[$cont]= get_post_meta(get_the_ID(), $url)[0];
-        else $metaurl[$cont]='';
+        else $metaurl[$cont]="";
         
         if(isset(get_post_meta(get_the_ID(), $val)[0]))
                             $meta[$cont][$i]= get_post_meta(get_the_ID(), $val)[0];
-        else $meta[$cont][$i]='';
+        else $meta[$cont][$i]="";
         //$meta[$cont][$i] = get_post_meta(get_the_ID(), $val)[0];
       } else {
         $meta[$cont][$i] = "";

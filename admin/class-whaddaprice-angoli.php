@@ -35,8 +35,8 @@ class Whadda_angle {
     $layout = 4;
     else
     $layout = get_post_meta(get_the_ID(), 'whadda_layout')[0];
-    $request = wp_remote_get(get_site_url().'/wp-content/plugins/whaddaprice/admin/js/layout'.$layout.'.json');
-    $dec= json_decode($request['body']);
+    $request= file_get_contents( dirname( __FILE__ ) .'/js/layout'.$layout.'.json');
+    $dec= json_decode($request);
     
     if (get_the_ID() !== null) {
 
