@@ -174,7 +174,7 @@ class Whadda_font {
     echo '<p>'.esc_html__('Category','whaddaprice').'</p>';
     echo '<select name="cat" id="cat" class="select_cat"></select></div>';
     echo '<div class="divfont"><p>'.esc_html__('Variants','whaddaprice').'</p>';
-    echo '<select name="vari" id="vari" size="5" class="select_vari"></select></div>';
+    echo '<select name="vari" id="vario" size="5" class="select_vari"></select></div>';
     echo '</div></div>';
 
     /* carico il font_js per elaborare i dati di google e popolare dinamicamente la select */

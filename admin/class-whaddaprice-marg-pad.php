@@ -159,12 +159,12 @@ class Whadda_marg_pad {
     echo '<p>'.esc_html__('margin-top','whaddaprice').'</p><input type="text" name="' . $margin_top_c . '" id="' . $margin_top_c . '" value="' . $mtop_c . '">';
     echo '<p>'.esc_html__('margin-right','whaddaprice').'</p><input type="text" name="' . $margin_right_c . '" id="' . $margin_right_c . '" value="' . $mright_c . '">';
     echo '<p>'.esc_html__('margin-bottom','whaddaprice').'</p><input type="text" name="' . $margin_bottom_c . '" id="' . $margin_bottom_c . '" value="' . $mbottom_c . '">';
-    echo '<p>'.esc_html__('padding-left','whaddaprice').'</p><input type="text" name="' . $margin_left_c . '" id="' . $margin_left_c . '" value="' . $mleft_c . '">';
+    echo '<p>'.esc_html__('margin-left','whaddaprice').'</p><input type="text" name="' . $margin_left_c . '" id="' . $margin_left_c . '" value="' . $mleft_c . '">';
     echo '</div>';
     echo '<div class="mprighempcol">';
     echo '<p>'.esc_html__('padding-top','whaddaprice').'</p><input type="text" name="' . $padding_top_c . '" id="' . $padding_top_c . '" value="' . $ptop_c . '">';
-    echo '<p>'.esc_html__('margin-right','whaddaprice').'</p><input type="text" name="' . $padding_right_c . '" id="' . $padding_right_c . '" value="' . $pright_c . '">';
-    echo '<p>'.esc_html__('margin-bottom','whaddaprice').'</p><input type="text" name="' . $padding_bottom_c . '" id="' . $padding_bottom_c . '" value="' . $pbottom_c . '">';
+    echo '<p>'.esc_html__('padding-right','whaddaprice').'</p><input type="text" name="' . $padding_right_c . '" id="' . $padding_right_c . '" value="' . $pright_c . '">';
+    echo '<p>'.esc_html__('padding-bottom','whaddaprice').'</p><input type="text" name="' . $padding_bottom_c . '" id="' . $padding_bottom_c . '" value="' . $pbottom_c . '">';
     echo '<p>'.esc_html__('padding-left','whaddaprice').'</p><input type="text" name="' . $padding_left_c . '" id="' . $padding_left_c . '" value="' . $pleft_c . '">';
     echo '</div></div>';
     echo '<div class="clear"></div>';

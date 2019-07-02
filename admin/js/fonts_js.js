@@ -64,10 +64,10 @@
     })
 
 
-    $('#vari').change(function () { /*in base alle selezioni carico i valori negli input da salvare in db*/
-      var vari = $("#vari option:selected").val();
+    $('#vario').change(function () { /*in base alle selezioni carico i valori negli input da salvare in db*/
+      var vari = $("#vario option:selected").val();
       // console.log(wadda_fonts['option'][num_nomefont]['files'][vari]);
-      if ($("#vari option:selected").val() == "Default") {
+      if ($("#vario option:selected").val() == "Default") {
         $('#whadda_fonts').val("");
         $('#whadda_namefont').val("Default");
         $('#whadda_varifont').val("Default");
@@ -83,13 +83,13 @@
       if (varifont == 'Default' || whadda_fonts['option'] == null) {
         $('#cat').children().remove();
         $("#cat").append('<option value="Default">Default</option>');
-        $('#vari').children().remove();
-        $("#vari").append('<option value="Default" selected>Default</option>');
+        $('#vario').children().remove();
+        $("#vario").append('<option value="Default" selected>Default</option>');
       } else {
         $('#cat').children().remove();
         $("#cat").append('<option value="Default">Default</option>');
-        $('#vari').children().remove();
-        $("#vari").append('<option value="Default">Default</option>');
+        $('#vario').children().remove();
+        $("#vario").append('<option value="Default">Default</option>');
 
         for (var i = 0; i < ind; i++) {
           if (whadda_fonts['option'][i]['family'] == sel) {
@@ -97,20 +97,20 @@
             $('#cat').children().remove();
             $("#cat").append('<option value="' + whadda_fonts['option'][i]['category'] + '">' + whadda_fonts['option'][i]['category'] + '</option>');
             //console.log(whadda_fonts['option'][i]['category']);
-            $('#vari').children().remove();
+            $('#vario').children().remove();
             if (whadda_fonts['option'][i]['variants'].length > 1) {
               for (var indv = 0; indv < whadda_fonts['option'][i]['variants'].length; indv++) {
                 //console.log(varifont);
                 if (whadda_fonts['option'][i]['variants'][indv] == varifont)
-                  $("#vari").append('<option value="' + whadda_fonts['option'][i]['variants'][indv] + '" selected>' + whadda_fonts['option'][i]['variants'][indv] + '</option>');
+                  $("#vario").append('<option value="' + whadda_fonts['option'][i]['variants'][indv] + '" selected>' + whadda_fonts['option'][i]['variants'][indv] + '</option>');
                 else
-                  $("#vari").append('<option value="' + whadda_fonts['option'][i]['variants'][indv] + '">' + whadda_fonts['option'][i]['variants'][indv] + '</option>');
+                  $("#vario").append('<option value="' + whadda_fonts['option'][i]['variants'][indv] + '">' + whadda_fonts['option'][i]['variants'][indv] + '</option>');
               }
             } else {
               if (whadda_fonts['option'][i]['variants'] == varifont)
-                $("#vari").append('<option value="' + whadda_fonts['option'][i]['variants'] + '" selected>' + whadda_fonts['option'][i]['variants'] + '</option>');
+                $("#vario").append('<option value="' + whadda_fonts['option'][i]['variants'] + '" selected>' + whadda_fonts['option'][i]['variants'] + '</option>');
               else
-                $("#vari").append('<option value="' + whadda_fonts['option'][i]['variants'] + '">' + whadda_fonts['option'][i]['variants'] + '</option>');
+                $("#vario").append('<option value="' + whadda_fonts['option'][i]['variants'] + '">' + whadda_fonts['option'][i]['variants'] + '</option>');
               //console.log();
             }
           }
