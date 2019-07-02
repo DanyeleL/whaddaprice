@@ -40,13 +40,22 @@ class Whaddaprice_panel{
                 'labels' => array(
                     'name' => __('Whaddaprices','whaddaprice'),
                     'singular_name' => __('Whaddaprice','whaddaprice'),
+                    'all_items' => __('Tabelle', 'whaddaprice'),
+                    'add_new' => __('Aggiungi Tabella', 'whaddaprice'),
+                    'add_new_item' => __('Aggiungi nuova Tabella', 'whaddaprice'),
+                    'edit_item' => __('Modifica Tabella', 'whaddaprice'),
+                    'search_items' => __('Cerca Tabella', 'whaddaprice'),
+                    'not_found' => __('Nessuna tabella trovato', 'whaddaprice'),
+                    'not_found_in_trash' => __('Nessuna tabella trovata nel cestino', 'whaddaprice'),
+                    'view_items' => __('', 'whaddaprice'), // cancello voce visualizza autori
+                    'view_item' => __('', 'whaddaprice') // cancello voce visualizza autori
                 ),
                 'public' => true,
                 'has_archive' => true,
                 'rewrite' => array('slug' => 'whaddaprices'),
             )
     );
-  }
+  }  
 /*---------- creo sezione tabella in cpt whaddaprice-----------*/
   public function metabox() {
     $id = $this->metakeypre. 'boxid';
@@ -121,6 +130,7 @@ class Whaddaprice_panel{
         $i = 0;
       }
     }
+    $testi=[__('non rimovibile','whaddaprice'), __('rimuovi','whaddaprice'), __('Tabella','whaddaprice')];
 /* registro il tab_js e dichiaro la variabile che passerò oltre al nome che usero per richiamarla in tab_js */
     wp_register_script($reg, plugin_dir_url(__FILE__) . 'js/tab_js.js');
     $wadda_var = array(
@@ -129,17 +139,20 @@ class Whaddaprice_panel{
         'value' => $meta,
         'url' => $metaurl,
         'sel'=> $sel,
-        'min_rows'=> $dec[0]->whadda_nrows
+        'min_rows'=> $dec[0]->whadda_nrows,
+        'testi'=> $testi
     );
    wp_localize_script($reg, 'wadda_var', $wadda_var);
        wp_enqueue_script($reg);
     /* preparo la parte di html non dinamica */ 
+    $riga=__('aggiungi riga','whaddaprice');
+    $colonna=__('aggiungi colonna','whaddaprice');
     echo '<div>';
     echo '<hr>';
     echo '<h3>'. esc_html__('Tabelle','whaddaprice').'</h3>';
-    echo '<h2>'.esc_html__('inserire il # tra il prezzo e le unita di misura','whaddaprice').'</h2>';
-    echo '<input type="button" value="aggiungi riga" name="rigapiu" id="rigapiu"/>';
-    echo '<input type="button" value="aggiungi colonna" name="colpiu" id="colpiu"/>';
+    echo '<h2>'.esc_html__('inserire il # tra il prezzo e le unita di misura(non ancora implementato) e tra testo pulsante e url','whaddaprice').'</h2>';
+    echo '<input type="button" value="'.$riga.'" name="rigapiu" id="rigapiu"/>';
+    echo '<input type="button" value="'.$colonna.'" name="colpiu" id="colpiu"/>';
     echo '<select id="'.$prefix.'sel"><option value="0">0</option></select>';
     echo '<input type="text" name="' . $evidenza . '" id="' . $evidenza . '" value="' . $sel . '" hidden>';
     echo '<input type="text" name="' . $numrow . '" id="' . $numrow . '" value="' . $row . '" hidden>';
@@ -162,6 +175,7 @@ class Whaddaprice_panel{
   }
   /* Aggiungo colonna in cpt per visualizzare lo shortcode */
   function set_custom_edit_whaddaprice_columns($columns) {
+    $temp="";
     $rim=$columns;
     foreach ($rim as $type => $val) {
       if($type!='date' &&  $type!='title' && $type != "cb")
@@ -178,12 +192,15 @@ class Whaddaprice_panel{
     return $col;
   }
 /* carico il valore dello shortcode presente in database nella colonna che ho aggiunto */
-  function custom_whaddaprice_column() {
+  function custom_whaddaprice_column($col) {
+    if($col=='Shortcode'){
     $prefix = $this->metakeypre;
     $short = $prefix . 'short';
     $post_id = get_post()->ID;
     echo get_post_meta($post_id, $short, true);
+    }
   }
+  
   
 }
 

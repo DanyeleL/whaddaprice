@@ -178,6 +178,7 @@ class Whadda_font {
     echo '</div></div>';
 
     /* carico il font_js per elaborare i dati di google e popolare dinamicamente la select */
+    $testi=[__('Obliquo','whaddaprice'),__('Bold','whaddaprice'),__('riga','whaddaprice')];
     wp_register_script($reg_font, plugin_dir_url(__FILE__) . 'js/fonts_js.js');
     $whadda_fonts = array(
         'rigao' => $rigao, //riga obliqua
@@ -185,6 +186,7 @@ class Whadda_font {
         'bold' => $bolder, //riga con bold
         'option' => $option, // tutto il contenuto del json
         'varifont' => $var_font, //il variants del font che stiamo usando 
+        'testi'=>$testi
     );
     wp_localize_script($reg_font, 'whadda_fonts', $whadda_fonts);
     wp_enqueue_script($reg_font);

@@ -32,10 +32,10 @@
     function colon(num) {
       if (num == 1) {
         var disabled = 'disabled'; // disabilito il pulsante rimuovi alla prima colonna
-        var testo = 'non-rimovibile';
+        var testo = wadda_var['testi'][0];//'non-rimovibile';
       } else {
         disabled = '';
-        testo = 'rimuovi';
+        testo = wadda_var['testi'][1]; //rimuovi
       }
       if (url[num] === undefined) {
         url[num] = '';  //inizializzo url se non ancora inizializzato
@@ -49,10 +49,10 @@
                 '<option value="'+num+'">'+num+'</option>');
       $('#tabella').append(
               '<div class="divtab">' +
-              '<input type="button" value=' + testo + ' name="colmeno_' + num + '" id="colmeno" class="rimuovi" data-id="' + num + '"' + disabled + '/>' +
+              '<input type="button" value="' + testo + '" name="colmeno_' + num + '" id="colmeno" class="rimuovi" data-id="' + num + '"' + disabled + '/>' +
               '<table id="col_' + num + '">' +
               '<tbody id="tb_' + num + '">' +
-              '<th id="tab_' + num + '">Tabella ' + num + '</th>' +
+              '<th id="tab_' + num + '">'+ wadda_var['testi'][2] + num + '</th>' +
               '</tbody>' +
               '</table>' + '<span class="span_tab_url"><button type="button" disabled>-</button></span>' +
               '<input class="clear" type="text" id="' + prefix + 'c' + num + '" name="' + prefix + 'c' + num + '" value="' + url[num] + '" placeholder="https://" >' +

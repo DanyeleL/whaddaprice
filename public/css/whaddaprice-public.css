@@ -33,7 +33,9 @@ a:hover{
     padding-left: 0px;
 }
 
-
+a[class="button"]:hover{
+	text-decoration: none;
+}
 
 .wrap{
 	width: 100%;
@@ -213,6 +215,9 @@ a:hover{
 	border-radius: 15px;
 }
 
+.pricing-table-button:hover{
+text-decoration: none;
+}
 
 .pricing-table-button.estandar{
 	background:#6495ED;

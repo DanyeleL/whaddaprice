@@ -192,9 +192,14 @@ if($layout==1){
 	   <span style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].'"> 
 	   '.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0].'</span></li>';
        
-	  }echo
+	  }
+	  $nome_url=get_post_meta($idp["id"], $prefix.'c'.$i)[0];
+   
+	  $nome=substr($nome_url,0,strpos($nome_url, '#'));
+	  $url=substr($nome_url,(strpos($nome_url, '#')+1));
+	  echo
 	   '</ul>'.
-	   '<a href="#" class="pricing-table-button" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'; background:'.get_post_meta($idp["id"], $prefix.'sfondo_c'.$i.'_r0')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</a>'.
+	   '<a href="'.$url.'" class="pricing-table-button" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'; background:'.get_post_meta($idp["id"], $prefix.'sfondo_c'.$i.'_r0')[0].'">'.$nome.'</a>'.
 	   '</div>'.	
        '</div>'.
        '</div>'.
@@ -277,11 +282,16 @@ if($layout==2){
 			'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0].'</strong></li>';
 		}
 
-		 }echo
+		 }$nome_url=get_post_meta($idp["id"], $prefix.'c'.$i)[0];
+   
+		 $nome=substr($nome_url,0,strpos($nome_url, '#'));
+		 $url=substr($nome_url,(strpos($nome_url, '#')+1)); 
+		 
+		 echo
 		  '</ul>'.
-		 '<a href="#" class="button" style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].';
+		 '<a href="'.$url.'" class="button" style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].';
 		  background:'.get_post_meta($idp["id"], $prefix.'sfondo_c1_r0')[0].'; 
-	      border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</a>'.
+	      border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">'.$nome.'</a>'.
 		  '</div>'. 
 		  '</div>'. 
 		  '</div>';
@@ -319,7 +329,11 @@ if($layout==3){
 		'<a class="signup" href="" style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</a>'.
 		'<ul class="riga_1">';   
 	   
-	   }else
+	   }else{
+		$nome_url=get_post_meta($idp["id"], $prefix.'c'.$i)[0];
+   
+		$nome=substr($nome_url,0,strpos($nome_url, '#'));
+		$url=substr($nome_url,(strpos($nome_url, '#')+1));
 	   echo
 	    '<div class="plan" style="border-top-right-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].'; 
 		border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
@@ -333,9 +347,9 @@ if($layout==3){
 		border-top-left-radius:'.get_post_meta($idp["id"], $prefix.'border_radius')[0].';
 		 background:'.get_post_meta($idp["id"], $prefix.'sfondo_c'.$i.'_r1')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r1')[0].
 		'<span style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r2')[0].'">'. get_post_meta($idp["id"], $prefix.'c'.$i.'_r2')[0].'</span></h3>'.
-		'<a class="signup f'. $idp['id'].'" href=""  style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</a>'.
+		'<a class="signup f'. $idp['id'].'" href="'.$url.'"  style="color: '.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].'">'.$nome.'</a>'.
 		'<ul class="riga_1" >';
-  
+	   }
 	  
 		for($w=4; $w<=$numRows[0]; $w++){
 		 echo '<li class="riga_'.$w.'"><b style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r'.$w)[0].';
@@ -397,11 +411,16 @@ else{
 	   font-style:'.get_post_meta($idp["id"], $prefix.'stile_o_r'.$w)[0].';
 	   font-weight:'.get_post_meta($idp["id"], $prefix.'bold_r'.$w)[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i.'_r'.$w)[0]. '</li>';
 	  
-	  } echo
+	  } 
+	  $nome_url=get_post_meta($idp["id"], $prefix.'c'.$i)[0];
+   
+	  $nome=substr($nome_url,0,strpos($nome_url, '#'));
+	  $url=substr($nome_url,(strpos($nome_url, '#')+1)); 
+	  echo
 	   '</ul>'.  
-	   '<button class="buy" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].';
+	   '<a href="'.$url.'"><button class="buy" style="color:'.get_post_meta($idp["id"], $prefix.'char_c'.$i.'_r0')[0].';
 	   background:'.get_post_meta($idp["id"], $prefix.'sfondo_c'.$i.'_r0')[0].'; 
-	   border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">'.get_post_meta($idp["id"], $prefix.'c'.$i)[0].'</button>'.
+	   border:1px solid'.get_post_meta($idp["id"], $prefix.'colbr')[0].'">'.$nome.'</button></a>'.
        '</div>';
         
     

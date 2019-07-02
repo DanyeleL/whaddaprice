@@ -106,11 +106,12 @@ class Whadda_color {
     }
     
     echo '<h3>'.esc_html__('Colori vari','whaddaprice').'</h3>';
-    
+    $testi=[__('Tabella','whaddaprice'),__('Sfondo','whaddaprice'),__('Testo','whaddaprice'),__('button','whaddaprice'),__('riga','whaddaprice')];
      wp_register_script($reg_fo, plugin_dir_url(__FILE__) . 'js/color.js');
     $whadda_color = array(
         'color_s'=>$colore_s,
         'color_c'=>$colore_c,
+        'testi'=>$testi
     );
     wp_localize_script($reg_fo, 'whadda_color', $whadda_color);
     wp_enqueue_script($reg_fo);

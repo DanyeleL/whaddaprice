@@ -115,7 +115,7 @@
       var tabbut = prefix + 'but_';
       if (colsel == ncol) { /*distinguo se creo colonna nuova o rigenero*/
         $('#coloritab').append( /*creo div che contengono tabelle (colonne)*/
-                '<div id="tab_num_' + colsel + '" class="whaddacenterfloat">Tabella' + colsel +
+                '<div id="tab_num_' + colsel + '" class="whaddacenterfloat">'+whadda_color['testi'][0] + colsel +
                 '<div id="tab_col_' + colsel + '" ><div id="tab_but_' + colsel + '"></div></div></div>'
                 );
       }
@@ -150,19 +150,19 @@
                   '<table ><tbody id="' + tabcol + colsel + '" class="whaddacenter">' +
                   '<tr>' +
                   '<th></th>' +
-                  '<th>Sfondo</th>' +
-                  '<th>Testo</th></tr>' +
+                  '<th>'+whadda_color['testi'][1]+'</th>' +
+                  '<th>'+whadda_color['testi'][2]+'</th></tr>' +
                   '</tbody></table>'
                   );
           $(tab_but).prepend(
                   '<table ><tbody id="' + tabbut + colsel + '" class="whaddacenter">' +
                   '<tr>' +
                   '<th></th>' +
-                  '<th>Sfondo</th>' +
-                  '<th>Testo</th>' +
+                  '<th>'+whadda_color['testi'][1]+'</th>' +
+                  '<th>'+whadda_color['testi'][2]+'</th>' +
                   '</tr>' +
                   '<tr>' +
-                  '<td id="nome2_c' + colsel + '_r' + indice + '"><span id="name_o_num_c' + colsel + '_r' + indice + '">button</span></td>' + // da terminare -> nomi e salvataggio
+                  '<td id="nome2_c' + colsel + '_r' + indice + '"><span id="name_o_num_c' + colsel + '_r' + indice + '">'+whadda_color['testi'][3]+'</span></td>' + // da terminare -> nomi e salvataggio
                   '<td><input type="color" name="' + sfondo + '_c' + colsel + '_r' + indice + '" id="' + sfondo + '_c' + colsel + '_r' + indice + '" value="' + whadda_col_s + '"></td>' + // da terminare -> nomi e salvataggio
                   '<td><input type="color" name="' + char + '_c' + colsel + '_r' + indice + '" id="' + char + '_c' + colsel + '_r' + indice + '" value="' + whadda_col_c + '"></td>' + // da terminare -> nomi e salvataggio
                   '</tr>' +
@@ -172,7 +172,7 @@
         } else {/*giri dopo il primo creo righe*/
           $(tabcolcanc).append(
                   '<tr>' +
-                  '<td id="nome2_c' + colsel + '_r' + indice + '"><span id="name_o_num_c' + colsel + '_r' + indice + '">riga ' + indice + '</span></td> ' +
+                  '<td id="nome2_c' + colsel + '_r' + indice + '"><span id="name_o_num_c' + colsel + '_r' + indice + '">'+whadda_color['testi'][4] + indice + '</span></td> ' +
                   '<td><input type="color" name="' + sfondo + '_c' + colsel + '_r' + indice + '" id="' + sfondo + '_c' + colsel + '_r' + indice + '" value="' + whadda_col_s + '"></td>' +
                   '<td><input type="color" name="' + char + '_c' + colsel + '_r' + indice + '" id="' + char + '_c' + colsel + '_r' + indice + '" value="' + whadda_col_c + '"></td>' +
                   '</tr>' +

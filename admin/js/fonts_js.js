@@ -168,7 +168,7 @@
         var tdv = '#nome_' + num;
         var tdn = 'nome_' + (num - 1);
         var nomeind = '#stile_o_num' + num;
-        $(tdv).prepend('<span id="stile_o_num' + (num - 1) + '">riga ' + (num - 1) + '</span>');
+        $(tdv).prepend('<span id="stile_o_num' + (num - 1) + '">'+whadda_fonts['testi'][2] + (num - 1) + '</span>');
         $(tdv).attr('id', tdn);
         $(nomeind).remove(); // rimuovo vecchio nome riga aggiornata
         //indice=num-1;
@@ -189,9 +189,9 @@
           $('#whadda_tboby').append(
                   '<tr>' +
                   '<th></th>' +
-                  '<th>Obliquo</th>' +
+                  '<th>'+whadda_fonts['testi'][0]+'</th>' +
                   // '<th>Corsivo</th>' +
-                  '<th>Bold</th></tr>'
+                  '<th>'+whadda_fonts['testi'][1]+'</th></tr>'
                   );
         } else { // popolo tabella con checkbox salvati in db
           if (whadda_fonts['rigao'][indice] == undefined || whadda_fonts['rigao'][indice] == "") {
